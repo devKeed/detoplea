@@ -1,0 +1,21 @@
+.custom-pagination {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .custom-pagination .swiper-pagination-bullet {
+    background-color: #c4c4c4 !important; /* Default pagination dot color */
+    width: 9px !important;
+    height: 9px !important;
+    opacity: 0.6 !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .custom-pagination .swiper-pagination-bullet-active {
+    background-color: #bf0517 !important; /* Active pagination dot color */
+    width: 12px !important;
+    height: 12px !important;
+    opacity: 1 !important;
+  }
+  
