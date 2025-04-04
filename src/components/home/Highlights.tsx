@@ -14,7 +14,7 @@ const LandingPage: React.FC = () => {
         <div className="flex items-start justify-between gap-8 mb-20">
           {/* Left Column */}
           <div className="w-1/2">
-            <h2 className="text-4xl text-left font-thin mb-8 font-uber uppercase tracking-wide">
+            <h2 className="text-4xl text-left font-thin mb-8 uppercase tracking-wide">
               THIS HOW WE HELP
             </h2>
             <ul className="space-y-4 text-lg">

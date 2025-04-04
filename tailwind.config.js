@@ -10,7 +10,7 @@ export default {
         secondary: "#BF0517", // Red accent
       },
       fontFamily: {
-        uber: ["Uber Move", "sans-serif"],
+        uber: ["Uber Move Text", "sans-serif"],
       },
       fontSize: {
         h1: ["64px", { fontWeight: "700" }],

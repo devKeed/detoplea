@@ -83,7 +83,7 @@ export default function Footer() {
         <div className="footer-column flex flex-col md:flex-row justify-center items-center text-center gap-8 md:gap-12">
           {/* Navigate Section */}
           <div>
-            <h3 className="text-2xl font-semibold font-uber text-[#F2720D] mb-3">
+            <h3 className="text-2xl font-semibold text-[#F2720D] mb-3">
               Navigate
             </h3>
             <ul className="space-y-2">
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Social Section */}
           <div>
-            <h3 className="text-2xl font-semibold font-uber text-[#F2720D] mb-3">
+            <h3 className="text-2xl font-semibold text-[#F2720D] mb-3">
               Social
             </h3>
             <ul className="space-y-2">

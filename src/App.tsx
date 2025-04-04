@@ -1,31 +1,30 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-// import Post from "./pages/dambe";
-import { Dambe } from "./pages/dambe";
-import { Watch } from "./pages/watch";
+import Portfolio from "./pages/portfolio";
 import NotFound from "./pages/notFound";
-import { Warriors } from "./pages/warriors";
-import { Shop } from "./pages/shop";
+import { Services } from "./pages/services";
+import { Blog } from "./pages/blog";
 import { Socials } from "./pages/socials";
 import { News } from "./pages/news";
 import { Contact } from "./pages/contact";
+import Layout from "./components/Layout";
+import { Starthere } from "./pages/starthere";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/post/:id" element={<Post />} /> */}
-        <Route path="/watch" element={<Watch />} />
-        <Route path="/dambe" element={<Dambe />} />
-        <Route path="/warriors" element={<Warriors />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/socials" element={<Socials />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/contact" element={<Contact />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="starthere" element={<Starthere />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        <Route path="services" element={<Services />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="socials" element={<Socials />} />
+        <Route path="news" element={<News />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+      </Route>
+    </Routes>
   );
 }
 

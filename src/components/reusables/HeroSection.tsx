@@ -57,29 +57,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         {section == "home" && (
           <div className="flex flex-col gap-2 items-center">
             <div className="flex flex-row items-center gap-5 ">
-              <p className="text-3xl md:text-5xl lg:text-4xl  font-light font-uber">
+              <p className="text-3xl md:text-5xl lg:text-4xl  font-light">
                 Custom
               </p>{" "}
-              <h1 className="text-6xl md:text-7xl font-uber font-semibold">
-                Strategies
-              </h1>
+              <h1 className="text-6xl md:text-7xl font-semibold">Strategies</h1>
             </div>
 
             <div className="flex flex-row items-center gap-5 ">
-              <h1 className="text-6xl md:text-7xl font-uber font-semibold">
+              <h1 className="text-6xl md:text-7xl font-semibold">
                 Cutting-Edge
               </h1>
-              <p className="text-3xl md:text-5xl lg:text-4xl font-light font-uber">
+              <p className="text-3xl md:text-5xl lg:text-4xl font-light">
                 Content
               </p>
             </div>
             <div className="flex flex-row items-center gap-5 ">
-              <p className="text-3xl md:text-5xl lg:text-4xl font-light font-uber">
+              <p className="text-3xl md:text-5xl lg:text-4xl font-light">
                 Measurable
               </p>{" "}
-              <h1 className="text-6xl md:text-7xl font-uber font-semibold">
-                Results
-              </h1>
+              <h1 className="text-6xl md:text-7xl font-semibold">Results</h1>
             </div>
           </div>
         )}

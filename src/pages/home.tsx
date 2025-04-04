@@ -2,11 +2,9 @@ import AboutUs from "../components/home/AboutUs";
 import Highlights from "../components/home/Highlights";
 import Reviews from "../components/home/Reviews";
 import Sponsors from "../components/home/Sponsors";
-import GallerySection from "../components/reusables/GallerySection";
 import HeroSection from "../components/reusables/HeroSection";
 import Footer from "../components/shared/Footer";
 import Header from "../components/shared/Header";
-import { pastEvents } from "./watch";
 import heroSrc from "/images/img-1.jpg";
 
 const Home: React.FC = () => {
@@ -29,8 +27,8 @@ const Home: React.FC = () => {
 
       <AboutUs />
       <Highlights />
-     <Reviews/>
-      <Footer />
+      <Reviews />
+      
     </div>
   );
 };

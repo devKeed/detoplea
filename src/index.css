@@ -9,7 +9,7 @@
 }
 
 :root {
-  font-family: "Uber Move", sans-serif;
+  font-family: "Uber Move Text", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #000;
@@ -27,6 +27,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Uber Move Text", sans-serif;
   font-weight: 700;
 }
 
@@ -71,4 +72,18 @@ h6 {
 
 body {
   @apply font-uber;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 10s linear infinite;
+  width: max-content;
 }

@@ -19,16 +19,16 @@ const Header = () => {
           <nav className="flex space-x-6">
             {[
               { path: "/", name: "HOME" },
-              { path: "/watch", name: "START HERE" },
-              { path: "/dambe", name: "PORTFOLIO" },
-              { path: "/warriors", name: "SERVICES" },
-              { path: "/shop", name: "BLOG" },
+              { path: "/starthere", name: "START HERE" },
+              { path: "/portfolio", name: "PORTFOLIO" },
+              { path: "/services", name: "SERVICES" },
+              { path: "/blog", name: "BLOG" },
             ].map(({ path, name }) => (
               <NavLink
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `text-gray-700 font-uber text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
+                  `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
                     isActive ? "font-bold text-[#CC5A00] t" : ""
                   }`
                 }
@@ -41,7 +41,7 @@ const Header = () => {
           {/* Contact Button */}
           <Link
             to="/contact"
-            className="bg-[#00CCB8] text-white font-uber text-sm px-4 py-2 rounded-full hover:bg-[#00CCB8] transition"
+            className="bg-[#00CCB8] text-white text-sm px-4 py-2 rounded-full hover:bg-[#00CCB8] transition"
           >
             Hire Us
           </Link>
@@ -71,7 +71,7 @@ const Header = () => {
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `text-gray-700 font-uber text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
+                  `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
                     isActive ? "font-bold text-[#CC5A00] t" : ""
                   }`
                 }
