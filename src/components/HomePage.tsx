@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 // import Post from "../pages/dambe";
-import { Dambe } from "../pages/dambe";
-import { Watch } from "../pages/watch";
+import { Dambe } from "../pages/portfolio";
+import { Watch } from "../pages/starthere";
 import NotFound from "../pages/notFound";
-import { Warriors } from "../pages/warriors";
-import { Shop } from "../pages/shop";
+import { Warriors } from "../pages/services";
+import { Shop } from "../pages/blog";
 import { Socials } from "../pages/socials";
 import { News } from "../pages/news";
 
