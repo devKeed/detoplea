@@ -3,7 +3,6 @@ import Highlights from "../components/home/Highlights";
 import Reviews from "../components/home/Reviews";
 import Sponsors from "../components/home/Sponsors";
 import HeroSection from "../components/reusables/HeroSection";
-import Footer from "../components/shared/Footer";
 import Header from "../components/shared/Header";
 import heroSrc from "/images/img-1.jpg";
 
