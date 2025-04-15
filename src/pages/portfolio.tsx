@@ -44,7 +44,7 @@ const Portfolio = () => {
       <div className="columns-1 sm:columns-2 md:columns-3 gap-6">
         {portfolioItems.map((item) => (
           <div key={item.id} className="mb-6 break-inside-avoid ">
-            <p className="mt-2 text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2">
+            <p style={{marginTop: item.id == 1 ? "none" : "20px"}} className="text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2">
               <GoArrowDownRight size={20} />
               {item.company}
             </p>
