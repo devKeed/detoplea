@@ -82,8 +82,28 @@ body {
   }
 }
 
+@keyframes marquee2 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .animate-marquee {
   display: flex;
   animation: marquee 10s linear infinite;
   width: max-content;
 }
+
+.animate-marquee2 {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
