@@ -23,7 +23,6 @@ const Home: React.FC = () => {
         section="home"
       />
       <Sponsors />
-
       <AboutUs />
       <Highlights />
       <Reviews />

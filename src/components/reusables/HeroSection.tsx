@@ -25,7 +25,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle,
   description,
   colorOverlay,
-  height = "90vh",
+  height = "120vh",
   titleFontSize,
   subtitleFontSize = "lg",
   section,

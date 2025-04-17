@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa";
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 const reviews = [
   {
@@ -33,13 +34,20 @@ const ReviewSlider = () => {
       <h2 className="text-center text-4xl font-semibold mb-8">
         TRUSTED BY DIFFERENT PEOPLE
       </h2>
+
       <Swiper
+        modules={[Autoplay]}
         spaceBetween={20}
-        slidesPerView={1.2} // Show a part of the next slide
+        slidesPerView={1.2}
         breakpoints={{
-          768: { slidesPerView: 2.2 }, // On medium screens, show 2 full cards + partial next
+          768: { slidesPerView: 2.2 },
         }}
         loop={true}
+        speed={5000}
+        autoplay={{
+          delay: 1,
+          disableOnInteraction: false,
+        }}
         className="px-4 md:px-0"
       >
         {reviews.map((review, index) => (
@@ -47,20 +55,16 @@ const ReviewSlider = () => {
             <div
               className={`relative bg-gray-100 p-6 rounded-lg shadow-md border-l-4 ${review.borderColor}`}
             >
-              {/* Star Rating */}
               <div className="flex gap-1 mb-3 text-orange-400">
                 {[...Array(review.rating)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
 
-              {/* Review Title */}
               <h3 className="text-lg font-semibold">{review.title}</h3>
 
-              {/* Review Text */}
               <p className="text-gray-600 mt-2">{review.text}</p>
 
-              {/* Reviewer Name */}
               <p className="mt-4 font-bold">- {review.name}</p>
             </div>
           </SwiperSlide>
