@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
 
 interface ServiceCardProps {
@@ -16,13 +17,29 @@ export const ServiceCard = ({
   breakdown,
 }: ServiceCardProps) => {
   return (
-    <div className="bg-[#F2F2F2] rounded-2xl p-6 flex flex-col md:flex-row gap-6 max-w-6xl mx-auto relative overflow-hidden">
-      <img
+    <motion.div
+      className="bg-[#F2F2F2] rounded-2xl p-6 flex flex-col md:flex-row gap-6 max-w-6xl mx-auto relative overflow-hidden"
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.3 },
+      }}
+    >
+      <motion.img
         src={image}
         alt={title}
         className="w-full md:w-1/3 h-full object-cover rounded-xl"
+        whileHover={{
+          y: 10,
+          transition: { duration: 0.3 },
+        }}
       />
-      <div className="flex-1 gap-8">
+      <motion.div
+        className="flex-1 gap-8"
+        whileHover={{
+          x: 10,
+          transition: { duration: 0.3 },
+        }}
+      >
         <h2 className="text-4xl font-medium uppercase text-gray-800 mt-24">
           {title}
         </h2>
@@ -48,8 +65,16 @@ export const ServiceCard = ({
           </h3>
           <p className="text-sm text-gray-700 mt-1">{breakdown}</p>
         </div>
-      </div>
-      <BsArrowDownLeftCircle className="absolute top-8 right-8 text-black size-16 " />
-    </div>
+      </motion.div>
+      <motion.div
+        className="absolute top-8 right-8"
+        whileHover={{
+          rotate: -180,
+          transition: { duration: 0.5 },
+        }}
+      >
+        <BsArrowDownLeftCircle className="text-black size-16" />
+      </motion.div>
+    </motion.div>
   );
 };
