@@ -9,66 +9,64 @@ import { BsArrowDownLeftCircle } from "react-icons/bs";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const TeamMemberCard = ({ name, image }: { name: string; image: string }) => {
+  return (
+    <motion.div
+      className="w-full md:w-1/3 h-auto md:h-1/4 rounded-3xl relative overflow-hidden group"
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+      }}
+      whileHover={{
+        scale: 1.05,
+        translateX: 10,
+        translateY: 10,
+        transition: { duration: 0.3 },
+      }}
+    >
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-full object-cover rounded-3xl"
+      />
+      <motion.h3
+        className="absolute bottom-0 w-full text-center py-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        {name}
+      </motion.h3>
+      <h3 className="absolute bottom-0 w-full text-center py-2 text-white md:hidden">
+        {name}
+      </h3>
+    </motion.div>
+  );
+};
+
 export const Starthere = () => {
   const teamMembers = [
-    { name: "John Doe", image: image2 },
-    { name: "Jane Smith", image: image3 },
-    { name: "David Lee", image: image4 },
-    { name: "Emily Brown", image: image5 },
-    { name: "Michael White", image: image6 },
+    { name: "Mariam", image: image2 },
+    { name: "Jane", image: image3 },
+    { name: "David", image: image4 },
+    { name: "Emily", image: image5 },
+    { name: "Michael", image: image6 },
   ];
 
-  // Refs for viewport detection
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);
   const isFirstRowInView = useInView(firstRowRef, { once: true, amount: 0.3 });
-  const isSecondRowInView = useInView(secondRowRef, {
-    once: true,
-    amount: 0.3,
-  });
-
-  // Viewport animations
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const iconVariants = {
-    initial: { rotate: 0 },
-    hover: { rotate: 180 },
-  };
-
-  const nameVariants = {
-    initial: { opacity: 0 },
-    hover: { opacity: 1 },
-  };
+  const isSecondRowInView = useInView(secondRowRef, { once: true, amount: 0.3 });
 
   return (
     <div className="text-center pt-16 flex flex-col">
-      {/*image*/}
-      <img src={image} alt="linkedin" className="w-full h-auto" />
+      {/* Image */}
+      <div className="relative w-full h-auto">
+        <img src={image} alt="linkedin" className="w-full h-auto" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white font-bold">ABOUT US</h1>
+        </div>
+      </div>
 
-      {/*scroll*/}
-      <div className="w-full h-16 bg-[#F2720D] text-white flex py-16 items-center overflow-hidden whitespace-nowrap relative">
+      {/* Scroll */}
+      <div className="w-full h-16 bg-[#F2720D] text-white flex py-8 items-center overflow-hidden whitespace-nowrap relative">
         <div className="flex space-x-4 animate-marquee">
           {[...Array(12)].map((_, index) => (
             <span
@@ -82,7 +80,7 @@ export const Starthere = () => {
         </div>
       </div>
 
-      {/*section1*/}
+      {/* Section 1 */}
       <div className="w-full bg-[#F2F2F2]">
         <motion.div
           className="w-full md:w-2/3 mx-auto mt-16 mb-16 flex flex-col space-y-4 px-4"
@@ -108,7 +106,7 @@ export const Starthere = () => {
         </motion.div>
       </div>
 
-      {/*section2*/}
+      {/* Section 2 */}
       <motion.div
         className="w-full h-auto md:h-56 bg-[#64BFB6] flex flex-col items-center justify-center gap-4 md:gap-16 p-4 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -118,14 +116,13 @@ export const Starthere = () => {
       >
         <div className="flex whitespace-nowrap animate-marquee2">
           <h2 className="text-white text-4xl md:text-7xl uppercase font-normal mr-8">
-            Welcome to Detoplea Marketing Agency //
-          </h2>
-          <h2 className="text-white text-4xl md:text-7xl uppercase font-normal mr-8">
-            Welcome to Detoplea Marketing Agency //
+            Welcome to Detoplea Marketing Agency // Welcome to Detoplea
+            Marketing Agency // Welcome to Detoplea Marketing Agency // Welcome
+            to Detoplea Marketing Agency //
           </h2>
         </div>
         <motion.button
-          className="text-black-500 bg-white pl-7 pr-7 flex items-center gap-2 px-4 py-3 mb-7 rounded-3xl hover:bg-gray-500 hover:text-white transition"
+          className="text-black-500 bg-white pl-7 pr-7 flex items-center gap-2 px-4 py-3 mb-7 rounded-2xl hover:bg-gray-500 hover:text-white transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -133,98 +130,47 @@ export const Starthere = () => {
         </motion.button>
       </motion.div>
 
-      {/*section3*/}
+      {/* Section 3 */}
       <div className="flex flex-col w-full p-4 md:p-20 gap-4">
         {/* First row of cards */}
         <motion.div
           ref={firstRowRef}
-          className="flex flex-col md:flex-row w-full gap-4"
-          variants={containerVariants}
+          className="flex flex-col md:flex-row w-full gap-4 md:gap-8 mt-2 md:mt-4"
           initial="hidden"
           animate={isFirstRowInView ? "visible" : "hidden"}
         >
-          {/* Meet The Team */}
           <motion.div
-            className="w-full md:w-1/3 h-full rounded-3xl size-80 bg-[#F2F2F2] relative"
-            variants={itemVariants}
-            whileHover="hover"
+            className="w-full md:w-1/3 h-auto rounded-3xl relative overflow-hidden bg-[#F2F2F2] p-6"
+            whileHover={{
+              scale: 1.05,
+              translateX: 10,
+              translateY: 10,
+              transition: { duration: 0.3 },
+            }}
           >
-            <div className="absolute top-3 right-3">
-              <motion.div
-                variants={iconVariants}
-                transition={{ duration: 0.3 }}
-              >
-                <BsArrowDownLeftCircle size={82} />
+            <div className="absolute top-4 right-4">
+              <motion.div transition={{ duration: 0.3 }}>
+                <BsArrowDownLeftCircle size={60} />
               </motion.div>
             </div>
-            <h1 className="mt-10 md:mt-80 font-thin uppercase mb-5 text-6xl p-2">
-              Meet The Team
-            </h1>
+            <div className="flex flex-col justify-end h-60 md:h-80">
+              <h3 className="font-bold uppercase">Meet The Team</h3>
+            </div>
           </motion.div>
-
-          {/* First two team members */}
           {teamMembers.slice(0, 2).map((m, i) => (
-            <motion.div
-              key={i}
-              className="w-full md:w-1/3 h-auto md:h-1/4 rounded-3xl size-80 relative overflow-hidden"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-            >
-              <img
-                src={m.image}
-                alt={m.name}
-                className="w-full h-full object-cover rounded-3xl"
-              />
-              <motion.h2
-                className="absolute bottom-0 w-full text-center py-2 bg-black bg-opacity-50 text-white"
-                variants={nameVariants}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {m.name}
-              </motion.h2>
-            </motion.div>
+            <TeamMemberCard key={i} name={m.name} image={m.image} />
           ))}
         </motion.div>
 
         {/* Second row of cards */}
         <motion.div
           ref={secondRowRef}
-          className="flex flex-col md:flex-row gap-4 w-full"
-          variants={containerVariants}
+          className="flex flex-col md:flex-row gap-4 md:gap-8 mt-2 md:mt-4 w-full"
           initial="hidden"
           animate={isSecondRowInView ? "visible" : "hidden"}
         >
-          {/* Last three team members */}
           {teamMembers.slice(2).map((m, i) => (
-            <motion.div
-              key={i}
-              className="w-full md:w-1/3 h-auto md:h-1/4 rounded-3xl size-80 relative overflow-hidden"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-            >
-              <img
-                src={m.image}
-                alt={m.name}
-                className="w-full h-full object-cover rounded-3xl"
-              />
-              <motion.h2
-                className="absolute bottom-0 w-full text-center py-2 bg-black bg-opacity-50 text-white"
-                variants={nameVariants}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {m.name}
-              </motion.h2>
-            </motion.div>
+            <TeamMemberCard key={i} name={m.name} image={m.image} />
           ))}
         </motion.div>
       </div>

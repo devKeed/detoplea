@@ -28,7 +28,7 @@ export default function Footer() {
           <h3 className="uppercase text-lg md:text-xl font-semibold">
             Who Are We
           </h3>
-          <p className="max-w-md text-sm md:text-base">
+          <p className="max-w-md">
             We are your one stop boutique for digital marketing services, as we
             prioritize your business/ brand’s success online and want to help
             you scale your sales.
@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-start gap-8 md:gap-12">
           <div>
             <h6 className="font-semibold text-[#F2720D] mb-3">Navigate</h6>
-            <ul className="space-y-2 text-sm md:text-base">
+            <ul className="space-y-2">
               {[
                 { href: "/hire-us", label: "Hire Us" },
                 { href: "/service", label: "Service" },
@@ -64,7 +64,7 @@ export default function Footer() {
 
           <div>
             <h6 className="font-semibold text-[#F2720D] mb-3">Social</h6>
-            <ul className="space-y-2 text-sm md:text-base">
+            <ul className="space-y-2">
               {[
                 { href: "/instagram", label: "Instagram" },
                 { href: "/pinterest", label: "Pinterest" },
