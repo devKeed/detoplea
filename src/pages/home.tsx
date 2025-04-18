@@ -6,8 +6,8 @@ import HeroSection from "../components/reusables/HeroSection";
 import Header from "../components/shared/Header";
 import NewsletterModal from "../components/reusables/NewsLetterModal";
 import Info from "../components/home/Info";
-import Blog from "../components/home/Blog";
-import Service from "../components/home/Service";
+import FadeInWhenVisible from "../components/reusables/FadeIn";
+
 
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -20,18 +20,29 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ overflow: "hidden" }} className="text-center flex flex-col">
+    <div
+      style={{ overflow: "hidden" }}
+      className="text-center flex flex-col mb-10"
+    >
       <Header />
       <HeroSection />
-      <Info />
-      <div style={{ maxWidth: "1550px", margin: "auto" }}>
-        {" "}
-        <Service />
-        <Blog />
-      </div>
-      <AboutUs />
-      <Highlights />
-      <Reviews />
+
+      <FadeInWhenVisible>
+        <Info />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <AboutUs />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <Highlights />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <Reviews />
+      </FadeInWhenVisible>
+
       <NewsletterModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>
   );
