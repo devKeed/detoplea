@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import image from "/images/faq.png";
-import image5 from "/images/imageZZ.png";
 import { MyFillButton } from "../reusables/Button";
 
 interface Service {

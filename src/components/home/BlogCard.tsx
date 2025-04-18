@@ -14,7 +14,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ image, title }) => {
       className="relative rounded-md overflow-hidden"
     >
       <img src={image} alt={title} className="w-full h-full object-cover" />
-      <p className="absolute bottom-4 left-4 right-4 bg-opacity-70 text-white p-4 rounded-md text-2xl text-left font-semibold">
+      <p className="absolute bottom-4 left-4 right-4 bg-opacity-70 text-white p-4 rounded-md text-left font-semibold">
         {title}
       </p>
     </motion.div>
