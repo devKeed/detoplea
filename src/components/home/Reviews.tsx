@@ -63,7 +63,7 @@ const ReviewSlider = () => {
 
               <h3 className="text-lg font-semibold">{review.title}</h3>
 
-              <p className="text-gray-600 mt-2">{review.text}</p>
+              <p className=" mt-2">{review.text}</p>
 
               <p className="mt-4 font-bold">- {review.name}</p>
             </div>

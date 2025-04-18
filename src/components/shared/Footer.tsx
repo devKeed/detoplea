@@ -54,7 +54,7 @@ export default function Footer() {
             <h4 className="">
               Join Our Newsletter
             </h4>
-            <p className="text-gray-600 text-sm">
+            <p className="">
               Receive insider news and valuable social media tips from our team,
               so you never miss a beat!
             </p>

@@ -79,7 +79,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden mt-2 pl-6 text-sm text-gray-600"
+            className="overflow-hidden mt-2 pl-6 text-sm "
           >
             <p>{description}</p>
           </motion.div>
@@ -148,7 +148,7 @@ const LandingPage: React.FC = () => {
             <h2 className="text-4xl font-normal uppercase tracking-wide mb-2 mt-5">
               CHECKOUT THE BLOG
             </h2>
-            <p className="text-gray-600 mb-8 w-1/2 text-center text-lg">
+            <p className=" mb-8 w-1/2 text-center text-lg">
               From the latest marketing news, to platform updates, to small
               business advice, our experts have compiled it all for you.
             </p>

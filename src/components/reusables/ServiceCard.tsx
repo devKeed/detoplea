@@ -43,7 +43,7 @@ export const ServiceCard = ({
         <h2 className="text-4xl font-medium uppercase text-gray-800 mt-24">
           {title}
         </h2>
-        <p className="text-md text-gray-600 mt-2">{description}</p>
+        <p className="text-md  mt-2">{description}</p>
         <div className="mt-3">
           <h3 className=" text-2xl font-medium text-gray-800 mt-7">
             WHAT WE MANAGE:

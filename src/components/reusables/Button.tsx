@@ -23,7 +23,7 @@ export const MyFillButton: FC<TButtonProps> = ({
     return (
         <a
             href={link}
-            className={`flex items-center gap-2 px-10 py-4 rounded-3xl transition-colors duration-300`}
+            className={`flex items-center gap-2 px-10 py-3 rounded-2xl transition-colors duration-300`}
             style={{
                 color: color,
                 backgroundColor: bgColor,
@@ -55,7 +55,7 @@ export const MyOutlinedButton: FC<TButtonProps> = ({
     return (
         <a
             href={link}
-            className={`flex items-center gap-2 px-10 py-4 rounded-3xl border-2 transition-colors duration-300`}
+            className={`flex items-center gap-2 px-10 py-3 rounded-2xl border-2 transition-colors duration-300`}
             style={{
                 color: color,
                 backgroundColor: bgColor,
