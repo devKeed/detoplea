@@ -5,7 +5,7 @@
   }
   
   .custom-pagination .swiper-pagination-bullet {
-    background-color: #c4c4c4 !important; /* Default pagination dot color */
+    background-color: #c4c4c4 !important; 
     width: 9px !important;
     height: 9px !important;
     opacity: 0.6 !important;
@@ -13,7 +13,7 @@
   }
   
   .custom-pagination .swiper-pagination-bullet-active {
-    background-color: #bf0517 !important; /* Active pagination dot color */
+    background-color: #bf0517 !important; 
     width: 12px !important;
     height: 12px !important;
     opacity: 1 !important;

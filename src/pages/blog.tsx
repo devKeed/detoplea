@@ -113,7 +113,10 @@ export const Blog = () => {
               <h5 className="text-center font-normal px-5 py-5">
                 {post.title}
               </h5>
-              <button className="bg-white border border-black px-10 py-2 mb-7 rounded-2xl hover:bg-gray-500 hover:text-white transition">
+              <button
+                onClick={() => (window.location.href = "/readmore")}
+                className="bg-white border border-black px-10 py-2 mb-7 rounded-2xl hover:bg-gray-500 hover:text-white transition"
+              >
                 Read More
               </button>
             </div>

@@ -7,6 +7,7 @@ import { Blog } from "./pages/blog";
 import { Contact } from "./pages/contact";
 import Layout from "./components/Layout";
 import { Starthere } from "./pages/starthere";
+import Readmore from "./pages/readmore";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="readmore" element={<Readmore />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
