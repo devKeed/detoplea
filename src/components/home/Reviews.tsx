@@ -30,7 +30,7 @@ const reviews = [
 
 const ReviewSlider = () => {
   return (
-    <div className="max-w-7xl mx-auto mb-10">
+    <div className="max-w-7xl mx-auto mb-20">
       <h2 className="text-center text-4xl font-semibold mb-8">
         TRUSTED BY DIFFERENT PEOPLE
       </h2>

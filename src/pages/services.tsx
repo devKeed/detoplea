@@ -49,25 +49,66 @@ export const Services = () => {
   };
 
   return (
-    <div className="mt-10">
-      <div
-        className="relative flex items-center justify-center text-center text-white px-6 mt-14"
-        style={{
-          backgroundImage: `
-            url(${image1}), 
-            url(${image2}), 
-            url(${image3}), 
-            url(${image4})`,
-          backgroundSize: "50% 50%",
-          backgroundPosition: "top left, top right, bottom left, bottom right",
-          backgroundRepeat: "no-repeat",
-          minHeight: "90vh",
-        }}
-      >
-        <div className="relative z-10 p-4">
-          <h1 className="w-full uppercase text-9xl font-medium rotate-180">
-            Services Our
-          </h1>
+    <div className="mt-28">
+      {/* Hero section with fixed grid layout for background images */}
+      <div className="relative mt-14" style={{ minHeight: "90vh" }}>
+        {/* Container for the 4 background images */}
+        <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+          {/* Top Left Image */}
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url(${image1})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Top Right Image */}
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url(${image2})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Bottom Left Image */}
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url(${image3})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Bottom Right Image */}
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url(${image4})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div
+          className="relative z-10 flex items-center justify-center text-center text-white px-6 h-full"
+          style={{ minHeight: "90vh" }}
+        >
+          <div className="relative p-4">
+            <h1 className="w-full uppercase text-9xl font-medium rotate-180">
+              Services Our
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -161,7 +202,7 @@ export const Services = () => {
               className="uppercase justify-between flex text-3xl font-semibold cursor-pointer"
               onClick={() => toggleFaq(index)}
             >
-              <p className=" text-2xl font-normal">{faq.question}</p>
+              <p className="text-2xl font-normal">{faq.question}</p>
               <span className="text-[#F2720D]">
                 {openFaqIndex === index ? (
                   <AiOutlineMinus />

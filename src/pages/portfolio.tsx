@@ -1,6 +1,7 @@
 import { GoArrowDownRight } from "react-icons/go";
 import { FiArrowUpRight } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 // Enhanced portfolio items with additional information
 const portfolioItems = [
@@ -146,6 +147,21 @@ const portfolioItems = [
 ];
 
 const Portfolio = () => {
+  // Ref for the portfolio section
+  const portfolioRef = useRef(null);
+  const headerRef = useRef(null);
+  
+  // Check if elements are in view
+  const isPortfolioInView = useInView(portfolioRef, { 
+    once: true,
+    amount: 0.1  // Trigger when just 10% of the element is visible
+  });
+  
+  const isHeaderInView = useInView(headerRef, { 
+    once: true,
+    amount: 0.6 
+  });
+
   // Animation variants
   const cardVariants = {
     initial: { scale: 1 },
@@ -185,27 +201,86 @@ const Portfolio = () => {
     },
   };
 
+  // Viewport animation variants
+  const headerVariants = {
+    hidden: { 
+      opacity: 0,
+      y: -30
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const portfolioContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      }
+    }
+  };
+
+  const portfolioItemVariants = {
+    hidden: { 
+      opacity: 0,
+      scale: 0.9,
+      y: 40
+    },
+    visible: { 
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        duration: 0.6
+      }
+    }
+  };
+
   return (
     <section className="w-full py-16 px-4 md:px-16 mb-20">
-      {/* Portfolio Header */}
-      <div className="text-center mb-16 mt-16">
+      {/* Portfolio Header with animation */}
+      <motion.div 
+        ref={headerRef}
+        className="text-center mb-16 mt-16"
+        variants={headerVariants}
+        initial="hidden"
+        animate={isHeaderInView ? "visible" : "hidden"}
+      >
         <h1 className="text-4xl md:text-6xl font-bold uppercase">
           Our <span className="text-[#F2720D]">Portfolio</span>
         </h1>
         <p className="text-gray-500 text-sm md:text-base mt-2">
           Because you're after results, and we know how to get them.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Masonry Layout Portfolio */}
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-6">
+      {/* Masonry Layout Portfolio with staggered animations */}
+      <motion.div 
+        ref={portfolioRef}
+        className="columns-1 sm:columns-2 md:columns-3 gap-6"
+        variants={portfolioContainerVariants}
+        initial="hidden"
+        animate={isPortfolioInView ? "visible" : "hidden"}
+      >
         {portfolioItems.map((item) => (
-          <div key={item.id} className="mb-6 break-inside-avoid">
+          <motion.div 
+            key={item.id} 
+            className="mb-6 break-inside-avoid"
+            variants={portfolioItemVariants}
+          >
             {/* Portfolio Item with Hover Effect */}
             <motion.div
               className="relative overflow-hidden rounded-2xl"
               variants={cardVariants}
-              initial="initial"
               whileHover="hover"
             >
               <p
@@ -228,18 +303,14 @@ const Portfolio = () => {
 
               {/* Semi-transparent black overlay */}
               <motion.div
-                className="absolute inset-0 bg-black"
+                className="absolute inset-0 "
                 variants={overlayVariants}
-                initial="initial"
-                whileHover="hover"
               />
 
               {/* Content that appears on hover */}
               <motion.div
                 className="absolute inset-0 flex flex-col justify-center text-white p-6"
                 variants={contentVariants}
-                initial="initial"
-                whileHover="hover"
               >
                 <motion.p
                   className="text-sm mb-4 text-gray-200"
@@ -255,7 +326,7 @@ const Portfolio = () => {
                   {item.buttons.map((button, index) => (
                     <button
                       key={index}
-                      className=" border text-white pl-7 pr-7 flex items-center justify-between px-4 py-3 rounded-3xl transition w-auto"
+                      className="border text-white pl-7 pr-7 flex items-center justify-between px-4 py-3 rounded-3xl transition w-auto"
                     >
                       <span>{button.text}</span>
                       {button.icon}
@@ -264,9 +335,9 @@ const Portfolio = () => {
                 </motion.div>
               </motion.div>
             </motion.div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
