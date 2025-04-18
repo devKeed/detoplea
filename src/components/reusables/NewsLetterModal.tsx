@@ -43,7 +43,7 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
     >
       <div
         ref={modalRef}
-        className={`bg-[#f9e8dd] w-full max-w-4xl flex flex-col md:flex-row overflow-hidden transform transition-all duration-300 ${
+        className={`bg-[#f9e8dd] w-full max-w-2xl flex flex-col md:flex-row overflow-hidden transform transition-all duration-300 ${
           isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >

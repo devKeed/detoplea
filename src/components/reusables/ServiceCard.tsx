@@ -52,9 +52,9 @@ export const ServiceCard = ({
             {features.map((feature, index) => (
               <span
                 key={index}
-                className="bg-gray-200 text-gray-700 px-3 py-1 rounded-2xl h-10 p-4 pt-2 border border-black"
+                className="bg-gray-200 text-gray-700  rounded-2xl h-10 border border-black flex items-center justify-center"
               >
-                {feature}
+                <p className="text-[16px] px-3">{feature}</p>
               </span>
             ))}
           </div>
@@ -63,7 +63,7 @@ export const ServiceCard = ({
           <h3 className=" text-xl font-medium text-gray-800 mt-7">
             LET'S BREAK IT DOWN:
           </h3>
-          <p className="text-sm text-gray-700 mt-1">{breakdown}</p>
+          <p className=" text-gray-700 mt-1">{breakdown}</p>
         </div>
       </motion.div>
       <motion.div

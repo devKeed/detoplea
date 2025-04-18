@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import PostCard from "../components/PostCard";
+
 
 interface Post {
   userId: number;
@@ -10,7 +10,7 @@ interface Post {
 }
 
 const Post: React.FC = () => {
-  const [post, setPost] = useState<Post>();
+  const [, setPost] = useState<Post>();
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Post: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <PostCard id={post?.id} title={post?.title} body={post?.body} />
+      {/* <PostCard id={post?.id} title={post?.title} body={post?.body} /> */}
     </div>
   );
 };
