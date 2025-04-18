@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
-import image from "/images/image 22a.png";
-import image1 from "/images/image 1a.png";
-import image2 from "/images/image 2.png";
-import image3 from "/images/image 3.png";
+import image from "/images/faq.png";
 import image5 from "/images/imageZZ.png";
+import { MyFillButton } from "../reusables/Button";
 
 interface Service {
   title: string;
@@ -98,14 +96,11 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-white text-black">
-      {/* Container for entire content */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        {/* Top Section */}
+      <div className=" mx-auto px-4 py-20">
         <div className="flex items-start justify-between gap-8 mb-20">
-          {/* Left Column */}
           <div className="w-1/2">
             <h2 className="text-4xl text-left font-thin mb-8 uppercase tracking-wide">
-              THIS HOW WE HELP
+              THIS IS HOW WE HELP
             </h2>
             <ul className="space-y-4 text-lg text-left">
               {services.map((service, index) => (
@@ -118,93 +113,26 @@ const LandingPage: React.FC = () => {
                 />
               ))}
             </ul>
-            <div className="text-left">
-              <button className="mt-8 inline-block text-sm px-6 py-3 bg-[#F2F2F2] text-black rounded-full hover:bg-gray-800 transition">
-                Learn More
-              </button>
+            <div className="flex text-left mt-4">
+              <MyFillButton
+                text="Learn More"
+                bgColor="#F2F2F2"
+                link=""
+                color="#000000"
+                hoverBgColor="#222222"
+              />
             </div>
           </div>
 
-          {/* Right Column: Overlayed Images */}
           <div className="w-1/2 relative items-center flex justify-center">
-            {/* Base Image */}
             <img
               src={image}
               alt="Background"
-              className="w-3/4 h-auto rounded-lg shadow-md object-cover"
-            />
-
-            {/* Overlay Image */}
-            <img
-              src={image5}
-              alt="Overlay"
-              className="absolute top-[66.66%] left-3/4 rounded-lg transform -translate-x-1/2 w-[45%] h-auto z-10"
+              className="w-3/4 h-auto object-cover"
             />
           </div>
         </div>
-        {/* Blog Section */}
-        <div className="bg-[#F5F5F5] rounded-md p-8">
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-4xl font-normal uppercase tracking-wide mb-2 mt-5">
-              CHECKOUT THE BLOG
-            </h2>
-            <p className=" mb-8 w-1/2 text-center text-lg">
-              From the latest marketing news, to platform updates, to small
-              business advice, our experts have compiled it all for you.
-            </p>
-          </div>
-
-          {/* 3-Column Grid for Blog Cards */}
-          <div className="grid grid-cols-3 gap-8 pl-8 pr-8">
-            {/* Blog Card #1 */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "keyframes", stiffness: 300 }}
-              className="relative shadow-md rounded-md overflow-hidden"
-            >
-              <img
-                src={image1}
-                alt="Blog 1"
-                className="w-full h-full object-cover"
-              />
-              <p className="absolute bottom-4 left-4 right-4 bg-opacity-70 text-white p-4 rounded-md text-2xl text-left font-semibold">
-                5 ways to increase your ROI in 2025
-              </p>
-            </motion.div>
-
-            {/* Blog Card #2 */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "keyframes", stiffness: 300 }}
-              className="relative shadow-md rounded-md overflow-hidden"
-            >
-              <img
-                src={image2}
-                alt="Blog 2"
-                className="w-full h-full object-cover"
-              />
-              <p className="absolute bottom-4 left-4 right-4 bg-opacity-70 text-white p-4 rounded-md text-2xl text-left font-semibold">
-                10 ways to increase your Social media revenue in 2025
-              </p>
-            </motion.div>
-
-            {/* Blog Card #3 */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "keyframes", stiffness: 300 }}
-              className="relative shadow-md rounded-md overflow-hidden"
-            >
-              <img
-                src={image3}
-                alt="Blog 3"
-                className="w-full h-full object-cover"
-              />
-              <p className="absolute bottom-4 left-4 right-4 bg-opacity-70 text-white p-4 rounded-md text-2xl text-left font-semibold">
-                10 ways to connect with clients via Social media in 2025
-              </p>
-            </motion.div>
-          </div>
-        </div>
+  
       </div>
     </div>
   );

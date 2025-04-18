@@ -192,7 +192,7 @@ const Portfolio = () => {
         <h1 className="text-4xl md:text-6xl font-bold uppercase">
           Our <span className="text-[#F2720D]">Portfolio</span>
         </h1>
-        <p className="text-gray-500 text-sm md:text-base mt-2">
+        <p className=" text-sm md:text-base mt-2">
           Because you're after results, and we know how to get them.
         </p>
       </div>

@@ -10,7 +10,7 @@ export default {
         secondary: "#BF0517",
       },
       fontFamily: {
-        uber: ["Uber Move Text", "sans-serif"],
+        uber: ["Uber Move", "sans-serif"],
       },
       fontSize: {
         h1: ["4.5rem", { fontWeight: "700" }],

@@ -10,7 +10,7 @@ const Header = () => {
     <header className=" bg-[#F7E5D7] fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center h-16 mb-2">
         <Link to="/">
-          <img src={Logo} alt="detoplea logo" className="h-20" />
+          <img src={Logo} alt="detoplea logo" className="h-16" />
         </Link>
 
         <div className="hidden md:flex items-center space-x-6 pt-2">
@@ -38,9 +38,9 @@ const Header = () => {
 
           <Link
             to="/contact"
-            className="bg-[#00CCB8] text-white text-sm px-4 py-2 rounded-full hover:bg-[#00CCB8] transition"
+            className="bg-[#00CCB8] text-white text-sm px-4 py-2 rounded-full hover:bg-[#02574F] transition"
           >
-            Hire Us
+            HIRE US
           </Link>
         </div>
 
@@ -80,10 +80,10 @@ const Header = () => {
 
             <Link
               to="/contact"
-              className="bg-[#00CCB8] text-white px-4 py-2 rounded-full text-center"
+              className="bg-[#00CCB8] hover:bg-[#02574F] text-white px-4 py-2 uppercase rounded-full text-center"
               onClick={() => setMenuOpen(false)}
             >
-              Hire Us
+              HIRE US
             </Link>
           </nav>
         </div>

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import AboutUs from "../components/home/AboutUs";
 import Highlights from "../components/home/Service";
 import Reviews from "../components/home/Reviews";
-import Sponsors from "../components/home/Sponsors";
 import HeroSection from "../components/reusables/HeroSection";
 import Header from "../components/shared/Header";
-import heroSrc from "/images/img-1.jpg";
 import NewsletterModal from "../components/reusables/NewsLetterModal";
+import Info from "../components/home/Info";
+import Blog from "../components/home/Blog";
+import Service from "../components/home/Service";
 
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,16 +22,13 @@ const Home: React.FC = () => {
   return (
     <div style={{ overflow: "hidden" }} className="text-center flex flex-col">
       <Header />
-      <HeroSection
-        actionText="Read More"
-        actionLink="/dambe"
-        backgroundImage={heroSrc}
-        height="100vh"
-        showSocials={true}
-        subtitleFontSize="48px"
-        section="home"
-      />
-      <Sponsors />
+      <HeroSection />
+      <Info />
+      <div style={{ maxWidth: "1550px", margin: "auto" }}>
+        {" "}
+        <Service />
+        <Blog />
+      </div>
       <AboutUs />
       <Highlights />
       <Reviews />

@@ -1,6 +1,6 @@
-import { FiArrowUpRight } from "react-icons/fi";
+import { MyOutlinedButton } from "../reusables/Button";
 
-const Sponsors = () => {
+const Info = () => {
   return (
     <div className="bg-[#F2F2F2] py-16 md:py-20 items-center flex flex-col gap-4 md:gap-10 justify-center text-center">
       <p className=" text-center text-xl tracking-wide w-1/2">
@@ -8,11 +8,10 @@ const Sponsors = () => {
         to maximize impact. we cover all the angles to ensure your brand stands
         out and succeeds.
       </p>
-      <button className="border border-black text-black-500 flex items-center gap-2 px-4 py-3 rounded-3xl hover:bg-gray-500 hover:text-white transition">
-        Learn More <FiArrowUpRight size={22} />
-      </button>
+      
+      <MyOutlinedButton text="Learn More" link="" />
     </div>
   );
 };
 
-export default Sponsors;
+export default Info;
