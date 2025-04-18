@@ -6,8 +6,7 @@ import HeroSection from "../components/reusables/HeroSection";
 import Header from "../components/shared/Header";
 import NewsletterModal from "../components/reusables/NewsLetterModal";
 import Info from "../components/home/Info";
-import FadeInWhenVisible from "../components/reusables/FadeIn";
-
+import RevealOnScroll from "../components/reusables/Reveal";
 
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -27,21 +26,21 @@ const Home: React.FC = () => {
       <Header />
       <HeroSection />
 
-      <FadeInWhenVisible>
+      <RevealOnScroll>
         <Info />
-      </FadeInWhenVisible>
+      </RevealOnScroll>
 
-      <FadeInWhenVisible>
+      <RevealOnScroll>
         <AboutUs />
-      </FadeInWhenVisible>
+      </RevealOnScroll>
 
-      <FadeInWhenVisible>
+      <RevealOnScroll>
         <Highlights />
-      </FadeInWhenVisible>
+      </RevealOnScroll>
 
-      <FadeInWhenVisible>
+      <RevealOnScroll>
         <Reviews />
-      </FadeInWhenVisible>
+      </RevealOnScroll>
 
       <NewsletterModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>
