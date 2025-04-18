@@ -5,7 +5,33 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import clsx from "clsx";
 
-const reviews = [
+// Step 1: Define allowed color keys
+type BoxColor = "orange-400" | "teal-400" | "yellow-400";
+
+// Step 2: Map color keys to Tailwind classes
+const colorClassMap: Record<BoxColor, { border: string; text: string }> = {
+  "orange-400": {
+    border: "border-l-orange-400",
+    text: "text-orange-400",
+  },
+  "teal-400": {
+    border: "border-l-teal-400",
+    text: "text-teal-400",
+  },
+  "yellow-400": {
+    border: "border-l-yellow-400",
+    text: "text-yellow-400",
+  },
+};
+
+// Step 3: Define reviews with strict types
+const reviews: {
+  name: string;
+  title: string;
+  text: string;
+  rating: number;
+  boxColor: BoxColor;
+}[] = [
   {
     name: "Sophia T.",
     title: "The Best Team for Digital Marketing!",
@@ -50,31 +76,33 @@ const ReviewSlider = () => {
           disableOnInteraction: false,
         }}
       >
-        {reviews.map((review, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className={clsx(
-                "h-[400px] bg-gray-100 p-6 rounded-2xl border-l-8",
-                `border-l-${review.boxColor}`
-              )}
-            >
+        {reviews.map((review, index) => {
+          const color = colorClassMap[review.boxColor];
+
+          return (
+            <SwiperSlide key={index}>
               <div
-                className={clsx("flex gap-1 mb-3", `text-${review.boxColor}`)}
+                className={clsx(
+                  "h-[380px] bg-gray-100 p-6 rounded-2xl border-l-8",
+                  color.border
+                )}
               >
-                {[...Array(review.rating)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div>
-              <h3 className="text-lg text-left font-semibold">
-                {review.title}
-              </h3>
-              <p className="mt-2 text-left text-[16px] italic">
-                 "{review.text}"
+                <div className={clsx("flex gap-1 mb-3", color.text)}>
+                  {[...Array(review.rating)].map((_, i) => (
+                    <FaStar key={i} />
+                  ))}
+                </div>
+                <h3 className="text-lg font-semibold text-left mb-2">
+                  {review.title}
+                </h3>
+                <p className="text-left text-[16px] italic line-clamp-6">
+                  "{review.text}"
                 </p>
-              <p className="mt-4 text-left font-bold">- {review.name}</p>
-            </div>
-          </SwiperSlide>
-        ))}
+                <p className="mt-4 font-bold text-left">- {review.name}</p>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

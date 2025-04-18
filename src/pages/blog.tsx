@@ -123,9 +123,9 @@ export const Blog = () => {
           ))}
         </div>
       </div>
-      <div className="justify-end px-5 text-xl flex gap-1 ">
+      <p className="justify-end px-5 flex gap-1 ">
         Older Post <MdKeyboardArrowRight size={30} />
-      </div>
+      </p>
     </div>
   );
 };

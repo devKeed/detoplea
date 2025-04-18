@@ -141,3 +141,31 @@ export const portfolioItems = [
     ],
   },
 ];
+
+export const faqs = [
+  {
+    question: "How much does it cost?",
+    answer:
+      "Our pricing varies based on your specific needs and goals. We offer customized packages starting at $2,500 per month for our standard services. For enterprise solutions or comprehensive campaigns, we'll provide a detailed quote after understanding your requirements during our discovery call.",
+  },
+  {
+    question: "What's The First Step?",
+    answer:
+      "The first step is to book a discovery call with our team. During this 30-minute session, we'll discuss your business goals, current marketing efforts, and how we might be able to help. This allows us to understand if we're a good fit for each other before proceeding with a detailed proposal.",
+  },
+  {
+    question: "What Do I Need To Give You To Get Started?",
+    answer:
+      "To get started efficiently, we'll need access to your current marketing assets (social media accounts, website admin, analytics), brand guidelines if available, and information about your target audience. We'll provide a detailed onboarding checklist after our initial agreement to ensure a smooth transition.",
+  },
+  {
+    question: "Is There A Contract Minimum?",
+    answer:
+      "Yes, we typically work with clients on a minimum 3-month initial contract. This allows enough time to implement our strategy and start seeing meaningful results. After the initial period, we offer month-to-month options with a 30-day notice period.",
+  },
+  {
+    question: "Is My Business A Good Fit?",
+    answer:
+      "We work best with established businesses that have clear goals and are ready to invest in their growth. Our sweet spot is B2C brands in health, wellness, lifestyle, and e-commerce with annual revenues between $500K and $10M. However, we evaluate each potential client individually, so we encourage you to book a discovery call to discuss your specific situation.",
+  },
+];

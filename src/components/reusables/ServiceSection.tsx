@@ -2,7 +2,7 @@ import image1 from "../../../public/images/imagefss.png";
 import image2 from "../../../public/images/imageew.png";
 import image3 from "../../../public/images/image 9.png";
 import image4 from "../../../public/images/image 10.png";
-import image5 from "../../../public/images/imageew.png";
+import image6 from "../../../public/images/imaged.png";
 import { ServiceCard } from "./ServiceCard";
 
 const services = [
@@ -10,7 +10,7 @@ const services = [
     title: "Brand Identity Development",
     description:
       "We help businesses establish a strong brand presence with stunning visuals and strategic positioning.",
-    image: image1,
+    image: image3,
     features: ["Logo & Visual Identity", "Brand Guidelines", "Market Research"],
     breakdown:
       "A strong brand identity is crucial for business growth. We craft visual and strategic elements that make your brand memorable and impactful.",
@@ -19,7 +19,7 @@ const services = [
     title: "Paid Ads",
     description:
       "Maximize your reach and ROI with targeted advertising across digital platforms.",
-    image: image2,
+    image: image4,
     features: [
       "Google Ads",
       "Facebook & Instagram Ads",
@@ -32,7 +32,7 @@ const services = [
     title: "Social Media Management",
     description:
       "We help brands cut through the noise and make a lasting impression that keeps people coming back for more.",
-    image: image3,
+    image: image6,
     features: [
       "Instagram, TikTok, Facebook",
       "LinkedIn, Pinterest",
@@ -49,7 +49,7 @@ const services = [
     title: "Email Marketing",
     description:
       "Boost customer engagement with personalized email campaigns and automation.",
-    image: image4,
+    image: image2,
     features: ["Newsletter Design", "Automated Campaigns", "A/B Testing"],
     breakdown:
       "We create highly engaging email campaigns that nurture leads, retain customers, and drive conversions through personalized messaging.",
@@ -58,7 +58,7 @@ const services = [
     title: "Web Design & Development",
     description:
       "Create stunning, high-performance websites that drive results and enhance user experience.",
-    image: image5,
+    image: image1,
     features: [
       "Responsive Design",
       "E-Commerce Integration",
@@ -72,7 +72,7 @@ const services = [
 const ServicesSection = () => {
   return (
     <div className="bg-white py-12 px-4 mb-10">
-      <div className="max-w-6xl mx-auto space-y-8">
+      <div style={{maxWidth:"1500px"}} className=" mx-auto space-y-8">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}

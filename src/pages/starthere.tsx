@@ -60,9 +60,14 @@ export const Starthere = () => {
       {/* Image */}
       <div className="relative w-full h-auto">
         <img src={image} alt="linkedin" className="w-full h-auto" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white font-bold">ABOUT US</h1>
-        </div>
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={{ opacity: 0, x: -200, y: -200, rotate: -90 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <p className="text-white font-bold text-[8rem]">ABOUT US</p>
+        </motion.div>
       </div>
 
       {/* Scroll */}
@@ -89,7 +94,7 @@ export const Starthere = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h1 className="uppercase font-semibold">What Sets Us Apart?</h1>
+          <h2 className="uppercase font-semibold">What Sets Us Apart?</h2>
           <p className="text-xl font-normal">
             We're a boutique-style agency that treats your business like our
             own. We take the time to truly understand your brand, your goals,
