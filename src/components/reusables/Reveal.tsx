@@ -9,9 +9,9 @@ interface Props {
 const RevealOnScroll: React.FC<Props> = ({ children, className }) => (
   <motion.div
     className={className}
-    initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-    whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-    transition={{ duration: 1, ease: "easeOut" }}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, ease: "linear" }}
     viewport={{ once: true, amount: 0.2 }}
   >
     {children}
