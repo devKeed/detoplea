@@ -3,58 +3,55 @@ import image2 from "/images/image 16.png";
 import image3 from "/images/image 11.png";
 import image4 from "/images/image 15.png";
 import image5 from "/images/image 14.png";
-import { FiArrowUpRight } from "react-icons/fi";
+import { MyButton } from "../reusables/Button";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F7E5D7] text-white">
-      {/* Top Section with Images */}
-      <div className="flex w-full">
+    <footer style={{height: "90vh"}} className="w-full bg-[#F7E5D7]">
+      <div style={{height: "40vh"}} className="flex w-full">
         <img
           src={image1}
           alt={"Footer Image 1"}
-          className="w-1/5 h-44 object-cover"
+          className="w-1/5 object-cover"
         />
         <img
           src={image2}
           alt={"Footer Image 1"}
-          className="w-1/5 h-44 object-cover"
+          className="w-1/5 object-cover"
         />
         <img
           src={image3}
           alt={"Footer Image 1"}
-          className="w-1/5 h-44 object-cover"
+          className="w-1/5 object-cover"
         />
         <img
           src={image4}
           alt={"Footer Image 1"}
-          className="w-1/5 h-44 object-cover"
+          className="w-1/5 object-cover"
         />
         <img
           src={image5}
           alt={"Footer Image 1"}
-          className="w-1/5 h-44 object-cover"
+          className="w-1/5 object-cover"
         />
       </div>
 
       {/* Bottom Section with Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 mt-5">
+      <div  className="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 mt-5">
         <div className="footer-column text-left gap-4 flex flex-col items-start">
-          <h3 className="text-4xl text-black font-semibold uppercase">
+          <h3 className="uppercase">
             Who Are We
           </h3>
-          <p className="text-gray-600 ">
+          <p style={{maxWidth: "410px"}} className="">
             We are your one stop boutique for digital marketing services, as we
             prioritize your business/ brand’s success online and wants to help
             you scale your sale
           </p>
-          <button className="bg-[#F2720D] flex items-center gap-2 pl-10 pr-10 px-4 py-2 p-5 rounded-3xl hover:bg-gray-500 hover:text-white transition">
-            Hire Us <FiArrowUpRight size={22} />
-          </button>
+          <MyButton text="Hire us" link="/hire-us"/>
         </div>
         <div className="footer-column flex flex-col items-center gap-4">
           <div>
-            <h4 className=" text-black font-semibold uppercase text-2xl">
+            <h4 className="">
               Join Our Newsletter
             </h4>
             <p className="text-gray-600 text-sm">

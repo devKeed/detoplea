@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1D3B20", // Main green
-        secondary: "#BF0517", // Red accent
+        primary: "#1D3B20",
+        secondary: "#BF0517",
       },
       fontFamily: {
         uber: ["Uber Move Text", "sans-serif"],
@@ -17,7 +17,7 @@ export default {
         h2: ["48px", { fontWeight: "700" }],
         h3: ["28px", { fontWeight: "700" }],
         body: ["24px", { fontWeight: "500" }],
-        small: ["12px", { fontWeight: "500" }],
+        small: ["16px", { fontWeight: "500" }],
         hero1: "15rem",
         h2small: "2rem",
       },

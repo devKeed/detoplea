@@ -4,8 +4,6 @@ import Portfolio from "./pages/portfolio";
 import NotFound from "./pages/notFound";
 import { Services } from "./pages/services";
 import { Blog } from "./pages/blog";
-import { Socials } from "./pages/socials";
-import { News } from "./pages/news";
 import { Contact } from "./pages/contact";
 import Layout from "./components/Layout";
 import { Starthere } from "./pages/starthere";
@@ -19,8 +17,6 @@ function App() {
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
-        <Route path="socials" element={<Socials />} />
-        <Route path="news" element={<News />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>

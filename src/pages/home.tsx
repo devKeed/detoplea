@@ -1,5 +1,5 @@
 import AboutUs from "../components/home/AboutUs";
-import Highlights from "../components/home/Highlights";
+import Highlights from "../components/home/Service";
 import Reviews from "../components/home/Reviews";
 import Sponsors from "../components/home/Sponsors";
 import HeroSection from "../components/reusables/HeroSection";
@@ -11,14 +11,11 @@ const Home: React.FC = () => {
     <div className="text-center flex flex-col  ">
       <Header />
       <HeroSection
-        // title="DAMBE"
-        // subtitle="THE HOME OF"
         actionText="Read More"
         actionLink="/dambe"
         backgroundImage={heroSrc}
         height="100vh"
         showSocials={true}
-        // titleFontSize="14rem"
         subtitleFontSize="48px"
         section="home"
       />
@@ -26,7 +23,6 @@ const Home: React.FC = () => {
       <AboutUs />
       <Highlights />
       <Reviews />
-      
     </div>
   );
 };

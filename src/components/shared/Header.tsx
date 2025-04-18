@@ -7,14 +7,12 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className=" bg-[#F7E5D7] shadow-md fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
+    <header style={{height: "7rem"}} className=" bg-[#F7E5D7] fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center h-16 mb-2">
-        {/* Logo */}
         <Link to="/">
-          <img src={Logo} alt="African Warriors" className="h-20" />
+          <img src={Logo} alt="detoplea logo" className="h-20" />
         </Link>
 
-        {/* Desktop Menu + Contact Button */}
         <div className="hidden md:flex items-center space-x-6 pt-2">
           <nav className="flex space-x-6">
             {[
@@ -38,7 +36,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Button */}
           <Link
             to="/contact"
             className="bg-[#00CCB8] text-white text-sm px-4 py-2 rounded-full hover:bg-[#00CCB8] transition"
@@ -58,7 +55,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#F7E5D7] shadow-md absolute top-16 left-0 w-full z-50 animate-slide-down">
+        <div className="md:hidden bg-[#F7E5D7] absolute top-16 left-0 w-full z-50 animate-slide-down">
           <nav className="flex flex-col space-y-4 p-6">
             {[
               { path: "/", name: "HOME" },
@@ -81,7 +78,6 @@ const Header = () => {
               </NavLink>
             ))}
 
-            {/* Contact Button in Mobile */}
             <Link
               to="/contact"
               className="bg-[#00CCB8] text-white px-4 py-2 rounded-full text-center"
