@@ -3,7 +3,7 @@ import image2 from "/images/image 16.png";
 import image3 from "/images/image 11.png";
 import image4 from "/images/image 15.png";
 import image5 from "/images/image 14.png";
-import { MyButton } from "../reusables/Button";
+import { MyFillButton } from "../reusables/Button";
 
 export default function Footer() {
   return (
@@ -47,7 +47,7 @@ export default function Footer() {
             prioritize your business/ brand’s success online and wants to help
             you scale your sale
           </p>
-          <MyButton text="Hire us" link="/hire-us"/>
+          <MyFillButton text="Hire us" link="/hire-us"/>
         </div>
         <div className="footer-column flex flex-col items-center gap-4">
           <div>

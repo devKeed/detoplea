@@ -11,34 +11,67 @@ interface TButtonProps {
   hoverBgColor?: string;
 }
 
-export const MyButton: FC<TButtonProps> = ({
-  arrow = true,
-  text,
-  link,
-  color = "white",
-  bgColor = "#F2720D",
-  hoverTextColor = "white",
-  hoverBgColor = "#F3720D",
+export const MyFillButton: FC<TButtonProps> = ({
+    arrow = true,
+    text,
+    link,
+    color = "white",
+    bgColor = "#F2720D",
+    hoverTextColor = "white",
+    hoverBgColor = "#F3720D",
 }) => {
-  return (
-    <a
-      href={link}
-      className={`flex items-center gap-2 px-10 py-4 rounded-3xl transition-colors duration-300`}
-      style={{
-        color: color,
-        backgroundColor: bgColor,
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = hoverBgColor;
-        e.currentTarget.style.color = hoverTextColor;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = bgColor;
-        e.currentTarget.style.color = color;
-      }}
-    >
-      {text}
-      {arrow && <FiArrowUpRight size={20} />}
-    </a>
-  );
+    return (
+        <a
+            href={link}
+            className={`flex items-center gap-2 px-10 py-4 rounded-3xl transition-colors duration-300`}
+            style={{
+                color: color,
+                backgroundColor: bgColor,
+            }}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = hoverBgColor;
+                e.currentTarget.style.color = hoverTextColor;
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = bgColor;
+                e.currentTarget.style.color = color;
+            }}
+        >
+            {text}
+            {arrow && <FiArrowUpRight size={20} />}
+        </a>
+    );
+};
+
+export const MyOutlinedButton: FC<TButtonProps> = ({
+    arrow = true,
+    text,
+    link,
+    color = "#F2720D",
+    bgColor = "transparent",
+    hoverTextColor = "white",
+    hoverBgColor = "#F2720D",
+}) => {
+    return (
+        <a
+            href={link}
+            className={`flex items-center gap-2 px-10 py-4 rounded-3xl border-2 transition-colors duration-300`}
+            style={{
+                color: color,
+                backgroundColor: bgColor,
+                borderColor: color,
+            }}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = hoverBgColor;
+                e.currentTarget.style.color = hoverTextColor;
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = bgColor;
+                e.currentTarget.style.color = color;
+            }}
+        >
+            {text}
+            {arrow && <FiArrowUpRight size={20} />}
+        </a>
+    );
 };
