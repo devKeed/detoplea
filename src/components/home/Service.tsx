@@ -59,7 +59,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   return (
     <li className="border-b border-gray-300 pb-3">
       <div
-        className="flex items-center gap-3 cursor-pointer"
+        className="flex items-center gap-3 my-2 cursor-pointer"
         onClick={onToggle}
       >
         {isOpen ? (
@@ -95,7 +95,7 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white text-black">
+    <div className="w-full bg-white text-black">
       <div className=" mx-auto px-4 py-20">
         <div className="flex items-start justify-between gap-8 mb-20">
           <div className="w-1/2">
@@ -128,7 +128,7 @@ const LandingPage: React.FC = () => {
             <img
               src={image}
               alt="Background"
-              className="w-3/4 h-auto object-cover"
+              className=" h-auto object-cover"
             />
           </div>
         </div>
