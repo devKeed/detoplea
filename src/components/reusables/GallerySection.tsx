@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
-import YouTubeModal from "./YoutubeModal";
+
 
 export interface IGalleryItem {
   id: number;
@@ -128,7 +128,7 @@ export const GalleryCard: React.FC<{ item: IGalleryItem }> = ({ item }) => {
             <h3 className="font-bold pt-1">{item.heading}</h3>
             <p className="text-sm opacity-90">{item.description}</p>
             <div className="flex justify-center">
-              <YouTubeModal videoUrl={item.link} />
+              {/* <YouTubeModal videoUrl={item.link} /> */}
             </div>
           </div>
         </div>

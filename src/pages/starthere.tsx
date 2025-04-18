@@ -27,12 +27,6 @@ export const Starthere = () => {
     amount: 0.3,
   });
 
-  // Card animations
-  const cardVariants = {
-    initial: { scale: 1 },
-    hover: { scale: 1.05 },
-  };
-
   // Viewport animations
   const containerVariants = {
     hidden: {},
