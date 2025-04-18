@@ -8,57 +8,42 @@ import { NewsLetterForm } from "../reusables/NewsLetterModal";
 
 export default function Footer() {
   return (
-    <footer style={{height: "90vh"}} className="w-full bg-[#F7E5D7]">
-      <div style={{height: "40vh"}} className="flex w-full">
-        <img
-          src={image1}
-          alt={"Footer Image 1"}
-          className="w-1/5 object-cover"
-        />
-        <img
-          src={image2}
-          alt={"Footer Image 1"}
-          className="w-1/5 object-cover"
-        />
-        <img
-          src={image3}
-          alt={"Footer Image 1"}
-          className="w-1/5 object-cover"
-        />
-        <img
-          src={image4}
-          alt={"Footer Image 1"}
-          className="w-1/5 object-cover"
-        />
-        <img
-          src={image5}
-          alt={"Footer Image 1"}
-          className="w-1/5 object-cover"
-        />
+    <footer className="w-full bg-[#F7E5D7]">
+      {/* Top Image Strip */}
+      <div className="flex flex-wrap md:flex-nowrap w-full">
+        {[image1, image2, image3, image4, image5].map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={`Footer Image ${index + 1}`}
+            className="w-1/2 md:w-1/5 object-cover h-40 md:h-60"
+          />
+        ))}
       </div>
 
-      {/* Bottom Section with Grid */}
-      <div  className="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 mt-5">
-        <div className="footer-column text-left gap-4 flex flex-col items-start">
-          <h3 className="uppercase">
+      {/* Bottom Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 md:p-10">
+        {/* Column 1: Who Are We */}
+        <div className="text-left gap-4 flex flex-col items-start">
+          <h3 className="uppercase text-lg md:text-xl font-semibold">
             Who Are We
           </h3>
-          <p style={{maxWidth: "410px"}} className="">
+          <p className="max-w-md text-sm md:text-base">
             We are your one stop boutique for digital marketing services, as we
-            prioritize your business/ brand’s success online and wants to help
-            you scale your sale
+            prioritize your business/ brand’s success online and want to help
+            you scale your sales.
           </p>
-          <MyFillButton text="Hire us" link="/hire-us"/>
+          <MyFillButton text="Hire us" link="/hire-us" />
         </div>
+
+        {/* Column 2: Newsletter */}
         <NewsLetterForm />
 
-        <div className="footer-column flex flex-col md:flex-row justify-center gap-8 md:gap-12">
-          {/* Navigate Section */}
+        {/* Column 3: Links */}
+        <div className="flex flex-col md:flex-row justify-start gap-8 md:gap-12">
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">
-              Navigate
-            </h6>
-            <ul className="space-y-2">
+            <h6 className="font-semibold text-[#F2720D] mb-3">Navigate</h6>
+            <ul className="space-y-2 text-sm md:text-base">
               {[
                 { href: "/hire-us", label: "Hire Us" },
                 { href: "/service", label: "Service" },
@@ -77,12 +62,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Section */}
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">
-              Social
-            </h6>
-            <ul className="space-y-2">
+            <h6 className="font-semibold text-[#F2720D] mb-3">Social</h6>
+            <ul className="space-y-2 text-sm md:text-base">
               {[
                 { href: "/instagram", label: "Instagram" },
                 { href: "/pinterest", label: "Pinterest" },
@@ -92,7 +74,7 @@ export default function Footer() {
                 <li key={href}>
                   <a
                     href={href}
-                    className="text-black hover:text-gray-400  transition-colors duration-200"
+                    className="text-black hover:text-gray-400 transition-colors duration-200"
                   >
                     {label}
                   </a>
