@@ -38,7 +38,7 @@ export const MyFillButton: FC<TButtonProps> = ({
             }}
         >
             {text}
-            {arrow && <FiArrowUpRight size={20} />}
+            {arrow && <FiArrowUpRight size={24} />}
         </a>
     );
 };
@@ -47,10 +47,10 @@ export const MyOutlinedButton: FC<TButtonProps> = ({
     arrow = true,
     text,
     link,
-    color = "#F2720D",
+    color = "#1A1A1A",
     bgColor = "transparent",
     hoverTextColor = "white",
-    hoverBgColor = "#F2720D",
+    hoverBgColor = "#1A1A1A",
 }) => {
     return (
         <a
@@ -71,7 +71,7 @@ export const MyOutlinedButton: FC<TButtonProps> = ({
             }}
         >
             {text}
-            {arrow && <FiArrowUpRight size={20} />}
+            {arrow && <FiArrowUpRight size={24} />}
         </a>
     );
 };

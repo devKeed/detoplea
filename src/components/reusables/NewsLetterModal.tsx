@@ -7,13 +7,19 @@ interface NewsletterModalProps {
   onClose: () => void;
 }
 
-const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) => {
+const NewsletterModal: React.FC<NewsletterModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Close on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         onClose();
       }
     };
@@ -30,7 +36,9 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) =>
   return (
     <div
       className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center px-4 transition-opacity duration-300 ${
-        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
     >
       <div
@@ -61,15 +69,18 @@ export default NewsletterModal;
 
 export const NewsLetterForm = () => {
   return (
-    <div className="w-full space-y-4">
-      <h2 className="text-2xl font-bold text-black">JOIN OUR NEWSLETTER</h2>
-      <p className="text-sm text-gray-700">
+    <div className="w-full space-y-4 flex flex-col justify-center items-center">
+      <h2 className="text-2xl font-bold text-black text-center">JOIN OUR NEWSLETTER</h2>
+      <p className="text-sm text-gray-700 text-center">
         Receive insider news and valuable social media tips from our team, so
         you never miss a beat!
       </p>
       <MyInput type="text" placeholder="First Name" />
       <MyInput type="email" placeholder="Email Address" />
-      <MyFillButton text="Subscribe" link="#" arrow={false} />
+      <div className="flex m-auto text-center">
+       
+        <MyFillButton text="Subscribe" link="#" arrow={false} />
+      </div>
     </div>
   );
 };

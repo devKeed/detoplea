@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import AboutUs from "../components/home/AboutUs";
 import Highlights from "../components/home/Service";
 import Reviews from "../components/home/Reviews";
-import Sponsors from "../components/home/Sponsors";
 import HeroSection from "../components/reusables/HeroSection";
 import Header from "../components/shared/Header";
-import heroSrc from "/images/img-1.jpg";
 import NewsletterModal from "../components/reusables/NewsLetterModal";
+<<<<<<< HEAD
 import { useAnimation, useInView } from "framer-motion";
 
 // Animation wrapper component
@@ -48,6 +47,11 @@ const AnimatedSection: React.FC<{
     </motion.div>
   );
 };
+=======
+import Info from "../components/home/Info";
+import Blog from "../components/home/Blog";
+import Service from "../components/home/Service";
+>>>>>>> 96019be9108abbda35a298fba7928ed8c9579a2c
 
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -62,6 +66,7 @@ const Home: React.FC = () => {
   return (
     <div style={{ overflow: "hidden" }} className="text-center flex flex-col">
       <Header />
+<<<<<<< HEAD
 
       {/* Hero section doesn't need animation as it's typically above the fold */}
       <HeroSection
@@ -74,6 +79,15 @@ const Home: React.FC = () => {
         section="home"
       />
       <Sponsors />
+=======
+      <HeroSection />
+      <Info />
+      <div style={{ maxWidth: "1550px", margin: "auto" }}>
+        {" "}
+        <Service />
+        <Blog />
+      </div>
+>>>>>>> 96019be9108abbda35a298fba7928ed8c9579a2c
       <AboutUs />
       <Highlights />
       <Reviews />
