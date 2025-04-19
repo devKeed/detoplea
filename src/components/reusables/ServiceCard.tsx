@@ -40,7 +40,7 @@ export const ServiceCard = ({
           transition: { duration: 0.3 },
         }}
       >
-        <h2 className="text-4xl font-medium uppercase text-gray-800 mt-24">
+        <h2 className="text-3xl md:text-5xl font-medium uppercase text-gray-800 mt-6 md:mt-24">
           {title}
         </h2>
         <p className="text-md  mt-2">{description}</p>

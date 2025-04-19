@@ -58,7 +58,7 @@ const reviews: {
 const ReviewSlider = () => {
   return (
     <div className="max-w-7xl mx-auto mb-10 px-4 w-full">
-      <h3 className="text-center font-semibold mb-8">
+      <h3 className="text-center text-4xl md:text-6xl font-semibold mb-8">
         TRUSTED BY DIFFERENT PEOPLE
       </h3>
 

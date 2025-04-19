@@ -106,8 +106,8 @@ export const Services = () => {
           </span>
         </p>
 
-        <div className="flex flex-col md:flex-row gap-5 mt-6 md:mt-10 p-4 md:p-10 md:px-32">
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-72 p-4 md:p-5 pt-8 md:pt-14 mt-6 md:mt-11 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+        <div className="flex flex-col md:flex-row gap-5 mt-6 md:mt-10 p-4 md:p-10 md:px-20">
+          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-80 p-4 md:p-5 pt-8 md:pt-10 mt-6 md:mt-11 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               1. Explore Our services
             </h4>
@@ -117,7 +117,7 @@ export const Services = () => {
               Call, and we'll guide you.
             </p>
           </div>
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-80 p-4 md:p-5 pt-8 md:pt-14 mt-4 md:mt-7 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto  p-4 md:p-5 pt-8 md:pt-10 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               2. CONTACT US
             </h4>
@@ -129,11 +129,11 @@ export const Services = () => {
               schedule a Discovery Call.
             </p>
           </div>
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-96 p-4 md:p-5 pt-8 md:pt-14 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto p-4 md:p-5 pt-8 md:pt-10 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               3. DISCOVERY CALL & CUSTOM STRATEGY
             </h4>
-            <p className="text-sm md:text-base">
+            <p className="text-xs sm:text-sm md:text-base overflow-hidden">
               During our Discovery Call, we'll dive into your goals and needs.
               Afterward, we'll craft a custom proposal with tailored solutions
               for your business. Once the contract is signed and the first

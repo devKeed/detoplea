@@ -105,7 +105,7 @@ export const Starthere = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="uppercase font-semibold">What Sets Us Apart?</h2>
+          <h2 className="uppercase text-4xl md:text-6xl font-semibold">What Sets Us Apart?</h2>
           <p className="text-base md:text-xl font-normal">
             We're a boutique-style agency that treats your business like our
             own. We take the time to truly understand your brand, your goals,
