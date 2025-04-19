@@ -93,8 +93,8 @@ export const Blog = () => {
   ];
 
   return (
-    <div className="py-20 flex flex-col">
-      <div className="py-10 mb-16 px-10">
+    <div className="py-10 flex flex-col">
+      <div className="mb-16 px-10">
         <div className="mt-20 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {blogPosts.map((post) => (
             <div

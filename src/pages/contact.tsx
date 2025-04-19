@@ -1,8 +1,7 @@
-
 export const Contact = () => {
   return (
     <div className="py-10 sm:py-16 lg:py-20">
-      <div className="my-10 sm:my-20 lg:my-44">
+      <div className="my-10 sm:my-20 lg:my-34">
         <h3 className="uppercase text-[#EE8029] text-center font-medium ">
           Client Application Form
         </h3>
