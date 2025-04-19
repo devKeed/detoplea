@@ -66,7 +66,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         ) : (
           <IoIosArrowDown className="text-gray-400" />
         )}
-        <span>{title}</span>
+        <span className="text-sm sm:text-base md:text-lg">{title}</span>
       </div>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -76,7 +76,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden mt-2 pl-6 text-sm "
+            className="overflow-hidden mt-2 pl-6 text-xs sm:text-sm"
           >
             <p>{description}</p>
           </motion.div>
@@ -95,13 +95,13 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white text-black">
-      <div className=" mx-auto px-4 py-20">
-        <div className="flex items-start justify-between gap-8 mb-20">
-          <div className="w-1/2">
-            <h2 className="text-4xl text-left font-thin mb-8 uppercase tracking-wide">
+      <div className="mx-auto px-4 py-8 sm:py-12 md:py-20">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10 md:mb-20">
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-center md:text-left font-thin mb-4 sm:mb-6 md:mb-8 uppercase tracking-wide">
               THIS IS HOW WE HELP
             </h2>
-            <ul className="space-y-4 text-lg text-left">
+            <ul className="space-y-3 sm:space-y-4 text-base md:text-lg text-left">
               {services.map((service, index) => (
                 <ServiceItem
                   key={index}
@@ -112,7 +112,7 @@ const LandingPage: React.FC = () => {
                 />
               ))}
             </ul>
-            <div className="flex text-left mt-4">
+            <div className="flex justify-center md:justify-start mt-6 md:mt-4">
               <MyFillButton
                 text="Learn More"
                 bgColor="#F2F2F2"
@@ -122,16 +122,14 @@ const LandingPage: React.FC = () => {
               />
             </div>
           </div>
-
-          <div className="w-1/2 relative items-center flex justify-center">
+          <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
             <img
               src={image}
               alt="Background"
-              className=" h-auto object-cover"
+              className="w-full max-w-md md:max-w-none h-auto object-cover"
             />
           </div>
         </div>
-  
       </div>
     </div>
   );
