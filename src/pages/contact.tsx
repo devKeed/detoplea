@@ -1,11 +1,12 @@
+
 export const Contact = () => {
   return (
     <div className="py-10 sm:py-16 lg:py-20">
       <div className="my-10 sm:my-20 lg:my-44">
-        <h1 className="uppercase text-[#EE8029] text-center font-medium text-xl sm:text-2xl lg:text-3xl">
+        <h3 className="uppercase text-[#EE8029] text-center font-medium ">
           Client Application Form
-        </h1>
-        <p className="text-center font-normal mt-5 mb-10 px-6 sm:px-12 lg:px-60">
+        </h3>
+        <p className="text-center font-normal mt-5 mb-10 px-3 text-sm sm:px-12 lg:px-60">
           Ready to elevate your brand and accelerate your growth? Start by
           filling out our application. Once we review your details, we'll
           schedule a complimentary call to discuss your goals, share strategic
@@ -73,21 +74,28 @@ export const Contact = () => {
             </div>
           </div>
           <div className="flex flex-col pt-10 sm:pt-16">
-            <p>What service(s) are you interested in?</p>
+            <p className="text-xl">What service(s) are you interested in?</p>
             <div className="flex flex-row gap-5 pt-5">
               <input
                 type="checkbox"
                 name="Brand Development"
                 id="Brand Development"
+                style={{ width: "30px", height: "30px" }}
               />
               <label htmlFor="Brand Development">Brand Development</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Paid Ads" id="Paid Ads" />
+              <input
+                style={{ width: "30px", height: "30px" }}
+                type="checkbox"
+                name="Paid Ads"
+                id="Paid Ads"
+              />
               <label htmlFor="Paid Ads">Paid Ads</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
               <input
+                style={{ width: "30px", height: "30px" }}
                 type="checkbox"
                 name="Social Media Management"
                 id="Social Media Management"
@@ -98,6 +106,7 @@ export const Contact = () => {
             </div>
             <div className="flex flex-row gap-5 pt-5">
               <input
+                style={{ width: "30px", height: "30px" }}
                 type="checkbox"
                 name="E-mail Marketing"
                 id="E-mail Marketing"
@@ -106,6 +115,7 @@ export const Contact = () => {
             </div>
             <div className="flex flex-row gap-5 pt-5">
               <input
+                style={{ width: "30px", height: "30px" }}
                 type="checkbox"
                 name="Web design and development"
                 id="Web design and development"
@@ -117,7 +127,7 @@ export const Contact = () => {
           </div>
 
           <div className="flex flex-col my-10">
-            <p>Please tell us more about your goals:</p>
+            <p className="text-xl">Please tell us more about your goals:</p>
             <textarea
               placeholder="Please be specific about what you're looking for, what you've previously tried, and if you have particular goals in mind."
               className="border p-4 w-full"
@@ -125,43 +135,75 @@ export const Contact = () => {
             ></textarea>
           </div>
           <div className="flex flex-col pt-8">
-            <p>What is your monthly budget?</p>
+            <p className="text-xl">What is your monthly budget?</p>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Price1" id="Price1" />
+              <input
+                type="checkbox"
+                name="Price1"
+                id="Price1"
+                style={{ width: "30px", height: "30px" }}
+              />
               <label htmlFor="Price1">$1000 - $2000</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Price2" id="Price2" />
+              <input
+                type="checkbox"
+                name="Price2"
+                id="Price2"
+                style={{ width: "30px", height: "30px" }}
+              />
               <label htmlFor="Price2">$2000 - $4000</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Price3" id="Price3" />
+              <input
+                type="checkbox"
+                name="Price3"
+                id="Price3"
+                style={{ width: "30px", height: "30px" }}
+              />
               <label htmlFor="Price3">$4000 - $6000</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Price4" id="Price4" />
+              <input
+                type="checkbox"
+                name="Price4"
+                id="Price4"
+                style={{ width: "30px", height: "30px" }}
+              />
               <label htmlFor="Price4">$6000 - $10000</label>
             </div>
             <div className="flex flex-row gap-5 pt-5">
-              <input type="checkbox" name="Price5" id="Price5" />
+              <input
+                type="checkbox"
+                name="Price5"
+                id="Price5"
+                style={{ width: "30px", height: "30px" }}
+              />
               <label htmlFor="Price5">$10000 - $12000</label>
             </div>
           </div>
 
           <div className="flex flex-col mt-10">
-            <p>If this is a good fit, how soon can you get started?</p>
+            <p className="text-xl">
+              If this is a good fit, how soon can you get started?
+            </p>
             <textarea
               className="border p-4 w-full"
               style={{ height: "150px" }}
             ></textarea>
           </div>
 
-          <div className="flex flex-col mt-10">
-            <p>How did you hear about Detoplea Marketing?</p>
-            <textarea
-              className="border p-4 w-full"
-              style={{ height: "150px" }}
-            ></textarea>
+          <div>
+            <p className="text-xl mt-10">
+              How did you hear about Detoplea Marketing?
+            </p>
+            <select className="border p-3 w-full">
+              <option>Select an option </option>
+              <option value="google">Google</option>
+              <option value="instagram">Instagram</option>
+              <option value="twitter">Twitter</option>
+              <option value="facebook">Facebook</option>
+            </select>
           </div>
         </div>
         <div className="py-10 px-6 sm:px-12 lg:px-16 flex justify-end">

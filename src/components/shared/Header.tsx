@@ -59,10 +59,10 @@ const Header = () => {
           <nav className="flex flex-col space-y-4 p-6">
             {[
               { path: "/", name: "HOME" },
-              { path: "/watch", name: "START HERE" },
-              { path: "/dambe", name: "PORTFOLIO" },
-              { path: "/warriors", name: "SERVICES" },
-              { path: "/shop", name: "BLOG" },
+              { path: "/starthere", name: "START HERE" },
+              { path: "/portfolio", name: "PORTFOLIO" },
+              { path: "/services", name: "SERVICES" },
+              { path: "/blog", name: "BLOG" },
             ].map(({ path, name }) => (
               <NavLink
                 key={path}

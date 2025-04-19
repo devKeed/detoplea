@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 md:p-10">
         {/* Column 1: Who Are We */}
         <div className="text-left gap-4 flex flex-col items-start">
-          <h3 className="uppercase text-lg md:text-xl font-semibold">
+          <h3 className="uppercase text-lg md:text-2xl font-semibold">
             Who Are We
           </h3>
           <p className="max-w-md">
@@ -40,10 +40,12 @@ export default function Footer() {
         <NewsLetterForm />
 
         {/* Column 3: Links */}
-        <div className="flex flex-col md:flex-row justify-start gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">Navigate</h6>
-            <ul className="space-y-2">
+            <h6 className="font-semibold text-[#F2720D] text-2xl md:text-2xl mb-3">
+              Navigate
+            </h6>
+            <ul className="space-y-2 flex flex-col justify-center md:justify-start items-center md:items-start">
               {[
                 { href: "/hire-us", label: "Hire Us" },
                 { href: "/service", label: "Service" },
@@ -63,8 +65,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">Social</h6>
-            <ul className="space-y-2">
+            <h6 className="font-semibold text-[#F2720D] text-2xl md:text-2xl mb-3">
+              Social
+            </h6>
+            <ul className="space-y-2 flex flex-col justify-center md:justify-start items-center md:items-start">
               {[
                 { href: "/instagram", label: "Instagram" },
                 { href: "/pinterest", label: "Pinterest" },
