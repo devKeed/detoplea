@@ -63,11 +63,11 @@ export const Starthere = () => {
   return (
     <div className="text-center pt-8 md:pt-16 flex flex-col">
       {/* Image */}
-      <div className="relative w-full h-auto">
+      <div className="relative w-full h-[80vh] md:h-[90vh]">
         <img
           src={image}
           alt="linkedin"
-          className="w-full h-auto object-cover"
+          className="w-full h-[80vh] md:h-[90vh] object-cover"
         />
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
@@ -105,14 +105,14 @@ export const Starthere = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="uppercase font-semibold">What Sets Us Apart?</h2>
-          <p className="text-base md:text-xl font-normal">
+          <h2 className="uppercase text-xl sm:text-3xl md:text-4xl font-semibold">What Sets Us Apart?</h2>
+          <p className=" font-normal">
             We're a boutique-style agency that treats your business like our
             own. We take the time to truly understand your brand, your goals,
             and your vision, allowing us to build genuine, results-driven
             partnerships.
           </p>
-          <p className="text-base md:text-xl font-normal">
+          <p className=" font-normal">
             At Detoplea Marketing Agency, we're more than just a service
             provider—we're an extension of your team, fully invested in your
             success. Your wins are our wins, and together, we don't just meet

@@ -18,7 +18,7 @@ export const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <motion.div
-      className="bg-[#F2F2F2] rounded-2xl p-6 flex flex-col md:flex-row gap-6 max-w-6xl mx-auto relative overflow-hidden"
+      className="bg-[#F2F2F2] rounded-2xl p-3 md:p-6  flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto relative overflow-hidden"
       whileHover={{
         scale: 1.05,
         transition: { duration: 0.3 },
@@ -27,7 +27,7 @@ export const ServiceCard = ({
       <motion.img
         src={image}
         alt={title}
-        className="w-full md:w-1/3 h-full object-cover rounded-xl"
+        className="w-full lg:w-1/3 h-full object-cover rounded-xl"
         whileHover={{
           y: 10,
           transition: { duration: 0.3 },
@@ -40,19 +40,19 @@ export const ServiceCard = ({
           transition: { duration: 0.3 },
         }}
       >
-        <h2 className="text-4xl font-medium uppercase text-gray-800 mt-24">
+        <h2 className="text-2xl md:text-4xl font-medium uppercase text-gray-800 mt-0 lg:mt-24">
           {title}
         </h2>
         <p className="text-md  mt-2">{description}</p>
         <div className="mt-3">
-          <h3 className=" text-2xl font-medium text-gray-800 mt-7">
+          <h5 className=" text-md sm:text-xl md:text-2xl  font-medium text-gray-800 mt-2 md:mt-7">
             WHAT WE MANAGE:
-          </h3>
+          </h5>
           <div className="flex flex-wrap gap-2 mt-2">
             {features.map((feature, index) => (
               <span
                 key={index}
-                className="bg-gray-200 text-gray-700  rounded-2xl h-10 border border-black flex items-center justify-center"
+                className="bg-gray-200 text-gray-700  rounded-2xl h-7  md:h-10 border border-black flex items-center justify-center"
               >
                 <p className="text-[16px] px-3">{feature}</p>
               </span>

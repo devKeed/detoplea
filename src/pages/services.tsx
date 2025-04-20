@@ -22,7 +22,7 @@ export const Services = () => {
   };
 
   return (
-    <div className="mt-8 md:mt-14">
+    <div className="mt-4 md:mt-14">
       <div className="relative min-h-[60vh] md:min-h-[90vh]">
         <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-2 grid-rows-4 sm:grid-rows-2">
           {[image1, image2, image3, image4].map((image, index) => (
@@ -62,7 +62,7 @@ export const Services = () => {
             STANDOUT
           </span>
         </p>
-        <p className="w-full md:w-1/2 text-base sm:text-lg md:text-xl">
+        <p className="w-full md:w-1/2 sm:text-lg md:text-xl">
           We're not your standard agency. We craft unique, tailored campaigns
           for every brand—blending strategic content, community engagement, and
           creative storytelling to drive real results.
@@ -98,7 +98,7 @@ export const Services = () => {
 
       <ServicesSection />
 
-      <div className="bg-[#F2F2F2] flex flex-col py-10 md:py-20">
+      <div className="bg-[#F2F2F2] flex flex-col py-5 md:py-20">
         <p className="uppercase text-center font-semibold text-2xl sm:text-3xl md:text-4xl px-4">
           Interested? Here's How It{" "}
           <span className="text-[#F2720D] text-2xl sm:text-3xl md:text-4xl">
@@ -106,8 +106,8 @@ export const Services = () => {
           </span>
         </p>
 
-        <div className="flex flex-col md:flex-row gap-5 mt-6 md:mt-10 p-4 md:p-10 md:px-32">
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-72 p-4 md:p-5 pt-8 md:pt-14 mt-6 md:mt-11 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+        <div className="flex flex-col justify-center lg:items-center lg:flex-row gap-5 mt-6 md:mt-10 p-4 md:p-10 md:px-10 max-w-[1500px] mx-auto">
+          <div className="border border-black rounded-xl w-full lg:w-1/3 h-auto md:h-[600px] lg:h-[500px]  p-4 md:p-5 pt-8 md:pt-8 mt-6  bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               1. Explore Our services
             </h4>
@@ -117,7 +117,7 @@ export const Services = () => {
               Call, and we'll guide you.
             </p>
           </div>
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-80 p-4 md:p-5 pt-8 md:pt-14 mt-4 md:mt-7 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+          <div className="border border-black rounded-xl w-full lg:w-1/3 h-auto md:h-[700px] lg:h-[600px]  p-4 md:p-5 pt-8 md:pt-8 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               2. CONTACT US
             </h4>
@@ -129,7 +129,7 @@ export const Services = () => {
               schedule a Discovery Call.
             </p>
           </div>
-          <div className="border border-black rounded-xl w-full md:w-1/3 h-auto md:h-96 p-4 md:p-5 pt-8 md:pt-14 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
+          <div className="border border-black rounded-xl w-full lg:w-1/3 h-auto md:h-[800px] lg:h-[700px]  p-4 md:p-5 pt-8 md:pt-8 mt-4 2F2] flex flex-col gap-3 md:gap-5">
             <h4 className="uppercase text-center text-sm md:text-base">
               3. DISCOVERY CALL & CUSTOM STRATEGY
             </h4>
@@ -155,7 +155,7 @@ export const Services = () => {
         {faqs.map((faq, index) => (
           <div key={index} className="flex flex-col px-4 md:px-60 py-3 md:py-5">
             <div
-              className="uppercase justify-between flex text-xl md:text-3xl font-semibold cursor-pointer"
+              className="uppercase justify-between flex text-md md:text-2xl font-semibold cursor-pointer"
               onClick={() => toggleFaq(index)}
             >
               <p className="text-lg md:text-2xl font-normal pr-2">
@@ -178,7 +178,7 @@ export const Services = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="pt-3 md:pt-4 pb-2 text-base md:text-lg text-gray-700">
+                  <p className="pt-3 md:pt-4 pb-2 md:text-md text-gray-700">
                     {faq.answer}
                   </p>
                 </motion.div>

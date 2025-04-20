@@ -53,9 +53,9 @@ h5 {
 h6 {
   font-size: 20px;
 }
-p {
+p,li {
   font-size: 20px;
-  color: #262626;
+  color: #414141;
 }
 a {
   font-size: 18px !important;
@@ -102,6 +102,15 @@ body {
   }
   to {
     transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  p {
+    font-size: 16px;
   }
 }
 

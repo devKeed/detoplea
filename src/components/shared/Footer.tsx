@@ -16,13 +16,15 @@ export default function Footer() {
             key={index}
             src={img}
             alt={`Footer Image ${index + 1}`}
-            className="w-1/2 md:w-1/5 object-cover h-40 md:h-60"
+            className={`w-1/2 md:w-1/5 object-cover h-40 md:h-60 ${
+              index === 4 ? "hidden md:block" : ""
+            }`}
           />
         ))}
       </div>
 
       {/* Bottom Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 md:p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-10">
         {/* Column 1: Who Are We */}
         <div className="text-left gap-4 flex flex-col items-start">
           <h3 className="uppercase text-lg md:text-2xl font-semibold">
@@ -42,10 +44,10 @@ export default function Footer() {
         {/* Column 3: Links */}
         <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
-            <h6 className="font-semibold text-[#F2720D] text-2xl md:text-2xl mb-3">
+            <h6 className="font-semibold text-[#F2720D] text-md md:text-2xl mb-3">
               Navigate
             </h6>
-            <ul className="space-y-2 flex flex-col justify-center md:justify-start items-center md:items-start">
+            <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
                 { href: "/hire-us", label: "Hire Us" },
                 { href: "/service", label: "Service" },
@@ -65,10 +67,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h6 className="font-semibold text-[#F2720D] text-2xl md:text-2xl mb-3">
+            <h6 className="font-semibold text-[#F2720D] text-md md:text-2xl mb-3">
               Social
             </h6>
-            <ul className="space-y-2 flex flex-col justify-center md:justify-start items-center md:items-start">
+            <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
                 { href: "/instagram", label: "Instagram" },
                 { href: "/pinterest", label: "Pinterest" },

@@ -26,9 +26,7 @@ const Home: React.FC = () => {
       <Header />
       <HeroSection />
 
-      <RevealOnScroll>
-        <Info />
-      </RevealOnScroll>
+      <Info />
 
       <RevealOnScroll>
         <AboutUs />
