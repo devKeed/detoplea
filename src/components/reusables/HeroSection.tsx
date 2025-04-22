@@ -10,8 +10,9 @@ const HeroSection: React.FC = ({}) => {
         backgroundSize: "cover",
         backgroundPosition: "start",
         backgroundRepeat: "no-repeat",
-        height: "85vh",
+        height: "100vh",
         minHeight: "500px",
+        maxHeight: "1200px",
       }}
     >
       <div className=" p-4 md:p-20">
