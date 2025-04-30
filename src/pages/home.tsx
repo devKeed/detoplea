@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import AboutUs from "../components/home/AboutUs";
 import Highlights from "../components/home/Service";
 import Reviews from "../components/home/Reviews";
-import HeroSection from "../components/reusables/HeroSection";
+import HeroSection from "../components/home/HeroSection";
 import Header from "../components/shared/Header";
-import NewsletterModal from "../components/reusables/NewsLetterModal";
+import NewsletterModal from "../components/home/NewsLetterModal";
 import Info from "../components/home/Info";
-import RevealOnScroll from "../components/reusables/Reveal";
+import RevealOnScroll from "../components/animations/Reveal";
 import Blog from "../components/home/Blog";
 
 const Home: React.FC = () => {

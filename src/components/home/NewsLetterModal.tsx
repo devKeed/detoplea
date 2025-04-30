@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import MyInput from "./Input";
-import { MyFillButton } from "./Button";
+import { NewsLetterForm } from "../reusables/NewsLetterForm";
 
 interface NewsletterModalProps {
   isOpen: boolean;
@@ -13,7 +12,6 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Close on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -47,7 +45,6 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
           isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
-        {/* Left Image */}
         <div className="hidden md:block w-1/2">
           <img
             src="/images/news.png"
@@ -56,7 +53,6 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
           />
         </div>
 
-        {/* Right Content */}
         <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center items-start text-left">
           <NewsLetterForm />
         </div>
@@ -67,20 +63,4 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
 
 export default NewsletterModal;
 
-export const NewsLetterForm = () => {
-  return (
-    <div className="w-full space-y-4 flex flex-col justify-center items-center">
-      <h2 className="text-2xl font-bold text-black text-center">JOIN OUR NEWSLETTER</h2>
-      <p className=" text-gray-700 text-center">
-        Receive insider news and valuable social media tips from our team, so
-        you never miss a beat!
-      </p>
-      <MyInput type="text" placeholder="First Name" />
-      <MyInput type="email" placeholder="Email Address" />
-      <div className="flex m-auto text-center">
-       
-        <MyFillButton text="Subscribe" link="#" arrow={false} />
-      </div>
-    </div>
-  );
-};
+

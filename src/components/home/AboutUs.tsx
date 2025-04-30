@@ -1,6 +1,6 @@
 import image1 from "/images/Frame 22el.png";
 import { MyFillButton } from "../reusables/Button";
-import RevealOnScroll from "../reusables/Reveal";
+import RevealOnScroll from "../animations/Reveal";
 
 const AboutUs = () => {
   return (

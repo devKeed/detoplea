@@ -4,7 +4,7 @@ import image3 from "/images/image 11.png";
 import image4 from "/images/image 15.png";
 import image5 from "/images/image 14.png";
 import { MyFillButton } from "../reusables/Button";
-import { NewsLetterForm } from "../reusables/NewsLetterModal";
+import { NewsLetterForm } from "../reusables/NewsLetterForm";
 
 export default function Footer() {
   return (

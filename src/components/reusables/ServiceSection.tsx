@@ -3,7 +3,7 @@ import image2 from "../../../public/images/imageew.png";
 import image3 from "../../../public/images/image 9.png";
 import image4 from "../../../public/images/image 10.png";
 import image6 from "../../../public/images/imaged.png";
-import { ServiceCard } from "./ServiceCard";
+import { ServiceCard } from "../home/ServiceCard";
 
 const services = [
   {

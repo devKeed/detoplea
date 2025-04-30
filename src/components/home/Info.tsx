@@ -1,5 +1,5 @@
 import { MyOutlinedButton } from "../reusables/Button";
-import RevealOnScroll from "../reusables/Reveal";
+import RevealOnScroll from "../animations/Reveal";
 
 const Info = () => {
   return (
