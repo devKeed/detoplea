@@ -4,7 +4,7 @@ import MyInput from "./Input";
 export const NewsLetterForm = () => {
   return (
     <div className="w-full space-y-4 flex flex-col justify-center items-center">
-      <h2 className="text-2xl font-bold text-black text-center">
+      <h2 className="uppercase text-lg md:text-2xl font-semibold text-center">
         JOIN OUR NEWSLETTER
       </h2>
       <p className=" text-gray-700 text-center">

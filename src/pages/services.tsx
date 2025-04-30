@@ -190,9 +190,7 @@ export const Services = () => {
       </div>
 
       <div className="flex justify-center py-6 md:py-10 mb-20 md:mb-40">
-        <button className="bg-[#F2720D] flex items-center text-white gap-2 px-6 md:px-10 py-3 md:py-5 rounded-full hover:bg-gray-500 hover:text-white transition text-sm md:text-base">
-          Hire Us <FiArrowUpRight size={18} className="md:w-6 md:h-6" />
-        </button>
+      <MyFillButton text="Hire us" link="/contact" />
       </div>
     </div>
   );

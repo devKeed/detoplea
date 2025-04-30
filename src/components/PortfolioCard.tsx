@@ -48,9 +48,9 @@ export const PortfolioCard = ({ company, image, height, description, buttons }: 
               {buttons.map((button, index) => (
                 <button
                   key={index}
-                  className="border text-white flex items-center justify-between px-4 py-3 rounded-3xl transition"
+                  className="border text-white text-sm flex items-center justify-between px-4 py-3 rounded-3xl transition"
                 >
-                  <span>{button.text}</span>
+                  <span className="text-xs">{button.text}</span>
                   {button.icon}
                 </button>
               ))}

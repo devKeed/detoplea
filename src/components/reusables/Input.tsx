@@ -25,7 +25,7 @@ const MyInput: React.FC<InputProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`w-full px-4 py-3 rounded-xl text-xs bg-[#FFF6F0] focus:outline-none placeholder:text-gray-400 placeholder:text-xs ${className}`}
+      className={`w-full px-4 py-3 rounded-xl text-[15px] bg-[#FFF6F0] focus:outline-none placeholder:text-gray-400 placeholder:text-[15px] ${className}`}
     />
   );
 };

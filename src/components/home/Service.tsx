@@ -116,7 +116,7 @@ const LandingPage: React.FC = () => {
               <MyFillButton
                 text="Learn More"
                 bgColor="#F2F2F2"
-                link=""
+                link="/contact"
                 color="#000000"
                 hoverBgColor="#222222"
               />

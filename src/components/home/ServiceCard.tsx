@@ -50,12 +50,12 @@ export const ServiceCard = ({
           </h5>
           <div className="flex flex-wrap gap-2 mt-2">
             {features.map((feature, index) => (
-              <span
+                <span
                 key={index}
-                className="bg-gray-200 text-gray-700  rounded-2xl h-7  md:h-10 border border-black flex items-center justify-center"
-              >
+                className="bg-gray-200 text-gray-700 rounded-2xl border border-black flex items-center justify-center py-1 md:py-2"
+                >
                 <p className="text-[16px] px-3">{feature}</p>
-              </span>
+                </span>
             ))}
           </div>
         </div>
@@ -67,13 +67,13 @@ export const ServiceCard = ({
         </div>
       </motion.div>
       <motion.div
-        className="absolute top-8 right-8"
+        className="absolute top-4 right-4 md:top-8 md:right-8"
         whileHover={{
           rotate: -180,
           transition: { duration: 0.5 },
         }}
       >
-        <BsArrowDownLeftCircle className="text-black size-16" />
+        <BsArrowDownLeftCircle className="text-black size-10 md:size-16" />
       </motion.div>
     </motion.div>
   );

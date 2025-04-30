@@ -32,22 +32,22 @@ export default function Footer() {
             prioritize your business/ brand’s success online and want to help
             you scale your sales.
           </p>
-          <MyFillButton text="Hire us" link="/hire-us" />
+          <MyFillButton text="Hire us" link="/contact" />
         </div>
 
         <NewsLetterForm />
 
         <div className="flex flex-col flex-wrap md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
-            <h6 className="font-semibold text-[#F2720D] text-md md:text-2xl mb-3">
+            <h6 className="font-semibold text-[#F2720D] mb-3">
               Navigate
             </h6>
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
-                { href: "/hire-us", label: "Hire Us" },
+                { href: "/contact", label: "Hire Us" },
                 { href: "/service", label: "Service" },
                 { href: "/blog", label: "Blog" },
-                { href: "/about", label: "About" },
+                { href: "/starthere", label: "About" },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <a
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h6 className="font-semibold text-[#F2720D] text-md md:text-2xl mb-3">
+            <h6 className="font-semibold text-[#F2720D] mb-3">
               Social
             </h6>
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">

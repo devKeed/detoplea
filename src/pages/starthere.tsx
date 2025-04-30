@@ -7,12 +7,14 @@ import image5 from "../../public/images/image 7.png";
 import image6 from "../../public/images/image 8.png";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const TeamMemberCard = ({ name, image }: { name: string; image: string }) => {
+  const [isMobileHovering, setIsMobileHovering] = useState(false);
+
   return (
     <motion.div
-      className="w-full md:w-1/3 h-[250px] md:h-1/4 rounded-3xl relative overflow-hidden group"
+      className="w-full md:w-1/3 h-[250px] md:h-[500px] rounded-xl md:rounded-3xl relative overflow-hidden group"
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: {
@@ -23,22 +25,32 @@ const TeamMemberCard = ({ name, image }: { name: string; image: string }) => {
       }}
       whileHover={{
         scale: 1.05,
-        translateX: 10,
-        translateY: 10,
+        translateX: 5,
+        translateY: 5,
         transition: { duration: 0.3 },
       }}
+      onTouchStart={() => setIsMobileHovering(true)}
+      onTouchEnd={() => setIsMobileHovering(false)}
     >
       <img
         src={image}
         alt={name}
-        className="w-full h-full object-cover rounded-3xl"
+        className="w-full h-full object-cover rounded-xl md:rounded-3xl "
       />
-      <motion.h3 className="absolute bottom-0 w-full text-center py-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        {name}
-      </motion.h3>
-      <h3 className="absolute bottom-0 w-full text-center py-2 text-white md:hidden">
-        {name}
-      </h3>
+      <motion.div
+        className="absolute bottom-0 w-full bg-black bg-opacity-50 py-2 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: isMobileHovering ? 1 : 0,
+          y: isMobileHovering ? 0 : 20,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className="text-white font-medium text-base md:text-lg">{name}</h3>
+      </motion.div>
+      <div className="absolute bottom-0 w-full bg-black bg-opacity-50 py-2 text-center md:hidden">
+        <h3 className="text-white font-medium text-lg md:text-2xl">{name}</h3>
+      </div>
     </motion.div>
   );
 };
@@ -59,6 +71,7 @@ export const Starthere = () => {
     once: true,
     amount: 0.3,
   });
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div className="text-center pt-8 md:pt-16 flex flex-col">
@@ -105,7 +118,9 @@ export const Starthere = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="uppercase text-xl sm:text-3xl md:text-4xl font-semibold">What Sets Us Apart?</h2>
+          <h2 className="uppercase text-xl sm:text-3xl md:text-4xl font-semibold">
+            What Sets Us Apart?
+          </h2>
           <p className=" font-normal">
             We're a boutique-style agency that treats your business like our
             own. We take the time to truly understand your brand, your goals,
@@ -124,7 +139,7 @@ export const Starthere = () => {
 
       {/* Section 2 */}
       <motion.div
-        className="w-full h-auto md:h-56 bg-[#64BFB6] flex flex-col items-center justify-center gap-4 md:gap-16 py-6 px-4 overflow-hidden"
+        className="w-full h-auto bg-[#64BFB6] flex flex-col items-center justify-center gap-4 md:gap-16 py-6 px-4 overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -134,16 +149,20 @@ export const Starthere = () => {
           <h2 className="text-white text-2xl sm:text-4xl md:text-7xl uppercase font-normal mr-8">
             Welcome to Detoplea Marketing Agency // Welcome to Detoplea
             Marketing Agency // Welcome to Detoplea Marketing Agency // Welcome
-            to Detoplea Marketing Agency //
+            to Detoplea Marketing Agency // Welcome to Detoplea Marketing Agency
+            // Welcome to Detoplea Marketing Agency //
           </h2>
         </div>
-        <motion.button
-          className="text-black-500 bg-white pl-5 pr-5 md:pl-7 md:pr-7 flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 mb-4 md:mb-7 rounded-xl md:rounded-2xl hover:bg-gray-500 hover:text-white transition"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Learn More <FiArrowUpRight size={22} />
-        </motion.button>
+        <a href="/services">
+          {" "}
+          <motion.button
+            className="text-black-500 bg-white pl-5 pr-5 md:pl-7 md:pr-7 flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 mb-4 md:mb-7 rounded-xl md:rounded-2xl hover:bg-gray-500 hover:text-white transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Learn More <FiArrowUpRight size={22} />
+          </motion.button>
+        </a>
       </motion.div>
 
       {/* Section 3 */}
@@ -156,21 +175,29 @@ export const Starthere = () => {
           animate={isFirstRowInView ? "visible" : "hidden"}
         >
           <motion.div
-            className="w-full md:w-1/3 h-auto rounded-3xl relative overflow-hidden bg-[#F2F2F2] p-6"
+            className="w-full md:w-1/3 h-[200px] md:h-[500px] rounded-xl md:rounded-3xl relative overflow-hidden bg-[#F2F2F2] p-6 flex flex-col"
             whileHover={{
-              scale: 1.05,
-              translateX: 10,
-              translateY: 10,
+              scale: 1.03,
+              translateX: 5,
+              translateY: 5,
               transition: { duration: 0.3 },
             }}
+            onHoverStart={() => setIsHovering(true)}
+            onHoverEnd={() => setIsHovering(false)}
+            onTouchStart={() => setIsHovering(true)}
+            onTouchEnd={() => setIsHovering(false)}
           >
             <div className="absolute top-4 right-4">
-              <motion.div transition={{ duration: 0.3 }}>
-                <BsArrowDownLeftCircle size={40} className="md:w-16 md:h-16" />
+              <motion.div
+                animate={{ rotate: isHovering ? 360 : 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <BsArrowDownLeftCircle size={28} className="md:w-12 md:h-12" />
               </motion.div>
             </div>
-            <div className="flex flex-col justify-end h-48 sm:h-60 md:h-60">
-              <h3 className="font-bold uppercase text-lg md:text-xl">
+            <div className="flex-grow"></div>
+            <div className="pb-4">
+              <h3 className="font-bold uppercase text-base md:text-xl">
                 Meet The Team
               </h3>
             </div>

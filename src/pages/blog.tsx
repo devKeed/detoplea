@@ -1,6 +1,6 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { blogPosts } from "./data";
 import { BlogPostCard } from "../components/reusables/BlogPostCard";
+import { blogPosts } from "./blogData";
 
 export const Blog = () => {
   return (
@@ -15,14 +15,14 @@ export const Blog = () => {
               date={post.date}
               author={post.author}
               title={post.title}
-              onReadMore={() => (window.location.href = "/readmore")}
+              onReadMore={() => (window.location.href = `/blog/${post.id}`)}
             />
           ))}
         </div>
+        <p className="justify-end flex gap-1 pt-10 text-sm">
+          Older Post <MdKeyboardArrowRight size={30} />
+        </p>
       </div>
-      <p className="justify-end px-5 flex gap-1 ">
-        Older Post <MdKeyboardArrowRight size={30} />
-      </p>
     </div>
   );
 };
