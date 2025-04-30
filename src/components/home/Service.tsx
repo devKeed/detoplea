@@ -94,11 +94,11 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white text-black">
-      <div className="mx-auto px-4 py-8 sm:py-12 md:py-20">
+    <div className="w-full bg-white text-black ">
+      <div className="mx-auto px-4 py-8 sm:py-12 md:py-20 max-w-[1500px]">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10 md:mb-20">
           <div className="w-full md:w-1/2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-center md:text-left font-thin mb-4 sm:mb-6 md:mb-8 uppercase tracking-wide">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-center md:text-left font-thin mb-4 sm:mb-6 md:mb-8 uppercase">
               THIS IS HOW WE HELP
             </h2>
             <ul className="space-y-3 sm:space-y-4 text-base md:text-lg text-left">

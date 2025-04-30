@@ -7,6 +7,7 @@ import Header from "../components/shared/Header";
 import NewsletterModal from "../components/reusables/NewsLetterModal";
 import Info from "../components/home/Info";
 import RevealOnScroll from "../components/reusables/Reveal";
+import Blog from "../components/home/Blog";
 
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,29 +20,36 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div
-      style={{ overflow: "hidden" }}
-      className="text-center flex flex-col mb-10"
-    >
-      <Header />
-      <HeroSection />
+    <>
+      <div
+        style={{ overflow: "hidden" }}
+        className="text-center flex flex-col mb-10"
+      >
+        <Header />
+        <HeroSection />
 
-      <Info />
+        <Info />
 
-      <RevealOnScroll>
         <AboutUs />
-      </RevealOnScroll>
 
-      <RevealOnScroll>
-        <Highlights />
-      </RevealOnScroll>
+        <RevealOnScroll>
+          <Highlights />
+        </RevealOnScroll>
 
-      <RevealOnScroll>
-        <Reviews />
-      </RevealOnScroll>
+        <RevealOnScroll>
+          <Blog />
+        </RevealOnScroll>
 
-      <NewsletterModal isOpen={showModal} onClose={() => setShowModal(false)} />
-    </div>
+        <RevealOnScroll>
+          <Reviews />
+        </RevealOnScroll>
+
+        <NewsletterModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      </div>
+    </>
   );
 };
 

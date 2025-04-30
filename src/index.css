@@ -8,6 +8,7 @@
   box-sizing: border-box;
   font-size: 24px;
   font-family: "Uber Move", sans-serif;
+  scroll-behavior: smooth;
   font-weight: 500;
   line-height: 1.5;
 }
@@ -109,8 +110,24 @@ body {
   h1 {
     font-size: 2.5rem !important;
   }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.125rem;
+  }
+  h5 {
+    font-size: 0.875rem;
+  }
+  h6,
   p {
     font-size: 16px;
+  }
+  a {
+    font-size: 16px !important;
   }
 }
 
@@ -156,30 +173,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem !important;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1.125rem;
-  }
-  h5 {
-    font-size: 0.875rem;
-  }
-  h6,
-  p {
-    font-size: 16px;
-  }
-  a {
-    font-size: 16px !important;
-  }
-}
+
 
 @media (max-width: 480px) {
   h1 {

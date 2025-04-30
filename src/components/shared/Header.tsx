@@ -27,7 +27,7 @@ const Header = () => {
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
+                  `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug ${
                     isActive ? "font-bold text-[#CC5A00]" : ""
                   }`
                 }
@@ -89,7 +89,7 @@ const Header = () => {
               key={path}
               to={path}
               className={({ isActive }) =>
-                `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug tracking-wide ${
+                `text-gray-700 text-sm hover:text-[#CC5A00] transition leading-snug ${
                   isActive ? "font-bold text-[#CC5A00]" : ""
                 }`
               }

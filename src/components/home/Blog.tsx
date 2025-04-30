@@ -7,12 +7,12 @@ import BlogCard from "./BlogCard";
 const Blog: React.FC = () => {
   return (
     <div className="w-full bg-white text-black">
-      <div className="bg-[#F5F5F5] rounded-xl md:rounded-3xl p-8">
+      <div className="bg-[#F5F5F5] rounded-xl md:rounded-3xl p-8 max-w-[1500px] mx-auto">
         <div className="flex flex-col items-center mb-8">
-          <h2 className="font-bold uppercase tracking-wide mb-2 mt-5">
+          <h3 className="font-bold uppercase mb-2 mt-5">
             CHECKOUT THE BLOG
-          </h2>
-          <p className="mb-8 w-full md:w-1/2 text-center text-lg">
+          </h3>
+          <p className="mb-8 w-full md:w-1/2 text-center">
             From the latest marketing news, to platform updates, to small
             business advice, our experts have compiled it all for you.
           </p>

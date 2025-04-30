@@ -9,7 +9,6 @@ import { NewsLetterForm } from "../reusables/NewsLetterModal";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#F7E5D7]">
-      {/* Top Image Strip */}
       <div className="flex flex-wrap md:flex-nowrap w-full">
         {[image1, image2, image3, image4, image5].map((img, index) => (
           <img
@@ -23,9 +22,7 @@ export default function Footer() {
         ))}
       </div>
 
-      {/* Bottom Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-10">
-        {/* Column 1: Who Are We */}
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-8 p-6 md:p-10">
         <div className="text-left gap-4 flex flex-col items-start">
           <h3 className="uppercase text-lg md:text-2xl font-semibold">
             Who Are We
@@ -38,11 +35,9 @@ export default function Footer() {
           <MyFillButton text="Hire us" link="/hire-us" />
         </div>
 
-        {/* Column 2: Newsletter */}
         <NewsLetterForm />
 
-        {/* Column 3: Links */}
-        <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
+        <div className="flex flex-col flex-wrap md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
             <h6 className="font-semibold text-[#F2720D] text-md md:text-2xl mb-3">
               Navigate
