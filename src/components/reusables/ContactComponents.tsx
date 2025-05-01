@@ -98,7 +98,6 @@ export const CheckboxField = ({
 export const SelectField = ({
   label,
   options,
-  name,
   value,
   onChange,
   error,

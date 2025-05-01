@@ -4,7 +4,6 @@ import image2 from "../../public/images/solutions.png";
 import image3 from "../../public/images/sales.png";
 import image4 from "../../public/images/christina.png";
 import ServicesSection from "../components/reusables/ServiceSection";
-import { FiArrowUpRight } from "react-icons/fi";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { MyFillButton } from "../components/reusables/Button";
