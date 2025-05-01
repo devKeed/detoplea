@@ -45,7 +45,7 @@ export default function Footer() {
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
                 { href: "/contact", label: "Hire Us" },
-                { href: "/service", label: "Service" },
+                { href: "/services", label: "Service" },
                 { href: "/blog", label: "Blog" },
                 { href: "/starthere", label: "About" },
               ].map(({ href, label }) => (

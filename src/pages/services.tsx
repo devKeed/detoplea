@@ -145,7 +145,7 @@ export const Services = () => {
       </div>
 
       <div className="flex justify-center py-6 md:py-10">
-        <MyFillButton text="Book A Call" link="" />
+        <MyFillButton text="Book A Call" link="/contact" />
       </div>
 
       <div className="mt-6 md:mt-10 flex flex-col justify-center w-full mb-6 md:mb-10">

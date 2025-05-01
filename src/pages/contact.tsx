@@ -427,7 +427,7 @@ export const Contact = () => {
           <div className="flex justify-end pt-5">
             <button 
               type="submit" 
-              className={`bg-[#F2720D] text-white flex items-center gap-2 px-5 py-3 rounded-2xl hover:bg-gray-500 hover:text-white transition ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`bg-[#F2720D] text-white flex items-center gap-2 px-10 py-3 rounded-2xl hover:bg-gray-500 hover:text-white transition ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
               disabled={loading}
             >
               {loading ? 'Submitting...' : 'Submit'}

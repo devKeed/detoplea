@@ -2,69 +2,69 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 export const InputField = ({
-  label,
-  placeholder,
-  name,
-  value,
-  onChange,
-  error,
-  required = false,
+    label,
+    placeholder,
+    name,
+    value,
+    onChange,
+    error,
+    required = false,
 }: {
-  label: string;
-  placeholder: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
-  required?: boolean;
+    label: string;
+    placeholder: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: string;
+    required?: boolean;
 }) => (
-  <div className="flex flex-col w-full">
-    <p>{label} {required && <span className="text-red-500">*</span>}</p>
-    <input
-      type="text"
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      className={`border p-3 w-full text-xs ${error ? 'border-red-500' : ''}`}
-      required={required}
-    />
-    {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
-  </div>
+    <div className="flex flex-col w-full">
+        <p>{label} {required && <span className="text-red-500">*</span>}</p>
+        <input
+            type="text"
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            className={`border p-3 w-full text-xs focus:outline-none focus:ring-0 focus:border-black ${error ? 'border-red-500' : ''}`}
+            required={required}
+        />
+        {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+    </div>
 );
 
 export const TextAreaField = ({
-  label,
-  placeholder,
-  name,
-  value,
-  onChange,
-  height = "250px",
-  error,
-  required = false,
+    label,
+    placeholder,
+    name,
+    value,
+    onChange,
+    height = "250px",
+    error,
+    required = false,
 }: {
-  label: string;
-  placeholder: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  height?: string;
-  error?: string;
-  required?: boolean;
+    label: string;
+    placeholder: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    height?: string;
+    error?: string;
+    required?: boolean;
 }) => (
-  <div className="flex flex-col my-5">
-    <p>{label} {required && <span className="text-red-500">*</span>}</p>
-    <textarea
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      className={`border p-4 w-full text-xs ${error ? 'border-red-500' : ''}`}
-      style={{ height }}
-      required={required}
-    ></textarea>
-    {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
-  </div>
+    <div className="flex flex-col my-5">
+        <p>{label} {required && <span className="text-red-500">*</span>}</p>
+        <textarea
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            className={`border p-4 w-full text-xs focus:outline-none focus:ring-0 focus:border-black ${error ? 'border-red-500' : ''}`}
+            style={{ height }}
+            required={required}
+        ></textarea>
+        {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+    </div>
 );
 
 export const CheckboxField = ({ 
