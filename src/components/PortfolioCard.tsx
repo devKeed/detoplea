@@ -17,7 +17,7 @@ export const PortfolioCard = ({ company, image, height, description, buttons }: 
       initial="initial"
       whileHover="hover"
     >
-      <div className="text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2 rounded-t-2xl">
+      <div className="text-xs md:text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2 rounded-t-2xl">
         <motion.div variants={cardAnimations.arrow}>
           <GoArrowDownRight size={20} />
         </motion.div>

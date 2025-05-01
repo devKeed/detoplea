@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6 pt-2">
+        <div className="hidden max-[989px]:hidden min-[990px]:flex items-center space-x-6 pt-2">
           <nav className="flex space-x-6">
             {[
               { path: "/", name: "HOME" },
@@ -49,7 +49,7 @@ const Header = () => {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          className="md:hidden relative w-6 h-4 flex flex-col justify-between items-center z-50 group"
+          className="min-[990px]:hidden relative w-6 h-4 flex flex-col justify-between items-center z-50 group"
         >
           <span
             className={`w-6 h-0.5 bg-gray-700 rounded transition-transform duration-300 ease-in-out ${
@@ -71,7 +71,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-[#F7E5D7] absolute top-16 left-0 w-full z-40 transform transition-all duration-300 ease-in-out ${
+        className={`min-[990px]:hidden bg-[#F7E5D7] absolute top-16 left-0 w-full z-40 transform transition-all duration-300 ease-in-out ${
           menuOpen
             ? "opacity-100 scale-100 max-h-[500px]"
             : "opacity-0 scale-95 max-h-0 overflow-hidden"

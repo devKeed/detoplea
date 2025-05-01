@@ -148,7 +148,7 @@ export const Services = () => {
       </div>
 
       <div className="mt-6 md:mt-10 flex flex-col justify-center w-full mb-6 md:mb-10">
-        <h3 className="uppercase text-center mb-4 md:mb-8 text-2xl md:text-4xl font-bold px-4">
+        <h3 className="uppercase text-center mb-4 md:mb-8 text-xl md:text-4xl font-bold px-4">
           Frequently Asked Questions
         </h3>
         {faqs.map((faq, index) => (
@@ -157,7 +157,7 @@ export const Services = () => {
               className="uppercase justify-between flex text-md md:text-2xl font-semibold cursor-pointer"
               onClick={() => toggleFaq(index)}
             >
-              <p className="text-lg md:text-2xl font-normal pr-2">
+              <p className="text-sm md:text-xl font-normal pr-2">
                 {faq.question}
               </p>
               <span className="text-[#F2720D] flex-shrink-0">

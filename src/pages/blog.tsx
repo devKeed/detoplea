@@ -30,7 +30,7 @@ export const Blog = () => {
   return (
     <div className="md:py-4 flex flex-col">
       <div className="py-10 mb-16 px-4 md:px-10">
-        <div className="grid gap-5 grid-cols-1 mt-5 md:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 grid-cols-1 mt-20 sm:grid-cols-2 lg:grid-cols-4">
           {currentPosts.map((post) => (
             <BlogPostCard
               key={post.id}
@@ -52,10 +52,10 @@ export const Blog = () => {
             className={`flex items-center ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-black'}`}
           >
             <MdKeyboardArrowLeft size={30} />
-            <span className="text-sm">Previous</span>
+            <span className="text-xs">Previous</span>
           </button>
           
-          <span className="text-sm">
+          <span className="text-xs">
             Page {currentPage} of {totalPages}
           </span>
           
@@ -64,7 +64,7 @@ export const Blog = () => {
             disabled={currentPage === totalPages}
             className={`flex items-center ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-black'}`}
           >
-            <span className="text-sm">Next</span>
+            <span className="text-xs">Next</span>
             <MdKeyboardArrowRight size={30} />
           </button>
         </div>
