@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import { Starthere } from "./pages/starthere";
 import Readmore from "./pages/readmore";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogPost from "./pages/blog/[id]";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="blog/:id" element={<BlogPost />} />
         <Route path="contact" element={<Contact />} />
         <Route path="readmore" element={<Readmore />} />
         <Route path="*" element={<NotFound />} />

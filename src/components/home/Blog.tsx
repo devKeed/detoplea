@@ -1,10 +1,20 @@
 import React from "react";
-import image1 from "/images/image 1a.png";
-import image2 from "/images/image 2.png";
-import image3 from "/images/image 3.png";
+import { useNavigate } from "react-router-dom";
 import BlogCard from "./BlogCard";
+import { blogPosts } from "../../pages/blogData";
 
 const Blog: React.FC = () => {
+  const navigate = useNavigate();
+  
+  // Get the 3 most recent blog posts
+  const recentPosts = [...blogPosts]
+    .sort((a, b) => {
+      const dateA = a.date.split('/').reverse().join('');
+      const dateB = b.date.split('/').reverse().join('');
+      return dateB.localeCompare(dateA);
+    })
+    .slice(0, 3);
+
   return (
     <div className="w-full bg-white text-black">
       <div className="bg-[#F5F5F5] rounded-xl md:rounded-3xl p-8 max-w-[1500px] mx-auto">
@@ -19,18 +29,23 @@ const Blog: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-8">
-          <BlogCard
-            image={image1}
-            title="5 ways to increase your ROI in 2025"
-          />
-          <BlogCard
-            image={image2}
-            title="10 ways to increase your Social media revenue in 2025"
-          />
-          <BlogCard
-            image={image3}
-            title="10 ways to connect with clients via Social media in 2025"
-          />
+          {recentPosts.map(post => (
+            <BlogCard
+              key={post.id}
+              id={post.id}
+              image={post.image}
+              title={post.title}
+            />
+          ))}
+        </div>
+        
+        <div className="mt-8 text-center">
+          <button 
+            onClick={() => navigate("/blog")}
+            className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
+          >
+            View All Blog Posts
+          </button>
         </div>
       </div>
     </div>
