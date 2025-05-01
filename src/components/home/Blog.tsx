@@ -1,12 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import BlogCard from "./BlogCard";
 import { blogPosts } from "../../pages/blogData";
 
 const Blog: React.FC = () => {
-  const navigate = useNavigate();
-  
-  // Get the 3 most recent blog posts
   const recentPosts = [...blogPosts]
     .sort((a, b) => {
       const dateA = a.date.split('/').reverse().join('');
@@ -39,14 +35,14 @@ const Blog: React.FC = () => {
           ))}
         </div>
         
-        <div className="mt-8 text-center">
+        {/* <div className="mt-8 text-center">
           <button 
             onClick={() => navigate("/blog")}
             className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
           >
             View All Blog Posts
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

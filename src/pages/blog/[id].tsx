@@ -12,24 +12,19 @@ const BlogPost = () => {
   const [relatedPosts, setRelatedPosts] = useState<typeof blogPosts>([]);
 
   useEffect(() => {
-    // Find the current post
     const currentPost = blogPosts.find((post) => post.id === Number(id));
 
     if (!currentPost) {
-      // Redirect to blog page if post not found
       navigate("/blog");
       return;
     }
 
     setPost(currentPost);
 
-    // Get related posts (excluding current post)
-    // Try to find posts by the same author or with similar titles
     if (currentPost) {
       const related = blogPosts
         .filter((p) => p.id !== currentPost.id)
         .sort((a, b) => {
-          // Prioritize posts by the same author
           if (
             a.author === currentPost.author &&
             b.author !== currentPost.author
@@ -60,7 +55,6 @@ const BlogPost = () => {
     );
   }
 
-  // Calculate next and previous post IDs
   const currentIndex = blogPosts.findIndex((p) => p.id === post.id);
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
   const nextPost =
@@ -92,7 +86,6 @@ const BlogPost = () => {
         {post.content.sections.map((section, index) => (
           <section key={index}>
             <h2 className="text-xl font-semibold">
-              {/* {index + 1}.  */}
               {section.heading}
             </h2>
             <p className="py-2">{section.content}</p>
@@ -108,7 +101,6 @@ const BlogPost = () => {
           </section>
         ))}
 
-        {/* Post navigation */}
         <div className="flex justify-between items-center pt-10 border-t border-gray-200 text-sm">
           {prevPost ? (
             <button
@@ -148,7 +140,6 @@ const BlogPost = () => {
         </div>
       </div>
 
-      {/* Related posts section */}
       <div className="py-5 mb-16 px-4 md:px-10 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl font-semibold mb-6">Related Articles</h3>

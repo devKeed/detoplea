@@ -4,7 +4,6 @@ import { BlogPostCard } from "../components/reusables/BlogPostCard";
 import { blogPosts } from "./blogData";
 
 export const Blog = () => {
-  // Adding pagination for better organization
   const postsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
   
