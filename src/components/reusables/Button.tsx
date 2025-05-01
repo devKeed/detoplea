@@ -18,7 +18,7 @@ export const MyFillButton: FC<TButtonProps> = ({
     color = "white",
     bgColor = "#F2720D",
     hoverTextColor = "white",
-    hoverBgColor = "#F3720D",
+    hoverBgColor = "#f24a0d",
 }) => {
     return (
         <a

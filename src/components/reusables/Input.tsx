@@ -8,6 +8,7 @@ interface InputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   name?: string;
+  disabled?: boolean;
 }
 
 const MyInput: React.FC<InputProps> = ({
@@ -17,6 +18,7 @@ const MyInput: React.FC<InputProps> = ({
   onChange,
   className = "",
   name,
+  disabled = false,
 }) => {
   return (
     <input
@@ -25,7 +27,8 @@ const MyInput: React.FC<InputProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`w-full px-4 py-3 rounded-xl text-[15px] bg-[#FFF6F0] focus:outline-none placeholder:text-gray-400 placeholder:text-[15px] ${className}`}
+      disabled={disabled}
+      className={`w-full px-4 py-3 rounded-xl text-[15px] bg-[#FFF6F0] focus:outline-none placeholder:text-gray-400 placeholder:text-[15px] ${disabled ? 'opacity-70 cursor-not-allowed' : ''} ${className}`}
     />
   );
 };
