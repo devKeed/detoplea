@@ -1,54 +1,7 @@
-const InputField = ({ label, placeholder }: { label: string; placeholder: string }) => (
-  <div className="flex flex-col w-full">
-    <p>{label}</p>
-    <input
-      type="text"
-      placeholder={placeholder}
-      className="border p-3 w-full text-sm"
-    />
-  </div>
-);
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+import { InputField, CheckboxField, TextAreaField, SelectField } from "../components/reusables/ContactComponents";
 
-const TextAreaField = ({
-  label,
-  placeholder,
-  height = "250px",
-}: { label: string; placeholder: string; height?: string }) => (
-  <div className="flex flex-col my-5">
-    <p>{label}</p>
-    <textarea
-      placeholder={placeholder}
-      className="border p-4 w-full text-sm"
-      style={{ height }}
-    ></textarea>
-  </div>
-);
-
-const CheckboxField = ({ label, id }: { label: string; id: string }) => (
-  <div className="flex flex-row items-center gap-3 pt-5 text-xxs">
-    <input
-      type="checkbox"
-      id={id}
-      className="w-3 h-3" // smaller checkbox
-    />
-    <label htmlFor={id}>{label}</label>
-  </div>
-);
-
-
-
-const SelectField = ({ label, options }: { label: string; options: { label: string; value: string }[] }) => (
-  <div className="flex flex-col mt-5">
-    <p>{label}</p>
-    <select className="border p-3 w-full text-sm">
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-         <p className="text-xs">  {option.label}</p>
-        </option>
-      ))}
-    </select>
-  </div>
-);
 
 
 export const Contact = () => {
@@ -60,13 +13,46 @@ export const Contact = () => {
     "Web design and development",
   ];
 
-  const budgets = [
-    "$1000 - $2000",
-    "$2000 - $4000",
-    "$4000 - $6000",
-    "$6000 - $10000",
-    "$10000 - $12000",
-  ];
+  const baseBudgets = [1000, 2000, 4000, 6000, 10000, 12000];
+
+  const [currency, setCurrency] = useState<"USD" | "NGN">("USD");
+  const [conversion, setConversion] = useState(1);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const currencySymbols = { USD: "$", NGN: "₦" };
+
+  const handleCurrencyChange = async (cur: "USD" | "NGN") => {
+    setCurrency(cur);
+    setDropdownOpen(false);
+    if (cur === "NGN") {
+      try {
+        const res = await fetch(
+          "https://api.exchangerate-api.com/v4/latest/USD"
+        );
+        const data = await res.json();
+        setConversion(data.rates.NGN || 1);
+      } catch {
+        setConversion(1500); // fallback
+      }
+    } else {
+      setConversion(1);
+    }
+  };
+
+  const budgets = baseBudgets.slice(0, 5).map((usd, i) => {
+    const value = currency === "USD" ? usd : Math.round(usd * conversion);
+    const next =
+      currency === "USD"
+        ? baseBudgets[i + 1]
+        : baseBudgets[i + 1] && Math.round(baseBudgets[i + 1] * conversion);
+
+    const formatNumber = (num: number) => {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    if (!next) return `${currencySymbols[currency]}${formatNumber(value)}`;
+    return `${currencySymbols[currency]}${formatNumber(value)} - ${currencySymbols[currency]}${formatNumber(next)}`;
+  });
 
   const hearAboutUsOptions = [
     { label: "Select an option", value: "" },
@@ -83,14 +69,15 @@ export const Contact = () => {
           Client Application Form
         </h3>
         <p className="text-center font-normal mt-5 mb-5 px-3 text-sm sm:px-12 lg:px-60">
-          Ready to elevate your brand and accelerate your growth? Start by filling out our application. 
-          Once we review your details, we'll schedule a complimentary call to discuss your goals, 
-          share strategic insights, and see if we're the right fit. Because we tailor our approach 
-          to deliver maximum impact, we selectively partner with businesses ready to scale.
+          Ready to elevate your brand and accelerate your growth? Start by
+          filling out our application. Once we review your details, we'll
+          schedule a complimentary call to discuss your goals, share strategic
+          insights, and see if we're the right fit. Because we tailor our
+          approach to deliver maximum impact, we selectively partner with
+          businesses ready to scale.
         </p>
 
         <div className="pt-5 px-6 sm:px-12 lg:px-16 flex flex-col gap-5">
-          {/* Basic Info Section */}
           <div className="flex flex-col gap-7">
             <div className="flex flex-col sm:flex-row w-full gap-7">
               <InputField label="First Name" placeholder="First Name" />
@@ -102,7 +89,10 @@ export const Contact = () => {
             </div>
             <div className="flex flex-col sm:flex-row w-full gap-7">
               <InputField label="Company Name" placeholder="Company Name" />
-              <InputField label="Website/Social Media" placeholder="Website/Social Media" />
+              <InputField
+                label="Website/Social Media"
+                placeholder="Website/Social Media"
+              />
             </div>
           </div>
 
@@ -122,9 +112,44 @@ export const Contact = () => {
 
           {/* Budget Section */}
           <div className="flex flex-col pt-8">
-            <p className="">What is your monthly budget?</p>
+            <div className="flex items-center gap-3">
+              <p className="">What is your monthly budget?</p>
+              <div className="relative ">
+                <button
+                  type="button"
+                  className="flex items-center px-2 py-1 rounded-md text-xs bg-white"
+                  onClick={() => setDropdownOpen((v) => !v)}
+                >
+                  <span className="text-[15px]">
+                    Select your preferred currency:{" "}
+                    {currency === "USD" ? "USD ($)" : "NGN (₦)"}
+                  </span>
+                  <FaChevronDown className="ml-1 text-xs" size={10} />
+                </button>
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-1 w-24 bg-gray-100 rounded-md border z-10">
+                  <div
+                    className="text-[15px] px-4 py-2 hover:bg-gray-200 cursor-pointer rounded-t-md transition"
+                    onClick={() => handleCurrencyChange("USD")}
+                  >
+                    Dollar ($)
+                  </div>
+                  <div
+                    className="text-[15px] px-4 py-2 hover:bg-gray-200 cursor-pointer rounded-b-md transition border-t"
+                    onClick={() => handleCurrencyChange("NGN")}
+                  >
+                    Naira (₦)
+                  </div>
+                  </div>
+                )}
+              </div>
+            </div>
             {budgets.map((budget, index) => (
-              <CheckboxField key={budget} label={budget} id={`Price${index + 1}`} />
+              <CheckboxField
+                key={budget}
+                label={budget}
+                id={`Price${index + 1}`}
+              />
             ))}
           </div>
 
@@ -136,7 +161,10 @@ export const Contact = () => {
           />
 
           {/* How did you hear about us? */}
-          <SelectField label="How did you hear about Detoplea Marketing?" options={hearAboutUsOptions} />
+          <SelectField
+            label="How did you hear about Detoplea Marketing?"
+            options={hearAboutUsOptions}
+          />
 
           {/* Submit Button */}
           <div className="flex justify-end pt-5">
