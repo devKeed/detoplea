@@ -61,7 +61,17 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = ({ onSuccess, onErr
         body: JSON.stringify(data)
       });
       
-      const result = await response.json();
+      // Check for empty response before parsing
+      const responseText = await response.text();
+      let result;
+      
+      // Try to parse JSON only if there's content
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch (jsonError) {
+        console.error("Error parsing JSON response:", jsonError);
+        throw new Error("We received an unexpected response. Please try again later.");
+      }
       
       if (!response.ok) {
         // More user-friendly error handling based on common issues
