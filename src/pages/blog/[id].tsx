@@ -6,32 +6,40 @@ import { blogPosts } from "../blogData";
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<typeof blogPosts[0] | undefined>(undefined);
+  const [post, setPost] = useState<(typeof blogPosts)[0] | undefined>(
+    undefined
+  );
   const [relatedPosts, setRelatedPosts] = useState<typeof blogPosts>([]);
 
   useEffect(() => {
     // Find the current post
-    const currentPost = blogPosts.find(post => post.id === Number(id));
-    
+    const currentPost = blogPosts.find((post) => post.id === Number(id));
+
     if (!currentPost) {
       // Redirect to blog page if post not found
       navigate("/blog");
       return;
     }
-    
+
     setPost(currentPost);
 
     // Get related posts (excluding current post)
     // Try to find posts by the same author or with similar titles
     if (currentPost) {
       const related = blogPosts
-        .filter(p => p.id !== currentPost.id)
+        .filter((p) => p.id !== currentPost.id)
         .sort((a, b) => {
           // Prioritize posts by the same author
-          if (a.author === currentPost.author && b.author !== currentPost.author) {
+          if (
+            a.author === currentPost.author &&
+            b.author !== currentPost.author
+          ) {
             return -1;
           }
-          if (a.author !== currentPost.author && b.author === currentPost.author) {
+          if (
+            a.author !== currentPost.author &&
+            b.author === currentPost.author
+          ) {
             return 1;
           }
           return 0;
@@ -53,9 +61,10 @@ const BlogPost = () => {
   }
 
   // Calculate next and previous post IDs
-  const currentIndex = blogPosts.findIndex(p => p.id === post.id);
+  const currentIndex = blogPosts.findIndex((p) => p.id === post.id);
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   return (
     <div className="mt-20">
@@ -69,9 +78,9 @@ const BlogPost = () => {
           <p className="text-gray-500">- {post.author}</p>
         </div>
 
-        <img 
-          src={post.image} 
-          alt={post.title} 
+        <img
+          src={post.image}
+          alt={post.title}
           className="w-full h-auto rounded-lg my-4 object-cover"
         />
 
@@ -82,37 +91,60 @@ const BlogPost = () => {
 
         {post.content.sections.map((section, index) => (
           <section key={index}>
-            <h2 className="text-xl font-semibold">{index + 1}. {section.heading}</h2>
-            <p>{section.content}</p>
+            <h2 className="text-xl font-semibold">
+              {/* {index + 1}.  */}
+              {section.heading}
+            </h2>
+            <p className="py-2">{section.content}</p>
+            {section.list ? (
+              <ul className="list-disc pl-6 space-y-1">
+                {section.list.map((item: string, idx: number) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <div></div>
+            )}
           </section>
         ))}
 
         {/* Post navigation */}
-        <div className="flex justify-between items-center pt-10 border-t border-gray-200">
+        <div className="flex justify-between items-center pt-10 border-t border-gray-200 text-sm">
           {prevPost ? (
-            <button 
-              onClick={() => navigate(`/blog/${prevPost.id}`)} 
+            <button
+              onClick={() => navigate(`/blog/${prevPost.id}`)}
               className="flex items-center gap-2 text-gray-600 hover:text-black"
             >
-              ← Previous: {prevPost.title.length > 25 ? prevPost.title.substring(0, 25) + '...' : prevPost.title}
+              ← Previous:{" "}
+              {prevPost.title.length > 25
+                ? prevPost.title.substring(0, 25) + "..."
+                : prevPost.title}
             </button>
-          ) : <div></div>}
-          
-          <button 
+          ) : (
+            <div></div>
+          )}
+
+          <button
             onClick={() => navigate(`/blog`)}
-            className="text-gray-600 hover:underline"
+            className="text-gray-600 hover:underline text-sm"
           >
             Back to Blog
           </button>
-          
+
           {nextPost ? (
-            <button 
+            <button
               onClick={() => navigate(`/blog/${nextPost.id}`)}
-              className="flex items-center gap-2 text-gray-600 hover:text-black"
+              className="flex items-center gap-2 text-gray-600 hover:text-black text-sm"
             >
-              Next: {nextPost.title.length > 25 ? nextPost.title.substring(0, 25) + '...' : nextPost.title} →
+              Next:{" "}
+              {nextPost.title.length > 25
+                ? nextPost.title.substring(0, 25) + "..."
+                : nextPost.title}{" "}
+              →
             </button>
-          ) : <div></div>}
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
 
@@ -129,7 +161,9 @@ const BlogPost = () => {
                 date={relatedPost.date}
                 author={relatedPost.author}
                 id={relatedPost.id}
-                excerpt={relatedPost.content.introduction.substring(0, 80) + '...'}
+                excerpt={
+                  relatedPost.content.introduction.substring(0, 80) + "..."
+                }
               />
             ))}
           </div>
