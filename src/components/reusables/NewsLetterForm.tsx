@@ -34,7 +34,7 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = ({ onSuccess, onErr
     
     if (!form) return;
     
-    const handleSubmit = (e: SubmitEvent) => {
+    const handleSubmit = () => {
       setTimeout(() => {
         const successMessage = document.getElementById('mce-success-response');
         const errorMessage = document.getElementById('mce-error-response');
@@ -66,7 +66,6 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = ({ onSuccess, onErr
         you never miss a beat!
       </p>
       
-      {/* Mailchimp Embed Form with your actual Mailchimp values */}
       <div ref={mailchimpFormRef} className="w-full">
         <div id="mc_embed_signup">
           <form 
