@@ -21,7 +21,7 @@ export const Services = () => {
   };
 
   return (
-    <div className="mt-4 md:mt-14">
+    <div className="mt-12 md:mt-12">
       <div className="relative min-h-[60vh] md:min-h-[90vh]">
         <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-2 grid-rows-4 sm:grid-rows-2">
           {[image1, image2, image3, image4].map((image, index) => (
@@ -175,11 +175,19 @@ export const Services = () => {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
+                  className="overflow-hidden ml-4 md:ml-8 py-2 md:py-8"
                 >
-                  <p className="pt-3 md:pt-4 pb-2 md:text-md text-gray-700">
-                    {faq.answer}
-                  </p>
+                  {Array.isArray(faq.answer) ? (
+                    faq.answer.map((paragraph, i) => (
+                      <p key={i} className="pt-2 text-gray-700">
+                        {paragraph}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="pt-3 md:pt-4 pb-2 md:text-md text-gray-700">
+                      {faq.answer}
+                    </p>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -189,7 +197,7 @@ export const Services = () => {
       </div>
 
       <div className="flex justify-center py-6 md:py-10 mb-20 md:mb-40">
-      <MyFillButton text="Hire us" link="/contact" />
+        <MyFillButton text="Hire us" link="/contact" />
       </div>
     </div>
   );

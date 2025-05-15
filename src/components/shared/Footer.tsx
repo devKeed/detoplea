@@ -37,7 +37,7 @@ export default function Footer() {
 
         <NewsLetterForm />
 
-        <div className="flex flex-col flex-wrap md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
+        <div className="flex flex-row flex-wrap  md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
             <h6 className="font-semibold text-[#F2720D] mb-3">
               Navigate

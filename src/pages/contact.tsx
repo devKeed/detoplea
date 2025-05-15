@@ -254,8 +254,8 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="py-5 sm:py-16 pt-20 md:pt-0 lg:py-20">
-      <div className="my-5 sm:my-20 lg:my-44">
+    <div className="py-5 sm:py-16 pt-20 md:pt-0 lg:py-10">
+      <div className="my-5 sm:my-20 lg:my-20">
         <h3 className="uppercase text-[#EE8029] text-center font-medium">
           Client Application Form
         </h3>

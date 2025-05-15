@@ -9,24 +9,34 @@ const services = [
   {
     title: "Brand Identity Development",
     description:
-      "We help businesses establish a strong brand presence with stunning visuals and strategic positioning.",
+      "Branding is more than just a logo it’s the heartbeat of your business. We help craft unique, compelling brand identities that resonate with your audience and set you apart from the competition.",
     image: image3,
-    features: ["Logo & Visual Identity", "Brand Guidelines", "Market Research"],
+    features: [
+      "Brand Identity & Positioning",
+      "Logo & Visual Aesthetic",
+      "Tone of Voice & Messaging",
+      "Market & Competitor Analysis",
+      "Brand Guidelines",
+      "Brand Strategy",
+    ],
     breakdown:
       "A strong brand identity is crucial for business growth. We craft visual and strategic elements that make your brand memorable and impactful.",
   },
   {
     title: "Paid Ads",
     description:
-      "Maximize your reach and ROI with targeted advertising across digital platforms.",
+      "We put your brand in front of the right audience, at the right time, with ads that actually convert.",
     image: image4,
     features: [
-      "Google Ads",
       "Facebook & Instagram Ads",
-      "Conversion Optimization",
+      "Tiktok Ads",
+      "Snapchat Ads",
+      "Google & Youtube Ads",
+      "Rtargeting Campaigns",
+      "Performance Tracking & Optimization",
     ],
     breakdown:
-      "We specialize in running data-driven ad campaigns that ensure maximum engagement and conversions, making every ad dollar count.",
+      "Running ads isn’t just about spending money—it’s about making money. We craft result-driven ad campaigns designed to maximize your return on investment. Fromhigh-converting creatives to laser-focused targeting to creating the best offer for your business, we handle every aspect of paid media, ensuring your budget works smarter, not harder. Our team continuously monitors performance, optimizes strategies, andstays ahead of algorithm changes to drive measurable results.",
   },
   {
     title: "Social Media Management",
@@ -43,36 +53,45 @@ const services = [
       "Paid Social Ads",
     ],
     breakdown:
-      "Every brand is unique, which is why we craft custom social media strategies tailored to your goals. Our team stays ahead of trends and algorithms, helping you build a thriving online community.",
+      "Every brand is unique, which is why we craft custom social media strategies tailoredto your goals. We go beyond just posting—we focus on engagement, growth tactics, and storytelling that builds a loyal audience. Our team stays ahead of trends, algorithm updates, and platform shifts, so you don’t have to. With high-qualitycontent and smart social strategies, we help you build a thriving, engaged communitythat strengthens your brand’s digital presence.",
   },
   {
     title: "Email Marketing",
     description:
-      "Boost customer engagement with personalized email campaigns and automation.",
+      "Stop relying on algorithms—start owning your audience with email marketingthat converts.",
     image: image2,
-    features: ["Newsletter Design", "Automated Campaigns", "A/B Testing"],
+    features: [
+      "Automated Funnels & Sequences",
+      "Campaign Strategy & Execution",
+      "Copywriting & Design",
+      "Analytics & Performance Tracking",
+      "Lead Magnets & Opt-Ins",
+    ],
     breakdown:
-      "We create highly engaging email campaigns that nurture leads, retain customers, and drive conversions through personalized messaging.",
+      "Email marketing is one of the most effective ways to turn followers into customers and keep them coming back. We design and implement strategic email campaigns that nurture your audience, boost sales, and strengthen brand loyalty. Whether it’s a full automation setup, a weekly newsletter, or a targeted promotion, we create emails that get opened, read, and acted upon.",
   },
   {
     title: "Web Design & Development",
     description:
-      "Create stunning, high-performance websites that drive results and enhance user experience.",
+      "A great website isn’t just beautiful—it’s built to convert. We create stunning, user-friendly websites designed to elevate your brand and drive real results.",
     image: image1,
     features: [
-      "Responsive Design",
-      "E-Commerce Integration",
-      "SEO Optimization",
+      "Custom Website Design",
+      "E-Commerce Development",
+      "Landing Pages & Sales Funnels",
+      "UX/UI Optimization",
+      "Mobile Responsiveness & Speed Optimization",
+      "Search Engine Optimization",
     ],
     breakdown:
-      "We build fast, secure, and visually appealing websites that ensure an exceptional user experience, helping businesses thrive in the digital space.",
+      "Your website is often the first impression people have of your brand—make it count. We build custom, high-performing websites that not only look great but also functionseamlessly. Every site is designed with user experience in mind, ensuring easynavigation, fast load times, and a mobile-friendly layout. Whether you need a sleekportfolio, a conversion-focused sales page, or a full-scale e-commerce store, we bringyour vision to life with strategy and creativity",
   },
 ];
 
 const ServicesSection = () => {
   return (
     <div className="bg-white py-12 px-4 mb-10">
-      <div style={{maxWidth:"1500px"}} className=" mx-auto space-y-8">
+      <div style={{ maxWidth: "1500px" }} className=" mx-auto space-y-8">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}

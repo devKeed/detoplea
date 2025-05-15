@@ -40,29 +40,29 @@ export const ServiceCard = ({
           transition: { duration: 0.3 },
         }}
       >
-        <h2 className="text-2xl md:text-4xl font-medium uppercase text-gray-800 mt-0 lg:mt-24">
+        <h3 className="text-xl md:text-3xl font-medium uppercase text-gray-800 mt-0 lg:mt-10">
           {title}
-        </h2>
-        <p className="text-md  mt-2">{description}</p>
+        </h3>
+        <p className="text-md mt-2">{description}</p>
         <div className="mt-3">
           <h5 className=" text-md sm:text-xl md:text-2xl  font-medium text-gray-800 mt-2 md:mt-7">
             WHAT WE MANAGE:
           </h5>
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
             {features.map((feature, index) => (
-                <span
+              <span
                 key={index}
-                className="bg-gray-200 text-gray-700 rounded-2xl border border-black flex items-center justify-center py-1 md:py-2"
-                >
-                <p className="text-[16px] px-3">{feature}</p>
-                </span>
+                className="bg-gray-200 text-gray-700 rounded-xl border border-black flex items-center justify-center py-1 md:py-2"
+              >
+                <p className="text-[11px] md:text-[14px] px-2 md:px-3">{feature}</p>
+              </span>
             ))}
           </div>
         </div>
         <div className="mt-4">
-          <h3 className=" text-xl font-medium text-gray-800 mt-7">
+          <h5 className="text-md sm:text-xl md:text-2xl font-medium text-gray-800 mt-7">
             LET'S BREAK IT DOWN:
-          </h3>
+          </h5>
           <p className=" text-gray-700 mt-1">{breakdown}</p>
         </div>
       </motion.div>

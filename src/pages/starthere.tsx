@@ -74,7 +74,7 @@ export const Starthere = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="text-center pt-8 md:pt-16 flex flex-col">
+    <div className="text-center pt-8 md:pt-12 flex flex-col">
       {/* Image */}
       <div className="relative w-full h-[80vh] md:h-[90vh]">
         <img

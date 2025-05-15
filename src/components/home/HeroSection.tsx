@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const HeroSection: React.FC = () => {
   return (
     <div
-      className="relative flex items-center justify-center h-screen md:h-[92vh] text-center text-white px-3 sm:px-6 mt-10 md:mt-16 sm:mt-14"
+      className="relative flex items-center justify-center h-screen md:h-[92vh] text-center text-white px-3 sm:px-6 mt-4 md:mt-10 sm:mt-14"
       style={{
         minHeight: "500px",
         maxHeight: "1200px",
@@ -53,9 +53,9 @@ const HeroSection: React.FC = () => {
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
 
-      <div className="p-4 md:p-20 max-w-full relative z-20">
+      <div className="px-2 md:px-6 max-w-full relative z-20 flex flex-col items-center justify-center">
         <motion.div
-          className="md:mb-4 mb-2"
+          className="md:mb-4 mb-2 flex items-center"
           initial={{ x: 600, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0 }}
@@ -66,9 +66,9 @@ const HeroSection: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="md:mb-4 mb-2"
+          className="md:mb-4 mb-2 flex items-center"
           initial={{ x: -600, opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{  x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="md:mb-4 mb-2"
+          className="md:mb-4 mb-2 flex items-center"
           initial={{ x: 600, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -95,7 +95,7 @@ export default HeroSection;
 
 export const BigText = (props: { text: string }) => {
   return (
-    <span className="text-2xl xs:text-3xl sm:text-5xl md:text-7xl text-white font-semibold mr-1 sm:mr-2 block sm:inline leading-tight">
+    <span className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-black md:font-semibold mr-1 sm:mr-2 block sm:inline leading-tight">
       {props.text}
     </span>
   );
@@ -103,7 +103,7 @@ export const BigText = (props: { text: string }) => {
 
 export const SmallText = (props: { text: string }) => {
   return (
-    <span className="text-lg xs:text-xl sm:text-3xl md:text-4xl text-white font-semibold mr-1 sm:mr-2 block sm:inline leading-tight">
+    <span className="text-sm sm:text-2xl md:text-2xl lg:text-3xl text-white font-thin md:font-semibold mr-1 sm:mr-2 block sm:inline leading-tight">
       {props.text}
     </span>
   );
