@@ -1,36 +1,60 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface NewsLetterFormProps {
   onSuccess?: () => void;
   onError?: () => void;
 }
 
-export const NewsLetterForm: React.FC<NewsLetterFormProps> = () => {
+export const NewsLetterForm: React.FC<NewsLetterFormProps> = ({ onSuccess, onError }) => {
   const mailchimpFormRef = useRef<HTMLDivElement>(null);
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
 
   useEffect(() => {
-    // Create a script element for the Mailchimp embed code
     const script = document.createElement('script');
     script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
     script.type = 'text/javascript';
     
-    // Insert the script into the DOM
     document.body.appendChild(script);
     
-    // Load Mailchimp validation script
     script.onload = () => {
-      // This will execute once the script loads
-      const mailchimpValidation = (window as any).fnames;
-      if (mailchimpValidation) {
-        (window as any).$mcj = true; // Enable Mailchimp jQuery validation
+      if ((window as any).fnames) {
+        (window as any).$mcj = (window as any).jQuery.noConflict(true);
       }
     };
     
-    // Cleanup function to remove the script when component unmounts
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    const form = document.getElementById('mc-embedded-subscribe-form') as HTMLFormElement;
+    
+    if (!form) return;
+    
+    const handleSubmit = (e: SubmitEvent) => {
+      setTimeout(() => {
+        const successMessage = document.getElementById('mce-success-response');
+        const errorMessage = document.getElementById('mce-error-response');
+        
+        if (successMessage && window.getComputedStyle(successMessage).display !== 'none') {
+          setFormStatus('success');
+          if (onSuccess) onSuccess();
+        } else if (errorMessage && window.getComputedStyle(errorMessage).display !== 'none') {
+          setFormStatus('error');
+          if (onError) onError();
+        }
+      }, 1000);
+    };
+    
+    form.addEventListener('submit', handleSubmit);
+    
+    return () => {
+      form.removeEventListener('submit', handleSubmit);
+    };
+  }, [onSuccess, onError]);
 
   return (
     <div className="w-full space-y-4 flex flex-col justify-center items-center">
@@ -42,12 +66,11 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = () => {
         you never miss a beat!
       </p>
       
-      {/* Mailchimp Embed Form - Replace with your own form HTML from Mailchimp */}
+      {/* Mailchimp Embed Form with your actual Mailchimp values */}
       <div ref={mailchimpFormRef} className="w-full">
         <div id="mc_embed_signup">
-          {/* Replace the form action URL and hidden input with your own Mailchimp values */}
           <form 
-            action="https://YOUR-DOMAIN.us1.list-manage.com/subscribe/post?u=YOUR_U_VALUE&amp;id=YOUR_ID_VALUE" 
+            action="https://detopleamarketing.us14.list-manage.com/subscribe/post?u=f55a7e50bba37ccb229da4780&amp;id=0827895d85&amp;f_id=001a9ce5f0" 
             method="post" 
             id="mc-embedded-subscribe-form" 
             name="mc-embedded-subscribe-form" 
@@ -74,10 +97,16 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = () => {
                   required 
                 />
               </div>
-              {/* Bot protection, don't remove */}
-              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-                <input type="text" name="b_YOUR_U_VALUE_HERE_TOO_REPLACE_THIS" tabIndex={-1} value="" readOnly />
+              
+              <div id="mce-responses" className="clear foot">
+                <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
+                <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
               </div>
+              
+              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                <input type="text" name="b_f55a7e50bba37ccb229da4780_0827895d85" tabIndex={-1} value="" readOnly />
+              </div>
+              
               <div className="flex m-auto text-center">
                 <button 
                   type="submit" 
@@ -92,6 +121,18 @@ export const NewsLetterForm: React.FC<NewsLetterFormProps> = () => {
           </form>
         </div>
       </div>
+      
+      {formStatus === 'success' && (
+        <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-4 w-full">
+          <p>Thank you for subscribing to our newsletter!</p>
+        </div>
+      )}
+      
+      {formStatus === 'error' && (
+        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-4 w-full">
+          <p>There was an error with your subscription. Please try again.</p>
+        </div>
+      )}
     </div>
   );
 };
