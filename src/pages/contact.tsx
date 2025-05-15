@@ -8,10 +8,9 @@ import {
 } from "../components/reusables/ContactComponents";
 import emailjs from "@emailjs/browser";
 
-// Access EmailJS credentials from environment variables
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = "service_4hle95n";
+const EMAILJS_TEMPLATE_ID = "template_jt9mqah";
+const EMAILJS_PUBLIC_KEY = "EB6AjbR-AcaknLOhv";
 
 export const Contact = () => {
   const services = [
@@ -49,7 +48,6 @@ export const Contact = () => {
 
   const currencySymbols = { USD: "$", NGN: "₦" };
 
-  // Fetch conversion rate when currency changes to NGN
   const handleCurrencyChange = async (cur: "USD" | "NGN") => {
     setCurrency(cur);
     setDropdownOpen(false);
@@ -61,7 +59,7 @@ export const Contact = () => {
         const data = await res.json();
         setConversion(data.rates.NGN || 1);
       } catch {
-        setConversion(1500); // fallback
+        setConversion(1500);
       }
     } else {
       setConversion(1);
@@ -75,7 +73,6 @@ export const Contact = () => {
         ? baseBudgets[i + 1]
         : baseBudgets[i + 1] && Math.round(baseBudgets[i + 1] * conversion);
 
-    // Format numbers with commas as thousands separators
     const formatNumber = (num: number) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
@@ -118,7 +115,6 @@ export const Contact = () => {
       ...formData,
       selectedBudget: e.target.checked ? e.target.name : "",
     });
-    // Clear error when user selects a budget
     if (errors.selectedBudget) {
       setErrors({ ...errors, selectedBudget: "" });
     }
@@ -129,7 +125,6 @@ export const Contact = () => {
       ...formData,
       [name]: value,
     });
-    // Clear error when user selects an option
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
@@ -138,11 +133,9 @@ export const Contact = () => {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Required fields validation
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
 
-    // Email validation
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -151,7 +144,6 @@ export const Contact = () => {
 
     if (!formData.phone) newErrors.phone = "Phone number is required";
 
-    // Check if any service is selected
     const hasSelectedService = Object.values(formData.selectedServices).some(
       (value) => value
     );
@@ -159,12 +151,10 @@ export const Contact = () => {
       newErrors.selectedServices = "Please select at least one service";
     }
 
-    // Check if budget is selected
     if (!formData.selectedBudget) {
       newErrors.selectedBudget = "Please select a budget range";
     }
 
-    // Check if source is selected
     if (!formData.hearAboutUs) {
       newErrors.hearAboutUs = "Please let us know how you heard about us";
     }
@@ -183,13 +173,11 @@ export const Contact = () => {
     setLoading(true);
     setSubmissionStatus("idle");
 
-    // Prepare services list for email
     const selectedServicesList = Object.entries(formData.selectedServices)
       .filter(([_, isSelected]) => isSelected)
       .map(([service]) => service)
       .join(", ");
 
-    // Prepare email template parameters
     const templateParams = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -205,7 +193,6 @@ export const Contact = () => {
     };
 
     try {
-      // Send email using EmailJS
       const result = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -216,7 +203,6 @@ export const Contact = () => {
       console.log("Email sent successfully:", result);
       setSubmissionStatus("success");
 
-      // Reset form
       setFormData({
         firstName: "",
         lastName: "",
@@ -248,7 +234,6 @@ export const Contact = () => {
     { label: "Other", value: "other" },
   ];
 
-  // Initialize EmailJS
   useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
@@ -272,7 +257,6 @@ export const Contact = () => {
           onSubmit={handleSubmit}
           className="pt-5 px-6 sm:px-12 lg:px-16 flex flex-col gap-5"
         >
-          {/* Basic Info Section */}
           <div className="flex flex-col gap-7">
             <div className="flex flex-col sm:flex-row w-full gap-7">
               <InputField
@@ -332,7 +316,6 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Services Section */}
           <div className="flex flex-col pt-5 sm:pt-16">
             <p className="">
               What service(s) are you interested in?{" "}
@@ -355,7 +338,6 @@ export const Contact = () => {
             ))}
           </div>
 
-          {/* Goals Section */}
           <TextAreaField
             label="Please tell us more about your goals:"
             placeholder="Please be specific about what you're looking for, what you've previously tried, and if you have particular goals in mind."
@@ -364,7 +346,6 @@ export const Contact = () => {
             onChange={handleInputChange}
           />
 
-          {/* Budget Section */}
           <div className="flex flex-col pt-8">
             <div className="flex items-center gap-3">
               <p className="">
@@ -418,7 +399,6 @@ export const Contact = () => {
             ))}
           </div>
 
-          {/* Start Time Section */}
           <TextAreaField
             label="If this is a good fit, how soon can you get started?"
             placeholder=""
@@ -428,7 +408,6 @@ export const Contact = () => {
             height="150px"
           />
 
-          {/* How did you hear about us? */}
           <SelectField
             label="How did you hear about Detoplea Marketing?"
             options={hearAboutUsOptions}
@@ -456,7 +435,6 @@ export const Contact = () => {
             </div>
           )}
 
-          {/* Submit Button */}
           <div className="flex justify-end pt-5">
             <button
               type="submit"
