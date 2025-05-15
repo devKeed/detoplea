@@ -1,0 +1,10 @@
+# Enable rewriting
+RewriteEngine On
+
+# If the request is not for a file, directory, or symbolic link
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# Rewrite everything to the root index.html
+RewriteRule ^(.*)$ index.html [QSA,L]
