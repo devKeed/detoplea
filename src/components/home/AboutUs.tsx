@@ -31,7 +31,7 @@ const AboutUs = () => {
           bgColor="#00CCB8"
           hoverBgColor="#02574F"
           text="Get Started"
-          link=""
+          link="/contact"
         />
       </div>
     </div>
