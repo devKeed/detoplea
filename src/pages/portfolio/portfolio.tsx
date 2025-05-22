@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { PortfolioCard } from "../components/PortfolioCard";
-import { fadeInUpVariants } from "../utils/animations";
-import { portfolioItems } from "./data";
+import { PortfolioCard } from "../../components/portfolio/PortfolioCard";
+import { fadeInUpVariants } from "../../utils/animations";
+import { portfolioItems } from "../data";
 
 const Portfolio = () => {
   const portfolioRef = useRef(null);
