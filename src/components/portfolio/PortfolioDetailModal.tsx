@@ -1,34 +1,40 @@
-
-import React from 'react';
+import React from "react";
 
 interface PortfolioDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
   data: {
     company: string;
-    image: string; // Main image, can be used as a fallback or part of a gallery
+    image: string;
     description: string;
-    // Add more specific props for detailed information and images
-    // For example:
-    // detailedDescription?: string;
-    // images?: string[];
-    // servicesRendered?: string[];
-    // clientTestimonial?: string;
+    imageMod1?: string;
+    imageMod2?: string;
+    subtitle?: string;
+    duration?: string;
+    highlights?: string;
+    results?: string;
+    approach?: string;
+    services?: string[];
+    year?: string;
   };
 }
 
-const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({ isOpen, onClose, data }) => {
+const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
+  isOpen,
+  onClose,
+  data,
+}) => {
   if (!isOpen) return null;
 
   // Prevent background scroll when modal is open
   React.useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -36,7 +42,12 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({ isOpen, onC
     <div className="fixed inset-0 z-[100] bg-black bg-opacity-75 flex justify-center items-center p-4 transition-opacity duration-300">
       <div className="bg-white rounded-lg shadow-xl overflow-hidden max-w-3xl w-full max-h-[90vh] flex flex-col">
         <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-xl font-semibold text-gray-800">{data.company} Details</h2>
+          <h2 className="text-xl font-semibold text-gray-800">
+            {data.company}
+          </h2>
+          {data.subtitle && (
+            <p className="text-gray-600 mb-4">{data.subtitle}</p>
+          )}
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 text-2xl"
@@ -44,53 +55,42 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({ isOpen, onC
           >
             &times;
           </button>
+          {data.duration && (
+            <p className="text-gray-600 mb-4">{data.subtitle}</p>
+          )}
         </div>
 
         <div className="p-6 overflow-y-auto flex-grow">
           {/* Image Gallery Section */}
           <div className="mb-6">
-            <img src={data.image} alt={data.company} className="w-full h-auto max-h-96 object-contain rounded-md mb-2" />
-            {/* If you have multiple images, you can map through them here */}
-            {/* For example:
-            {data.images && data.images.length > 0 && (
-              <div className="grid grid-cols-3 gap-2">
-                {data.images.map((img, index) => (
-                  <img key={index} src={img} alt={`${data.company} image ${index + 1}`} className="w-full h-24 object-cover rounded" />
-                ))}
-              </div>
-            )}
-            */}
+            <img
+              src={data.imageMod1}
+              alt={data.company}
+              className="w-full h-auto max-h-96 object-contain rounded-md mb-2"
+            />
           </div>
 
           {/* Full Info Section */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-700 mb-2">About the Project</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">
+              About the Project
+            </h3>
             <p className="text-gray-600 mb-4">{data.description}</p>
-            
-            {/* Placeholder for more detailed information */}
-            {/* {data.detailedDescription && (
-              <p className="text-gray-600 mb-4">{data.detailedDescription}</p>
-            )} */}
 
-            {/* Example: Services Rendered */}
-            {/* {data.servicesRendered && data.servicesRendered.length > 0 && (
+            {/* Placeholder for more detailed information */}
+
+            {data.services && data.services.length > 0 && (
               <div className="mb-4">
-                <h4 className="font-semibold text-gray-700">Services Rendered:</h4>
+                <h4 className="font-semibold text-gray-700">
+                  Services Rendered:
+                </h4>
                 <ul className="list-disc list-inside text-gray-600">
-                  {data.servicesRendered.map(service => <li key={service}>{service}</li>)}
+                  {data.services.map((service) => (
+                    <li key={service}>{service}</li>
+                  ))}
                 </ul>
               </div>
             )}
-            */}
-
-            {/* Example: Client Testimonial */}
-            {/* {data.clientTestimonial && (
-              <div className="p-4 bg-gray-50 rounded-md">
-                <p className="italic text-gray-600">"{data.clientTestimonial}"</p>
-                <p className="text-right text-sm text-gray-500">- A Happy Client</p>
-              </div>
-            )}
-            */}
           </div>
         </div>
 

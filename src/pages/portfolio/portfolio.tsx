@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PortfolioCard } from "../../components/portfolio/PortfolioCard";
 import { fadeInUpVariants } from "../../utils/animations";
-import { portfolioItems } from "../data";
+import { portfolioItems } from "../../components/portfolio/PortfoiloData";
 
 const Portfolio = () => {
   const portfolioRef = useRef(null);
@@ -36,7 +36,7 @@ const Portfolio = () => {
         animate={isPortfolioInView ? "visible" : "hidden"}
         transition={{ staggerChildren: 0.15 }}
       >
-        {portfolioItems.map((item) => (
+        {portfolioItems.map((item: any) => (
           <motion.div
             key={item.id}
             className="mb-6 break-inside-avoid"

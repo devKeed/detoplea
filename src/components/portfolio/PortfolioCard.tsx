@@ -7,27 +7,31 @@ import PortfolioDetailModal from "./PortfolioDetailModal";
 interface PortfolioCardProps {
   company: string;
   image: string;
-  height: string;
   description: string;
-  buttons: Array<{ text: string; icon?: React.ReactNode }>;
-  // Add any other props needed for the modal, e.g., more images, full details
-  // For the modal, we might want to pass more data
-  detailedDescription?: string;
-  additionalImages?: string[];
-  servicesRendered?: string[];
-  clientTestimonial?: string;
+  imageMod1?: string;
+  imageMod2?: string;
+  subtitle?: string;
+  duration?: string;
+  highlights?: string;
+  results?: string;
+  approach?: string;
+  services?: string[];
+  year?: string;
 }
 
-export const PortfolioCard = ({ 
-  company, 
-  image, 
-  height, 
-  description, 
-  buttons, 
-  detailedDescription, 
-  additionalImages, 
-  servicesRendered, 
-  clientTestimonial 
+export const PortfolioCard = ({
+  company,
+  image,
+  description,
+  imageMod1,
+  imageMod2,
+  subtitle,
+  duration,
+  highlights,
+  results,
+  approach,
+  services,
+  year,
 }: PortfolioCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -54,7 +58,6 @@ export const PortfolioCard = ({
             src={image}
             alt={company}
             className="w-full object-cover rounded-b-3xl"
-            style={{ height }}
             variants={cardAnimations.image}
           />
           <motion.div
@@ -68,19 +71,6 @@ export const PortfolioCard = ({
             <motion.p className="text-sm mb-4 text-gray-200">
               {description}
             </motion.p>
-            <div className="flex">
-              <div className="flex flex-col gap-3 mt-2">
-                {buttons.map((button, index) => (
-                  <button
-                    key={index}
-                    className="border text-white text-sm flex items-center justify-between px-4 py-3 rounded-3xl transition"
-                  >
-                    <span className="text-xs">{button.text}</span>
-                    {button.icon}
-                  </button>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -90,14 +80,17 @@ export const PortfolioCard = ({
         onClose={closeModal}
         data={{
           company,
-          image, // This is the main card image
-          description, // This is the short description from the card
-          // Pass additional data for the modal
-          detailedDescription: detailedDescription || description, // Fallback to card description if not provided
-          images: additionalImages && additionalImages.length > 0 ? [image, ...additionalImages] : [image],
-          servicesRendered,
-          clientTestimonial,
-          // You can add more fields here as needed by the modal
+          image,
+          description,
+          imageMod1,
+          imageMod2,
+          subtitle,
+          duration,
+          highlights,
+          results,
+          approach,
+          services,
+          year,
         }}
       />
     </>
