@@ -37,7 +37,7 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
         <div className="flex justify-between items-center p-2 md:p-4 border-b">
           <div className="">
             {" "}
-            <h2 className="text-xl font-semibold text-gray-800">
+            <h2 className="text-sm md:text-xl font-semibold text-gray-800">
               {data.company}
             </h2>
             {data.subtitle && (
