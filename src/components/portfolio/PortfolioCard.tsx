@@ -17,6 +17,7 @@ interface PortfolioCardProps {
   approach?: string;
   services?: string[];
   year?: string;
+  buttons : any[];
 }
 
 export const PortfolioCard = ({
@@ -32,6 +33,7 @@ export const PortfolioCard = ({
   approach,
   services,
   year,
+  buttons,
 }: PortfolioCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,10 +43,10 @@ export const PortfolioCard = ({
   return (
     <>
       <motion.div
-        className="relative rounded-2xl cursor-pointer" // Add cursor-pointer
+        className="relative rounded-2xl cursor-pointer"
         initial="initial"
         whileHover="hover"
-        onClick={openModal} // Add onClick handler
+        onClick={openModal} 
       >
         <div className="text-xs md:text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2 rounded-t-2xl">
           <motion.div variants={cardAnimations.arrow}>
@@ -69,8 +71,21 @@ export const PortfolioCard = ({
             variants={cardAnimations.content}
           >
             <motion.p className="text-sm mb-4 text-gray-200">
-              {description}
+              {highlights}
             </motion.p>
+            <div className="flex">
+              <div className="flex flex-col gap-3 mt-2">
+                {buttons.map((button: any, index: any) => (
+                  <button
+                    key={index}
+                    className="border text-white text-sm flex items-center justify-between px-4 py-3 rounded-3xl transition"
+                  >
+                    <span className="text-xs">{button.text}</span>
+                    {button.icon}
+                  </button>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>
