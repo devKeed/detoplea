@@ -27,13 +27,10 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
   if (!isOpen) return null;
 
   React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    // lock scroll when modal is open, reset to default when closed or on cleanup
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
