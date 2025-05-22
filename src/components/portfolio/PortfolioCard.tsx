@@ -6,6 +6,8 @@ import PortfolioDetailModal from "./PortfolioDetailModal";
 
 interface PortfolioCardProps {
   company: string;
+  about: string;
+  height?: string;      
   image: string;
   description: string;
   imageMod1?: string;
@@ -22,6 +24,7 @@ interface PortfolioCardProps {
 
 export const PortfolioCard = ({
   company,
+  about,
   image,
   description,
   imageMod1,
@@ -95,6 +98,7 @@ export const PortfolioCard = ({
         onClose={closeModal}
         data={{
           company,
+          about,
           image,
           description,
           imageMod1,

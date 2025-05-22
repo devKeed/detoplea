@@ -5,6 +5,7 @@ interface PortfolioDetailModalProps {
   onClose: () => void;
   data: {
     company: string;
+    about: string;
     image: string;
     description: string;
     imageMod1?: string;
@@ -24,15 +25,11 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
   onClose,
   data,
 }) => {
-  if (!isOpen) return null;
-
   React.useEffect(() => {
-    // lock scroll when modal is open, reset to default when closed or on cleanup
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isOpen]);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] bg-black bg-opacity-75 flex justify-center items-center p-4 transition-opacity duration-300">
@@ -74,10 +71,14 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
           </div>
 
           <div>
-            <h4 className="text-xl uppercase font-semibold text-gray-700 mb-2">
-              About the Project
-            </h4>
-            <p className="text-gray-600 mb-4 text-xs">{data.description}</p>
+            {data.about && (
+              <>
+                <h4 className="text-xl uppercase font-semibold text-gray-700 mb-2">
+                  About the Project
+                </h4>
+                <p className="text-gray-600 mb-4 text-xs">{data.about}</p>
+              </>
+            )}
 
             {data.services && data.services.length > 0 && (
               <div className="mb-4 mt-2">
