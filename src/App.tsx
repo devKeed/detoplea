@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Portfolio from "./pages/portfolio";
+import Portfolio from "./pages/portfolio/portfolio";
 import NotFound from "./pages/notFound";
 import { Services } from "./pages/services";
 import { Blog } from "./pages/blog";

@@ -45,6 +45,13 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
           isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
+        <button
+          onClick={onClose}
+          className="absolute top-1 right-2 text-gray-500 hover:text-gray-700 text-2xl z-10"
+          aria-label="Close newsletter modal"
+        >
+          &times;
+        </button>
         <div className="hidden md:block w-1/2">
           <img
             src="/images/news.png"
