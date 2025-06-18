@@ -1,27 +1,40 @@
-import image1 from "/images/image 13a.png";
-import image2 from "/images/image 16.png";
-import image3 from "/images/image 11.png";
-import image4 from "/images/image 15.png";
-import image5 from "/images/image 14.png";
+import image1 from "/images/f1.webp";
+import image2 from "/images/f2.webp";
+import image3 from "/images/f3.webp";
+import image4 from "/images/f4.webp";
 import { MyFillButton } from "../reusables/Button";
 import { NewsLetterForm } from "../reusables/NewsLetterForm";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  // Instagram post links
+  const instagramLinks = [
+    "https://www.instagram.com/p/DJWKyyvMF1F/?utm_source=ig_web_copy_link&igsh=MWpnOXJzdDRwcGM4OA==",
+    "https://www.instagram.com/p/DJmLMsBMqf0/?utm_source=ig_web_copy_link&igsh=MWNyMmYybGVwcDkxMQ==",
+    "https://www.instagram.com/p/DJogHD7seom/?utm_source=ig_web_copy_link&igsh=MTJyd3h1MHo5NWtvOA==",
+    "https://www.instagram.com/p/DJglRAhMIqe/?utm_source=ig_web_copy_link&igsh=MXcxbnBjYTU4cGMzeQ==",
+  ];
+
   return (
     <footer className="w-full bg-[#F7E5D7]">
       <div className="flex flex-wrap md:flex-nowrap w-full">
-        {[image1, image2, image3, image4, image5].map((img, index) => (
-          <img
+        {[image1, image2, image3, image4].map((img, index) => (
+          <a
             key={index}
-            src={img}
-            alt={`Detoplea Marketing team member ${
-              index + 1
-            } - Professional digital marketing services`}
-            className={`w-1/2 md:w-1/5 object-cover h-40 md:h-60 ${
-              index === 4 ? "hidden md:block" : ""
-            }`}
-          />
+            href={instagramLinks[index]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-1/2 md:w-1/4 ${index === 4 ? "hidden md:block" : ""}`}
+            aria-label={`Detoplea Marketing Instagram post ${index + 1}`}
+          >
+            <img
+              src={img}
+              alt={`Detoplea Marketing team member ${
+                index + 1
+              } - Professional digital marketing services`}
+              className="object-cover h-40 md:h-72 w-full"
+            />
+          </a>
         ))}
       </div>
 
