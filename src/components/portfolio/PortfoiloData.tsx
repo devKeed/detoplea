@@ -33,7 +33,8 @@ export const portfolioItems = [
     duration: "1 week",
     imageMod1: "/images/nord1.png",
     imageMod2: "/images/nord2.png",
-    highlights: "Highlights",
+    highlights:
+      "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     results: "Results",
     approach: "Our Approach",
     company: "WOUR NOW",
@@ -56,6 +57,8 @@ export const portfolioItems = [
     subtitle: "Industry: Beauty & Cosmetics",
     duration: "Rebranding Project",
     imageMod1: "/images/mit2.png",
+     highlights:
+      "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     results:
       "Boosted brand visibility across platforms, Improved brand trust with a consistent visual identity, Achieved cohesive messaging and aesthetics across touchpoints.",
     company: "Mitchell Beauty",
@@ -104,6 +107,8 @@ export const portfolioItems = [
     subtitle: "Industry: Wellness / Self-Care",
     duration: "3 Months",
     imageMod1: "/images/aq2.png",
+     highlights:
+      "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     results:
       "Generated 200+ qualified leads through ads, Increased Instagram engagement and reach, Established a consistent brand presence online",
     company: "Aquavita Oasis – Self-Care Brand",
@@ -117,6 +122,7 @@ export const portfolioItems = [
       "Ad Campaign Management",
       "Monthly Content Calendar",
     ],
+    
     year: "2024",
     buttons: [
       { text: "Branding", icon: <FiArrowUpRight size={20} /> },
@@ -130,6 +136,7 @@ export const portfolioItems = [
       "WOAW is a vibrant celebration of African weddings, culture, and luxury event planning. The brand needed help scaling its digital presence to attract both audiences and vendors across Africa and beyond.",
     subtitle: "Industry: African Wedding Media & Events",
     duration: "4 Months (Ongoing)",
+    
     imageMod1: "/images/af2.png",
     imageMod2: "/images/af3.png",
     highlights:
@@ -138,7 +145,7 @@ export const portfolioItems = [
       "Achieved 1 million views twice within the same month, Grew from 0 to 10,000+ followers organically, Boosted engagement and visibility in the wedding event space",
     company: "World of African Weddings .....",
     image: "/images/af3.png",
-    height: "550px",
+    height: "600px",
     description:
       "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     services: [
@@ -159,6 +166,8 @@ export const portfolioItems = [
     about: "",
     subtitle: "Industry: Food & Hospitality",
     duration: "Strategy Project",
+     highlights:
+      "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     imageMod1: "/images/ts2.png",
     results: "Defined a clear brand voice and customer positioning., Launched influencer campaigns that expanded reach and visibility.",
     company: "Tuscan Bowl Restaurant",
@@ -181,6 +190,8 @@ export const portfolioItems = [
       "XOAR is a cutting-edge skincare and cosmetic brand that merges innovation with natural ingredients to bring out your skin's true radiance. Focused on delivering bold beauty solutions.",
     subtitle: "Industry: Skincare",
     duration: "2 weeks",
+     highlights:
+      "We delivered a unified marketing (online & offline) for a stronger brand & richer customer experience.",
     imageMod1: "/images/xp2.png",
     imageMod2: "/images/xp3.png",
     results:
