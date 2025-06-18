@@ -54,7 +54,8 @@ h5 {
 h6 {
   font-size: 20px;
 }
-p,li {
+p,
+li {
   font-size: 20px;
   color: #414141;
 }
@@ -214,4 +215,10 @@ body {
 
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
+}
+
+/* Enhanced shadow utility for toasts */
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }

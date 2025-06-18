@@ -43,7 +43,10 @@ export const Contact = () => {
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const showToast = (message: string, type: "success" | "error" | "warning") => {
+  const showToast = (
+    message: string,
+    type: "success" | "error" | "warning"
+  ) => {
     setToast({
       message,
       type,
@@ -52,16 +55,16 @@ export const Contact = () => {
   };
 
   const hideToast = () => {
-    setToast(prev => ({ ...prev, isVisible: false }));
+    setToast((prev) => ({ ...prev, isVisible: false }));
   };
 
   const scrollToError = () => {
     if (formRef.current) {
-      const firstErrorField = formRef.current.querySelector('.border-red-500');
+      const firstErrorField = formRef.current.querySelector(".border-red-500");
       if (firstErrorField) {
-        firstErrorField.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
+        firstErrorField.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
         });
       }
     }
@@ -185,21 +188,22 @@ export const Contact = () => {
     }
 
     setErrors(newErrors);
-    
+
     if (Object.keys(newErrors).length > 0) {
       const errorCount = Object.keys(newErrors).length;
-      const errorMessage = errorCount === 1 
-        ? "Please fix the error below" 
-        : `Please fix the ${errorCount} errors below`;
-      
+      const errorMessage =
+        errorCount === 1
+          ? "Please fix the error below"
+          : `Please fix the ${errorCount} errors below`;
+
       showToast(errorMessage, "error");
-      
+
       // Scroll to first error after a brief delay
       setTimeout(() => {
         scrollToError();
       }, 100);
     }
-    
+
     return Object.keys(newErrors).length === 0;
   };
 
@@ -240,7 +244,10 @@ export const Contact = () => {
       );
 
       console.log("Email sent successfully:", result);
-      showToast("Thank you! Your message has been sent successfully. We'll be in touch soon.", "success");
+      showToast(
+        "Thank you! Your message has been sent successfully. We'll be in touch soon.",
+        "success"
+      );
 
       setFormData({
         firstName: "",
@@ -257,7 +264,10 @@ export const Contact = () => {
       });
     } catch (error) {
       console.error("Failed to send email:", error);
-      showToast("Sorry, there was an error sending your message. Please try again or contact us directly.", "error");
+      showToast(
+        "Sorry, there was an error sending your message. Please try again or contact us directly.",
+        "error"
+      );
     } finally {
       setLoading(false);
     }
@@ -489,7 +499,7 @@ export const Contact = () => {
           </form>
         </div>
       </div>
-      
+
       <Toast
         message={toast.message}
         type={toast.type}

@@ -29,8 +29,8 @@ export const InputField = ({
       value={value}
       onChange={onChange}
       className={`border p-3 w-full text-xs focus:outline-none focus:ring-2 transition-all ${
-        error 
-          ? "border-red-500 focus:ring-red-200 focus:border-red-500" 
+        error
+          ? "border-red-500 focus:ring-red-200 focus:border-red-500"
           : "focus:ring-blue-200 focus:border-black"
       }`}
       required={required}
@@ -68,7 +68,7 @@ export const TextAreaField = ({
       value={value}
       onChange={onChange}
       className={`border p-4 w-full text-xs focus:outline-none focus:ring-2 transition-all ${
-        error 
+        error
           ? "border-red-500 focus:ring-red-200 focus:border-red-500"
           : "focus:ring-blue-200 focus:border-black"
       }`}
@@ -163,8 +163,8 @@ export const SelectField = ({
       </p>
       <div
         className={`border p-3 w-full text-sm flex justify-between items-center cursor-pointer transition-all ${
-          error 
-            ? "border-red-500 focus-within:ring-2 focus-within:ring-red-200" 
+          error
+            ? "border-red-500 focus-within:ring-2 focus-within:ring-red-200"
             : "hover:border-gray-400"
         }`}
         onClick={() => setIsOpen(!isOpen)}
@@ -196,7 +196,9 @@ export const SelectField = ({
           ))}
         </div>
       )}
-      {error && <p className="text-red-500 text-xs mt-1 font-medium">{error}</p>}
+      {error && (
+        <p className="text-red-500 text-xs mt-1 font-medium">{error}</p>
+      )}
     </div>
   );
 };
