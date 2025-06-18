@@ -100,13 +100,15 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
               </div>
             )}
 
-            <div className="mb-6 mt-4 sm:mt-10">
-              <img
-                src={data.imageMod2}
-                alt={data.company}
-                className="w-full h-auto object-contain mb-2"
-              />
-            </div>
+            {data.imageMod2 && (
+              <div className="mb-6 mt-4 sm:mt-10">
+                <img
+                  src={data.imageMod2}
+                  alt={data.company}
+                  className="w-full h-auto object-contain mb-2"
+                />
+              </div>
+            )}
 
             <div>
               {data.results && (
