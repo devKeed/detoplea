@@ -5,6 +5,7 @@ import image4 from "/images/image 15.png";
 import image5 from "/images/image 14.png";
 import { MyFillButton } from "../reusables/Button";
 import { NewsLetterForm } from "../reusables/NewsLetterForm";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -14,7 +15,9 @@ export default function Footer() {
           <img
             key={index}
             src={img}
-            alt={`Footer Image ${index + 1}`}
+            alt={`Detoplea Marketing team member ${
+              index + 1
+            } - Professional digital marketing services`}
             className={`w-1/2 md:w-1/5 object-cover h-40 md:h-60 ${
               index === 4 ? "hidden md:block" : ""
             }`}
@@ -32,49 +35,93 @@ export default function Footer() {
             prioritize your business/ brand’s success online and want to help
             you scale your sales.
           </p>
-          <MyFillButton text="Hire us" link="/contact" />
+          <MyFillButton
+            text="Hire us"
+            link="/contact"
+            ariaLabel="Contact Detoplea Marketing for professional digital marketing services and consultation"
+          />
         </div>
 
         <NewsLetterForm />
 
         <div className="flex flex-row flex-wrap  md:flex-row justify-center md:justify-start items-center md:items-start gap-8 md:gap-12 w-full">
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">
-              Navigate
-            </h6>
+            <h6 className="font-semibold text-[#F2720D] mb-3">Navigate</h6>
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
-                { href: "/contact", label: "Hire Us" },
-                { href: "/services", label: "Service" },
-                { href: "/blog", label: "Blog" },
-                { href: "/starthere", label: "About" },
-              ].map(({ href, label }) => (
+                {
+                  href: "/contact",
+                  label: "Hire Us",
+                  ariaLabel:
+                    "Contact us for digital marketing services and consultation",
+                },
+                {
+                  href: "/services",
+                  label: "Service",
+                  ariaLabel:
+                    "View our comprehensive digital marketing services",
+                },
+                {
+                  href: "/blog",
+                  label: "Blog",
+                  ariaLabel:
+                    "Read our latest digital marketing insights and tips",
+                },
+                {
+                  href: "/starthere",
+                  label: "About",
+                  ariaLabel:
+                    "Learn about our team and digital marketing approach",
+                },
+              ].map(({ href, label, ariaLabel }) => (
                 <li key={href}>
-                  <a
-                    href={href}
+                  <Link
+                    to={href}
+                    aria-label={ariaLabel}
                     className="text-black hover:text-gray-400 transition-colors duration-200"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h6 className="font-semibold text-[#F2720D] mb-3">
-              Social
-            </h6>
+            <h6 className="font-semibold text-[#F2720D] mb-3">Social</h6>
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
-                { href: "/instagram", label: "Instagram" },
-                { href: "/pinterest", label: "Pinterest" },
-                { href: "/linkedin", label: "LinkedIn" },
-                { href: "/tiktok", label: "TikTok" },
-              ].map(({ href, label }) => (
+                {
+                  href: "https://instagram.com/detoplea",
+                  label: "Instagram",
+                  ariaLabel:
+                    "Follow Detoplea Marketing on Instagram for daily marketing tips and updates",
+                },
+                {
+                  href: "https://pinterest.com/detoplea",
+                  label: "Pinterest",
+                  ariaLabel:
+                    "Follow Detoplea Marketing on Pinterest for visual marketing inspiration",
+                },
+                {
+                  href: "https://linkedin.com/company/detoplea",
+                  label: "LinkedIn",
+                  ariaLabel:
+                    "Connect with Detoplea Marketing on LinkedIn for professional updates",
+                },
+                {
+                  href: "https://tiktok.com/@detoplea",
+                  label: "TikTok",
+                  ariaLabel:
+                    "Follow Detoplea Marketing on TikTok for short marketing tips and trends",
+                },
+              ].map(({ href, label, ariaLabel }) => (
                 <li key={href}>
                   <a
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={ariaLabel}
                     className="text-black hover:text-gray-400 transition-colors duration-200"
                   >
                     {label}
