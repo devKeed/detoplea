@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import {
   InputField,
   TextAreaField,
   CheckboxField,
+  RadioField,
   SelectField,
 } from "../components/reusables/ContactComponents";
+import { Toast } from "../components/reusables/Toast";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
 
@@ -28,10 +30,42 @@ export const Contact = () => {
   const [conversion, setConversion] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error" | "warning";
+    isVisible: boolean;
+  }>({
+    message: "",
+    type: "success",
+    isVisible: false,
+  });
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const showToast = (message: string, type: "success" | "error" | "warning") => {
+    setToast({
+      message,
+      type,
+      isVisible: true,
+    });
+  };
+
+  const hideToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
+  };
+
+  const scrollToError = () => {
+    if (formRef.current) {
+      const firstErrorField = formRef.current.querySelector('.border-red-500');
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      }
+    }
+  };
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -111,16 +145,6 @@ export const Contact = () => {
     });
   };
 
-  const handleBudgetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      selectedBudget: e.target.checked ? e.target.name : "",
-    });
-    if (errors.selectedBudget) {
-      setErrors({ ...errors, selectedBudget: "" });
-    }
-  };
-
   const handleSelectChange = (name: string, value: string) => {
     setFormData({
       ...formData,
@@ -140,7 +164,7 @@ export const Contact = () => {
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email address is invalid";
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!formData.phone) newErrors.phone = "Phone number is required";
@@ -161,6 +185,21 @@ export const Contact = () => {
     }
 
     setErrors(newErrors);
+    
+    if (Object.keys(newErrors).length > 0) {
+      const errorCount = Object.keys(newErrors).length;
+      const errorMessage = errorCount === 1 
+        ? "Please fix the error below" 
+        : `Please fix the ${errorCount} errors below`;
+      
+      showToast(errorMessage, "error");
+      
+      // Scroll to first error after a brief delay
+      setTimeout(() => {
+        scrollToError();
+      }, 100);
+    }
+    
     return Object.keys(newErrors).length === 0;
   };
 
@@ -172,7 +211,6 @@ export const Contact = () => {
     }
 
     setLoading(true);
-    setSubmissionStatus("idle");
 
     const selectedServicesList = Object.entries(formData.selectedServices)
       .filter(([_, isSelected]) => isSelected)
@@ -202,7 +240,7 @@ export const Contact = () => {
       );
 
       console.log("Email sent successfully:", result);
-      setSubmissionStatus("success");
+      showToast("Thank you! Your message has been sent successfully. We'll be in touch soon.", "success");
 
       setFormData({
         firstName: "",
@@ -219,7 +257,7 @@ export const Contact = () => {
       });
     } catch (error) {
       console.error("Failed to send email:", error);
-      setSubmissionStatus("error");
+      showToast("Sorry, there was an error sending your message. Please try again or contact us directly.", "error");
     } finally {
       setLoading(false);
     }
@@ -253,7 +291,7 @@ export const Contact = () => {
           <h3 className="uppercase text-[#EE8029] text-center font-medium">
             Client Application Form
           </h3>
-          <p className="text-center font-normal mt-5 mb-5 px-3 text-sm sm:px-12 lg:px-60">
+          <p className="text-center font-normal mt-5 mb-5 px-3 text-sm sm:px-12 lg:px-50">
             Ready to elevate your brand and accelerate your growth? Start by
             filling out our application. Once we review your details, we'll
             schedule a complimentary call to discuss your goals, share strategic
@@ -263,6 +301,7 @@ export const Contact = () => {
           </p>
 
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             className="pt-5 px-6 sm:px-12 lg:px-16 flex flex-col gap-5"
           >
@@ -397,13 +436,22 @@ export const Contact = () => {
                 </p>
               )}
               {budgets.map((budget, index) => (
-                <CheckboxField
+                <RadioField
                   key={budget}
                   label={budget}
-                  id={`Price${index + 1}`}
-                  name={budget}
+                  id={`budget-${index}`}
+                  name="budget"
+                  value={budget}
                   checked={formData.selectedBudget === budget}
-                  onChange={handleBudgetChange}
+                  onChange={(e) => {
+                    setFormData({
+                      ...formData,
+                      selectedBudget: e.target.value,
+                    });
+                    if (errors.selectedBudget) {
+                      setErrors({ ...errors, selectedBudget: "" });
+                    }
+                  }}
                 />
               ))}
             </div>
@@ -427,24 +475,6 @@ export const Contact = () => {
               required
             />
 
-            {submissionStatus === "success" && (
-              <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 max-w-4xl mx-auto">
-                <p>
-                  Thank you for your submission! We'll be in touch with you
-                  soon.
-                </p>
-              </div>
-            )}
-
-            {submissionStatus === "error" && (
-              <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 max-w-4xl mx-auto">
-                <p>
-                  There was an error submitting your form. Please try again or
-                  contact us directly.
-                </p>
-              </div>
-            )}
-
             <div className="flex justify-end pt-5">
               <button
                 type="submit"
@@ -459,6 +489,13 @@ export const Contact = () => {
           </form>
         </div>
       </div>
+      
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={hideToast}
+      />
     </>
   );
 };
