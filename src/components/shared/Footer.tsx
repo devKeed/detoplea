@@ -92,25 +92,25 @@ export default function Footer() {
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
                 {
-                  href: "https://instagram.com/detoplea",
+                  href: "https://www.instagram.com/detopleamarketing?igsh=MTJueDV1NWVtMzQwNA%3D%3D&utm_source=qr",
                   label: "Instagram",
                   ariaLabel:
                     "Follow Detoplea Marketing on Instagram for daily marketing tips and updates",
                 },
                 {
-                  href: "https://pinterest.com/detoplea",
+                  href: "https://pin.it/6lzYARXqy",
                   label: "Pinterest",
                   ariaLabel:
                     "Follow Detoplea Marketing on Pinterest for visual marketing inspiration",
                 },
                 {
-                  href: "https://linkedin.com/company/detoplea",
-                  label: "LinkedIn",
+                  href: "https://www.facebook.com/share/16EiJkTeGR/?mibextid=wwXIfr",
+                  label: "Facebook",
                   ariaLabel:
-                    "Connect with Detoplea Marketing on LinkedIn for professional updates",
+                    "Connect with Detoplea Marketing on Facebook for updates and content",
                 },
                 {
-                  href: "https://tiktok.com/@detoplea",
+                  href: "https://www.tiktok.com/@detopleamarketing?_t=ZM-8vzE4wVp3n4&_r=1",
                   label: "TikTok",
                   ariaLabel:
                     "Follow Detoplea Marketing on TikTok for short marketing tips and trends",
