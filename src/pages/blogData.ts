@@ -1,7 +1,7 @@
-import image1 from "../../public/images/image 18a.png";
-import image2 from "../../public/images/image 19aa.png";
-import image3 from "../../public/images/image 20aa.png";
-import image4 from "../../public/images/image 21aa.png";
+import image1 from "../../public/images/b1.jpeg";
+import image2 from "../../public/images/b2.jpeg";
+import image3 from "../../public/images/b1.jpeg";
+import image4 from "../../public/images/b2.jpeg";
 
 export const blogPosts = [
   {
