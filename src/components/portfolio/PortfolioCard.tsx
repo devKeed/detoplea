@@ -7,7 +7,7 @@ import PortfolioDetailModal from "./PortfolioDetailModal";
 interface PortfolioCardProps {
   company: string;
   about: string;
-  height?: string;      
+  height?: string;
   image: string;
   description: string;
   imageMod1?: string;
@@ -19,13 +19,14 @@ interface PortfolioCardProps {
   approach?: string;
   services?: string[];
   year?: string;
-  buttons : any[];
+  buttons: any[];
 }
 
 export const PortfolioCard = ({
   company,
   about,
   image,
+  height,
   description,
   imageMod1,
   imageMod2,
@@ -49,7 +50,7 @@ export const PortfolioCard = ({
         className="relative rounded-2xl cursor-pointer"
         initial="initial"
         whileHover="hover"
-        onClick={openModal} 
+        onClick={openModal}
       >
         <div className="text-xs md:text-sm font-semibold text-gray-700 bg-[#F2F2F2] p-3 flex gap-2 rounded-t-2xl">
           <motion.div variants={cardAnimations.arrow}>
@@ -58,11 +59,14 @@ export const PortfolioCard = ({
           {company}
         </div>
 
-        <motion.div className="relative overflow-hidden rounded-b-3xl">
+        <motion.div
+          className="relative overflow-hidden rounded-b-3xl"
+          style={{ height: height || "450px" }}
+        >
           <motion.img
             src={image}
             alt={company}
-            className="w-full object-cover rounded-b-3xl"
+            className="w-full h-full object-cover rounded-b-3xl"
             variants={cardAnimations.image}
           />
           <motion.div
