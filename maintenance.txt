@@ -1,0 +1,269 @@
+DETOPLEA WEBSITE MAINTENANCE GUIDE
+OVERVIEW
+This document provides simple maintenance instructions for the Detoplea Marketing website. Follow these steps to keep your website updated and running smoothly.
+TECHNOLOGIES USED IN THE WEBSITE
+Frontend Technologies
+React: JavaScript library for building the user interface
+
+
+TypeScript: JavaScript with type checking for better code quality
+
+
+Tailwind CSS: Utility-first CSS framework for styling
+
+
+Vite: Fast build tool and development server
+
+
+React Router DOM: For navigation between pages
+
+
+Framer Motion: For smooth animations and transitions
+
+
+Swiper: For image carousels and sliders
+
+
+Backend & Services
+Express.js: Web server for handling API requests
+
+
+Node.js: JavaScript runtime for the server
+
+
+Mailchimp API: Email newsletter management
+
+
+EmailJS: Contact form email handling
+
+
+Development Tools
+ESLint: Code quality checker
+
+
+PostCSS: CSS processing tool
+
+
+Autoprefixer: Adds browser prefixes to CSS
+
+
+HOW TO UPDATE THE BLOG SECTION
+Step 1: Find the Blog File
+ Navigate to src/pages/blogData.ts. This file contains all blog posts.
+Step 2: Add a New Blog Post
+ To add a new blog post, follow this structure and add to the beginning of the blogPosts array:
+arduino
+CopyEdit
+{
+  id: [NEXT_NUMBER], // Use the next sequential number
+  date: "DD/MM/YY", // Format: day/month/year (e.g., "15/06/25")
+  author: "Detoplea Marketing",
+  title: "Your Blog Post Title",
+  image: image1, // Use image1, image2, image3, or image4
+  content: {
+    title: "Your Blog Post Title",
+    introduction: "Your opening paragraph here...",
+    sections: [
+      {
+        heading: "Section Title (optional)",
+        content: "Your paragraph content here...",
+        list: [ // Optional - for bullet points
+          "First bullet point",
+          "Second bullet point",
+          "Third bullet point"
+        ]
+      }
+    ]
+  }
+}
+
+Step 3: Update Blog Images
+ Blog images are stored in the public/images/ folder.
+ Currently used images: b1.jpeg and b2.jpeg
+To add a new image:
+Add your image file to the public/images/ folder
+
+
+Import the image at the top of blogData.ts like this:
+ import newImage from "../../public/images/your-image.jpg"
+
+
+Use the imported image in your blog post:
+ image: newImage
+
+
+Step 4: Blog Post Display
+The homepage shows the 3 most recent blog posts automatically
+
+
+Posts are sorted by date
+
+
+Each blog post has its own dedicated page
+
+
+NEWSLETTER MANAGEMENT
+Mailchimp Integration
+ Newsletter signups are managed through Mailchimp.
+ Signup forms appear in:
+Newsletter popup modal (on page load)
+
+
+Footer subscription form
+
+
+Contact page
+To view and manage subscriptions, go to:
+https://us14.admin.mailchimp.com/audience/contacts/
+Sign in with your Google account
+Newsletter Not Working
+Confirm Mailchimp API settings in the .env file
+
+
+Check your Mailchimp dashboard to ensure the list is correct
+
+
+Try subscribing with a different email address
+
+
+
+
+
+
+
+CONTACT FORM MANAGEMENT
+EmailJS Integration
+The contact form uses EmailJS to send submissions to your email
+
+
+The form is located on the contact page in src/pages/contact.tsx
+To view and manage contact information from the hire us form
+https://dashboard.emailjs.com/admin/history 
+
+
+Sign in with:
+detopleamarketing@gmail.com
+Detoplea22$
+
+
+DEVELOPMENT & DEPLOYMENT
+To Run the Website Locally
+Open terminal in the project folder
+
+
+Run npm install (first time only)
+
+
+Run npm run dev
+
+
+Open your browser and go to http://localhost:5173
+
+
+To Build for Production
+Run npm run build
+
+
+Files will be created in the dist/ folder
+
+
+Upload the contents of the dist/ folder to cpanel
+https://portal.enrolweb.com/login?redirect=%2Fdashboard%2F
+Then click login to control panel
+To Start the Server
+Run node server.js
+
+
+The server will start on port 3001
+
+
+SIMPLE MAINTENANCE TASKS
+1. Update Company Information
+Edit text in the src/components/ folder
+
+
+Look for hard coded content and update contact info, address, phone numbers
+
+
+2. Update Images
+Replace image files in the public/images/ folder
+
+
+Keep file names the same to avoid broken links
+
+
+Optimize image size for web
+
+
+3. Update Navigation Menu
+Edit the file src/components/Layout.tsx
+
+
+Modify the menu items and URLs as needed
+
+
+4. Update SEO Information
+Edit src/components/SEO.tsx
+
+
+Update the page meta title, description, and keywords
+
+
+5. Update Social Media Links
+Find the social media components in src/components/
+
+
+Replace URLs with your own social profiles
+
+
+COMMON ISSUES & SOLUTIONS
+
+
+Contact Form Not Working
+Check the EmailJS configuration
+
+
+Make sure the correct email template is set up in EmailJS
+
+
+Look at the browser console for any error messages
+
+
+Images Not Displaying
+Confirm the image paths in your code
+
+
+Make sure the image is in the public/images/ folder
+
+
+Double-check that the file name matches exactly (case-sensitive)
+
+Environment Variables Needed
+Create a .env file in the root directory with the following:
+MAILCHIMP_API_KEY=your_api_key_here
+MAILCHIMP_SERVER_PREFIX=your_server_prefix (e.g., us14)
+MAILCHIMP_LIST_ID=your_list_id_here
+
+FILE BACKUP RECOMMENDATIONS
+Important Files to Backup
+src/pages/blogData.ts (contains all blog content)
+
+
+.env (environment variables)
+
+
+public/images/ (all website images)
+
+
+src/components/ (website components and layout)
+
+
+Before Making Any Changes
+Create a backup of the files you're about to edit. Preferably, create a new branch on GitHub
+
+
+Test your changes locally first
+
+
+Only push to the live website after successful testing
+
