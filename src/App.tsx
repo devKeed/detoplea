@@ -8,12 +8,10 @@ import { Contact } from "./pages/contact";
 import Layout from "./components/Layout";
 import { Starthere } from "./pages/starthere";
 import Readmore from "./pages/readmore";
-import ScrollToTop from "./components/ScrollToTop";
 import BlogPost from "./pages/blog/[id]";
 
 function App() {
   return (
-    <><ScrollToTop />
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -26,7 +24,7 @@ function App() {
         <Route path="readmore" element={<Readmore />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-    </Routes></>
+    </Routes>
   );
 }
 

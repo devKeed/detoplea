@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -16,6 +17,12 @@ export const ServiceCard = ({
   features,
   breakdown,
 }: ServiceCardProps) => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
+
   return (
     <motion.div
       className="bg-[#F2F2F2] rounded-2xl p-3 md:p-6  flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto relative overflow-hidden"
@@ -54,7 +61,9 @@ export const ServiceCard = ({
                 key={index}
                 className="bg-gray-200 text-gray-700 rounded-xl border border-black flex items-center justify-center py-1 md:py-2"
               >
-                <p className="text-[11px] md:text-[14px] px-2 md:px-3">{feature}</p>
+                <p className="text-[11px] md:text-[14px] px-2 md:px-3">
+                  {feature}
+                </p>
               </span>
             ))}
           </div>
@@ -67,11 +76,12 @@ export const ServiceCard = ({
         </div>
       </motion.div>
       <motion.div
-        className="absolute top-4 right-4 md:top-8 md:right-8"
+        className="absolute top-4 right-4 md:top-8 md:right-8 cursor-pointer"
         whileHover={{
           rotate: -180,
           transition: { duration: 0.5 },
         }}
+        onClick={handleContactClick}
       >
         <BsArrowDownLeftCircle className="text-black size-10 md:size-16" />
       </motion.div>

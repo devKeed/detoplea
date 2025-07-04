@@ -13,7 +13,7 @@ const Info = () => {
           stands out and succeeds.{" "}
         </RevealOnScroll>
       </p>
-      <MyOutlinedButton text="Learn More" link="/starthere" />
+      <MyOutlinedButton text="Learn More" link="/services" />
     </div>
   );
 };
