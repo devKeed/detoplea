@@ -6,10 +6,15 @@ import image4 from "../../public/images/b2.jpeg";
 export const blogPosts = [
   {
     id: 1,
-    date: "01/04/25",
+    slug: "why-ecommerce-brands-need-to-start-outsourcing-email-marketing",
+    date: "2025-07-01",
     author: "Detoplea Marketing",
     title: "Why Ecommerce Brands Need to Start Outsourcing Email Marketing",
     image: image1,
+    excerpt: {
+      rendered:
+        "It’s no secret that email marketing is still one of the most effective tools in the digital marketing playbook...",
+    },
     content: {
       title: "Why Ecommerce Brands Need to Start Outsourcing Email Marketing",
       introduction:
@@ -98,13 +103,19 @@ export const blogPosts = [
         },
       ],
     },
+    featured_media: null,
   },
   {
     id: 2,
-    date: "02/04/25",
+    slug: "why-community-management-matters-for-startups-and-ecommerce-brands",
+    date: "2025-07-02",
     author: "Detoplea Marketing",
     title: "Why Community Management Matters for Startups and Ecommerce Brands",
     image: image2,
+    excerpt: {
+      rendered:
+        "When you’re trying to grow a business, social media can feel like a never-ending task. Community management on social media makes all the difference...",
+    },
     content: {
       title:
         "Why Community Management Matters for Startups and Ecommerce Brands",
@@ -195,14 +206,20 @@ export const blogPosts = [
         },
       ],
     },
+    featured_media: null,
   },
   {
     id: 3,
-    date: "03/04/25",
+    slug: "why-startups-need-all-in-one-community-management-to-grow-on-social-media",
+    date: "2025-07-03",
     author: "Detoplea Marketing",
     title:
       "Why Startups Need All-in-One Community Management to Grow on Social Media",
     image: image3,
+    excerpt: {
+      rendered:
+        "Social media can do big things for startups—build brand awareness, connect with customers, and create real momentum...",
+    },
     content: {
       title:
         "Why Startups Need All-in-One Community Management to Grow on Social Media",
@@ -290,13 +307,19 @@ export const blogPosts = [
         },
       ],
     },
+    featured_media: null,
   },
   {
     id: 4,
-    date: "04/04/25",
+    slug: "how-a-social-media-influencer-manager-can-help-scale-your-brand",
+    date: "2025-07-04",
     author: "Detoplea Marketing",
     title: "How a Social Media Influencer Manager Can Help Scale Your Brand",
     image: image4,
+    excerpt: {
+      rendered:
+        "Running social media for your brand isn’t just about posting pretty photos or witty captions anymore...",
+    },
     content: {
       title: "How a Social Media Influencer Manager Can Help Scale Your Brand",
       introduction:
@@ -385,5 +408,6 @@ export const blogPosts = [
         },
       ],
     },
+    featured_media: null,
   },
 ];
