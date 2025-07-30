@@ -1,51 +1,16 @@
-import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { BlogPostCard } from "../../components/reusables/BlogPostCard";
-import { blogPosts } from "../blogData";
+import { usePost } from "../../hooks/usePost";
+import { usePosts } from "../../hooks/usePosts";
 import SEO from "../../components/SEO";
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<(typeof blogPosts)[0] | undefined>(
-    undefined
-  );
-  const [relatedPosts, setRelatedPosts] = useState<typeof blogPosts>([]);
+  const { data: post, isLoading, isError } = usePost(slug || "");
+  const { data: allPosts } = usePosts({ per_page: 50 }); // Get more posts for related posts
 
-  useEffect(() => {
-    const currentPost = blogPosts.find((post) => post.id === Number(id));
-
-    if (!currentPost) {
-      navigate("/blog");
-      return;
-    }
-
-    setPost(currentPost);
-
-    if (currentPost) {
-      const related = blogPosts
-        .filter((p) => p.id !== currentPost.id)
-        .sort((a, b) => {
-          if (
-            a.author === currentPost.author &&
-            b.author !== currentPost.author
-          ) {
-            return -1;
-          }
-          if (
-            b.author === currentPost.author &&
-            a.author !== currentPost.author
-          ) {
-            return 1;
-          }
-          return 0;
-        })
-        .slice(0, 4);
-      setRelatedPosts(related);
-    }
-  }, [id, navigate]);
-
-  if (!post) {
+  if (isLoading) {
     return (
       <div className="mt-20 container mx-auto py-10 px-4 text-center">
         <div className="animate-pulse">
@@ -56,78 +21,64 @@ const BlogPost = () => {
     );
   }
 
-  const currentIndex = blogPosts.findIndex((p) => p.id === post.id);
-  const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost =
-    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  if (isError || !post) {
+    return (
+      <div className="mt-20 container mx-auto py-10 px-4 text-center">
+        <div>Post not found</div>
+        <button
+          onClick={() => navigate("/blog")}
+          className="mt-4 text-blue-600 hover:underline"
+        >
+          Back to Blog
+        </button>
+      </div>
+    );
+  }
+
+  // Get related posts (excluding current post)
+  const relatedPosts =
+    allPosts?.filter((p) => p.id !== post.id).slice(0, 4) || [];
+
+  const postTitle =
+    typeof post.title === "string" ? post.title : post.title.rendered;
+  const postExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, "");
 
   return (
     <>
       <SEO
-        title={`${post.content.title} - Digital Marketing Insights`}
-        description={
-          post.content.introduction ||
-          `Read ${post.content.title} by ${post.author}. Discover valuable digital marketing insights and strategies to help grow your business online.`
-        }
-        keywords={`${post.content.title.toLowerCase()}, digital marketing, ${
-          post.author
-        }, business growth, marketing tips, SEO, social media marketing`}
+        title={`${postTitle} - Digital Marketing Insights`}
+        description={postExcerpt}
+        keywords={`${postTitle.toLowerCase()}, digital marketing, business growth, marketing tips, SEO, social media marketing`}
         url={`https://detoplea.com/blog/${post.id}`}
         type="article"
-        image={post.image}
+        image={post.featured_media || "/images/default-blog.png"}
       />
       <div className="mt-20">
         <div className="max-w-3xl mx-auto px-6 py-12 text-gray-800 space-y-8">
           <h2 className="text-2xl md:text-5xl font-bold md:text-center">
-            {post.content.title}
+            {postTitle}
           </h2>
 
           <div className="flex justify-between items-center w-full">
-            <p className="text-gray-500">{post.date}</p>
-            <p className="text-gray-500">- {post.author}</p>
+            <p className="text-gray-500">
+              {new Date(post.date).toLocaleDateString()}
+            </p>
+            <p className="text-gray-500">- Admin</p>
           </div>
 
           <img
-            src={post.image}
-            alt={post.title}
+            src={post.featured_media || "/images/default-blog.png"}
+            alt={postTitle}
             className="w-full h-auto rounded-lg my-4 object-cover"
           />
 
-          <section>
-            <h2 className="text-xl font-semibold">Introduction</h2>
-            <p>{post.content.introduction}</p>
-          </section>
-
-          {post.content.sections.map((section, index) => (
-            <section key={index}>
-              <h2 className="text-xl font-semibold">{section.heading}</h2>
-              <p className="py-2">{section.content}</p>
-              {section.list ? (
-                <ul className="list-disc pl-6 space-y-1">
-                  {section.list.map((item: string, idx: number) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              ) : (
-                <div></div>
-              )}
-            </section>
-          ))}
+          <div
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+          />
 
           <div className="flex justify-between items-center pt-10 border-t border-gray-200 text-sm">
-            {prevPost ? (
-              <button
-                onClick={() => navigate(`/blog/${prevPost.id}`)}
-                className="flex items-center gap-2 text-gray-600 hover:text-black"
-              >
-                ← Previous:{" "}
-                {prevPost.title.length > 25
-                  ? prevPost.title.substring(0, 25) + "..."
-                  : prevPost.title}
-              </button>
-            ) : (
-              <div></div>
-            )}
+            <div className="flex-1"></div>
 
             <button
               onClick={() => navigate(`/blog`)}
@@ -136,20 +87,7 @@ const BlogPost = () => {
               Back to Blog
             </button>
 
-            {nextPost ? (
-              <button
-                onClick={() => navigate(`/blog/${nextPost.id}`)}
-                className="flex items-center gap-2 text-gray-600 hover:text-black text-sm"
-              >
-                Next:{" "}
-                {nextPost.title.length > 25
-                  ? nextPost.title.substring(0, 25) + "..."
-                  : nextPost.title}{" "}
-                →
-              </button>
-            ) : (
-              <div></div>
-            )}
+            <div className="flex-1"></div>
           </div>
         </div>
 
@@ -160,13 +98,22 @@ const BlogPost = () => {
               {relatedPosts.map((relatedPost) => (
                 <BlogPostCard
                   key={relatedPost.id}
-                  image={relatedPost.image}
-                  title={relatedPost.title}
-                  date={relatedPost.date}
-                  author={relatedPost.author}
                   id={relatedPost.id}
+                  slug={relatedPost.slug} // Add slug prop
+                  image={
+                    relatedPost.featured_media || "/images/default-blog.png"
+                  }
+                  date={relatedPost.date}
+                  author="Admin"
+                  title={
+                    typeof relatedPost.title === "string"
+                      ? relatedPost.title
+                      : relatedPost.title.rendered
+                  }
                   excerpt={
-                    relatedPost.content.introduction.substring(0, 80) + "..."
+                    relatedPost.excerpt.rendered
+                      .replace(/<[^>]+>/g, "")
+                      .substring(0, 100) + "..."
                   }
                 />
               ))}

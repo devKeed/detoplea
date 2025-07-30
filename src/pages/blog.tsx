@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { BlogPostCard } from "../components/reusables/BlogPostCard";
-import { blogPosts } from "./blogData";
+import { usePosts } from "../hooks/usePosts";
 import SEO from "../components/SEO";
 
 export const Blog = () => {
   const postsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = usePosts({
+    per_page: postsPerPage,
+    page: currentPage,
+  });
 
-  const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError || !posts) {
+    return <div>Error loading posts.</div>;
+  }
+
+  const currentPosts = posts;
+
+  const totalPages = Math.ceil(posts.length / postsPerPage);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -44,11 +59,20 @@ export const Blog = () => {
               <BlogPostCard
                 key={post.id}
                 id={post.id}
-                image={post.image}
+                slug={post.slug} // Add slug prop
+                image={post.featured_media || "/images/default-blog.png"}
                 date={post.date}
-                author={post.author}
-                title={post.title}
-                excerpt={post.content.introduction.substring(0, 100) + "..."}
+                author="Admin" // Fallback author since WP API doesn't include this by default
+                title={
+                  typeof post.title === "string"
+                    ? post.title
+                    : post.title.rendered
+                }
+                excerpt={
+                  post.excerpt.rendered
+                    .replace(/<[^>]+>/g, "")
+                    .substring(0, 100) + "..."
+                }
               />
             ))}
           </div>

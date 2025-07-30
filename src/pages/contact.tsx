@@ -11,9 +11,9 @@ import { Toast } from "../components/reusables/Toast";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
 
-const EMAILJS_SERVICE_ID = "service_4hle95n";
-const EMAILJS_TEMPLATE_ID = "template_jt9mqah";
-const EMAILJS_PUBLIC_KEY = "EB6AjbR-AcaknLOhv";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const Contact = () => {
   const services = [
@@ -234,6 +234,19 @@ export const Contact = () => {
       startTime: formData.startTime,
       hearAboutUs: formData.hearAboutUs,
     };
+
+    // Check if EmailJS environment variables are configured
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error(
+        "EmailJS configuration missing. Please check your environment variables."
+      );
+      showToast(
+        "Email service is not properly configured. Please contact support.",
+        "error"
+      );
+      setLoading(false);
+      return;
+    }
 
     try {
       const result = await emailjs.send(

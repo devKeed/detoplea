@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 interface BlogPostCardProps {
   id: number;
+  slug?: string; // Add slug prop
   image: string;
   date: string;
   author: string;
@@ -13,6 +14,7 @@ interface BlogPostCardProps {
 
 export const BlogPostCard: FC<BlogPostCardProps> = ({
   id,
+  slug,
   image,
   date,
   author,
@@ -26,7 +28,9 @@ export const BlogPostCard: FC<BlogPostCardProps> = ({
     if (onReadMore) {
       onReadMore();
     } else {
-      navigate(`/blog/${id}`);
+      // Use slug if available, fallback to id
+      const postIdentifier = slug || id;
+      navigate(`/blog/${postIdentifier}`);
     }
   };
 
