@@ -10,7 +10,13 @@ interface BlogCardProps {
   link?: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ image, title, id, slug, link }) => {
+const BlogCard: React.FC<BlogCardProps> = ({
+  image,
+  title,
+  id,
+  slug,
+  link,
+}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

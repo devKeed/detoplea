@@ -73,7 +73,7 @@ export const getPosts = async ({
       search
     )}`;
     const posts = await fetchWithTimeout(url);
-    
+
     // Fetch featured image URLs for each post
     const postsWithImages = await Promise.all(
       posts.map(async (post: any) => {
@@ -84,7 +84,7 @@ export const getPosts = async ({
         };
       })
     );
-    
+
     return postsWithImages;
   } catch {
     return blogPosts.map((post) => ({
@@ -121,10 +121,10 @@ export const getPost = async (slug: string): Promise<WPPost> => {
     const url = `${API_BASE}/posts?slug=${slug}`;
     const posts = await fetchWithTimeout(url);
     const post = posts[0];
-    
+
     // Fetch featured image URL
     const featuredImageUrl = await getFeaturedImageUrl(post.featured_media);
-    
+
     return {
       ...post,
       featured_media: featuredImageUrl || post.featured_media,
