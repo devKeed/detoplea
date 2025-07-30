@@ -32,6 +32,7 @@ const Blog: React.FC = () => {
             <BlogCard
               key={post.id}
               id={post.id}
+              slug={post.slug} // Add slug prop
               image={post.featured_media || "/images/default-blog.png"}
               title={
                 typeof post.title === "string"

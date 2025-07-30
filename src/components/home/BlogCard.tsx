@@ -6,14 +6,17 @@ interface BlogCardProps {
   image: string;
   title: string;
   id?: number;
+  slug?: string; // Add slug prop
   link?: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ image, title, id, link }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ image, title, id, slug, link }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (id) {
+    if (slug) {
+      navigate(`/blog/${slug}`);
+    } else if (id) {
       navigate(`/blog/${id}`);
     } else if (link) {
       window.location.href = link;

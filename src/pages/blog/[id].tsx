@@ -5,9 +5,9 @@ import { usePosts } from "../../hooks/usePosts";
 import SEO from "../../components/SEO";
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { data: post, isLoading, isError } = usePost(id || "");
+  const { data: post, isLoading, isError } = usePost(slug || "");
   const { data: allPosts } = usePosts({ per_page: 50 }); // Get more posts for related posts
 
   if (isLoading) {
@@ -99,6 +99,7 @@ const BlogPost = () => {
                 <BlogPostCard
                   key={relatedPost.id}
                   id={relatedPost.id}
+                  slug={relatedPost.slug} // Add slug prop
                   image={
                     relatedPost.featured_media || "/images/default-blog.png"
                   }

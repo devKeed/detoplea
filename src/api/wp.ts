@@ -35,6 +35,17 @@ const fetchWithTimeout = async (
   }
 };
 
+// Helper function to get featured image URL
+const getFeaturedImageUrl = async (mediaId: number): Promise<string | null> => {
+  if (!mediaId || !API_BASE) return null;
+  try {
+    const media = await fetchWithTimeout(`${API_BASE}/media/${mediaId}`);
+    return media.source_url || null;
+  } catch {
+    return null;
+  }
+};
+
 export const getPosts = async ({
   per_page = 10,
   page = 1,
@@ -61,7 +72,20 @@ export const getPosts = async ({
     const url = `${API_BASE}/posts?per_page=${per_page}&page=${page}&search=${encodeURIComponent(
       search
     )}`;
-    return await fetchWithTimeout(url);
+    const posts = await fetchWithTimeout(url);
+    
+    // Fetch featured image URLs for each post
+    const postsWithImages = await Promise.all(
+      posts.map(async (post: any) => {
+        const featuredImageUrl = await getFeaturedImageUrl(post.featured_media);
+        return {
+          ...post,
+          featured_media: featuredImageUrl || post.featured_media,
+        };
+      })
+    );
+    
+    return postsWithImages;
   } catch {
     return blogPosts.map((post) => ({
       id: post.id,
@@ -96,7 +120,15 @@ export const getPost = async (slug: string): Promise<WPPost> => {
   try {
     const url = `${API_BASE}/posts?slug=${slug}`;
     const posts = await fetchWithTimeout(url);
-    return posts[0];
+    const post = posts[0];
+    
+    // Fetch featured image URL
+    const featuredImageUrl = await getFeaturedImageUrl(post.featured_media);
+    
+    return {
+      ...post,
+      featured_media: featuredImageUrl || post.featured_media,
+    };
   } catch {
     return (blogPosts.find((post) => post.slug === slug) || {
       id: 0,

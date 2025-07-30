@@ -59,6 +59,7 @@ export const Blog = () => {
               <BlogPostCard
                 key={post.id}
                 id={post.id}
+                slug={post.slug} // Add slug prop
                 image={post.featured_media || "/images/default-blog.png"}
                 date={post.date}
                 author="Admin" // Fallback author since WP API doesn't include this by default
