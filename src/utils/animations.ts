@@ -1,3 +1,5 @@
+import { Variants } from "framer-motion";
+
 export const cardAnimations = {
   arrow: {
     initial: { rotate: 0 },
@@ -47,7 +49,7 @@ export const cardAnimations = {
   }
 };
 
-export const fadeInUpVariants = {
+export const fadeInUpVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 
 interface ServiceCardProps {
   title: string;
@@ -17,10 +17,10 @@ export const ServiceCard = ({
   features,
   breakdown,
 }: ServiceCardProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleContactClick = () => {
-    navigate("/contact");
+    router.push("/contact");
   };
 
   return (
@@ -70,7 +70,7 @@ export const ServiceCard = ({
         </div>
         <div className="mt-4">
           <h5 className="text-md sm:text-xl md:text-2xl font-medium text-gray-800 mt-7">
-            LET'S BREAK IT DOWN:
+            LET&apos;S BREAK IT DOWN:
           </h5>
           <p className=" text-gray-700 mt-1">{breakdown}</p>
         </div>

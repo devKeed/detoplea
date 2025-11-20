@@ -41,7 +41,7 @@ const Portfolio = () => {
             </span>
           </p>
           <p className="mt-2">
-            Because you're after results, and we know how to get them.
+            Because you&apos;re after results, and we know how to get them.
           </p>
         </motion.div>
 

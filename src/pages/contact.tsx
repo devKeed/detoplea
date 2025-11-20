@@ -11,9 +11,9 @@ import { Toast } from "../components/reusables/Toast";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export const Contact = () => {
   const services = [
@@ -297,7 +297,7 @@ export const Contact = () => {
   ];
 
   useEffect(() => {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.init(EMAILJS_PUBLIC_KEY || "");
   }, []);
 
   return (
@@ -316,9 +316,9 @@ export const Contact = () => {
           </h3>
           <p className="text-center font-normal mt-5 mb-5 px-3 text-sm sm:px-12 lg:px-50">
             Ready to elevate your brand and accelerate your growth? Start by
-            filling out our application. Once we review your details, we'll
+            filling out our application. Once we review your details, we&apos;ll
             schedule a complimentary call to discuss your goals, share strategic
-            insights, and see if we're the right fit. Because we tailor our
+            insights, and see if we&apos;re the right fit. Because we tailor our
             approach to deliver maximum impact, we selectively partner with
             businesses ready to scale.
           </p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 
 
 interface Post {
@@ -11,13 +11,16 @@ interface Post {
 
 const Post: React.FC = () => {
   const [, setPost] = useState<Post>();
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then((response) => response.json())
-      .then((json) => setPost(json));
-  }, []);
+    if (id) {
+      fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then((response) => response.json())
+        .then((json) => setPost(json));
+    }
+  }, [id]);
 
   return (
     <div className="flex items-center justify-center h-screen">
