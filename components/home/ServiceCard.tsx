@@ -72,7 +72,7 @@ export const ServiceCard = ({
         </div>
         <div className="mt-4">
           <h5 className="text-md sm:text-xl md:text-2xl font-medium text-gray-800 mt-7">
-            LET'S BREAK IT DOWN:
+            LET&apos;S BREAK IT DOWN:
           </h5>
           <p className=" text-gray-700 mt-1">{breakdown}</p>
         </div>

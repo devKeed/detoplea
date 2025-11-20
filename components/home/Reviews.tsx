@@ -45,7 +45,7 @@ const ReviewSlider = () => {
                 </div>
                 <h6 className="font-semibold text-left mb-2">{review.title}</h6>
                 <p className="text-left text-[16px] italic line-clamp-6">
-                  "{review.text}"
+                  &quot;{review.text}&quot;
                 </p>
                 <p className="mt-4 font-bold text-left">- {review.name}</p>
               </div>

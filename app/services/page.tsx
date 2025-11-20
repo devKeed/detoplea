@@ -66,7 +66,7 @@ export default function Services() {
           </span>
         </p>
         <p className="w-full md:w-1/2 sm:text-lg md:text-xl">
-          We're not your standard agency. We craft unique, tailored campaigns
+          We&apos;re not your standard agency. We craft unique, tailored campaigns
           for every brand—blending strategic content, community engagement,
           and creative storytelling to drive real results.
         </p>
@@ -103,7 +103,7 @@ export default function Services() {
 
       <div className="bg-[#F2F2F2] flex flex-col py-5 md:py-20">
         <p className="uppercase text-center font-semibold text-2xl sm:text-3xl md:text-4xl px-4">
-          Interested? Here's How It{" "}
+          Interested? Here&apos;s How It{" "}
           <span className="text-[#F2720D] text-2xl sm:text-3xl md:text-4xl">
             Works
           </span>
@@ -117,7 +117,7 @@ export default function Services() {
             <p className="text-sm md:text-base">
               Take a look at what we offer and see how we can help your brand
               grow. Not sure what you need? No problem! Book a Free Discovery
-              Call, and we'll guide you.
+              Call, and we&apos;ll guide you.
             </p>
           </div>
           <div className="border border-black rounded-xl w-full lg:w-1/3 h-auto md:h-[700px] lg:h-[600px]  p-4 md:p-5 pt-8 md:pt-8 mt-4 bg-[#F2F2F2] flex flex-col gap-3 md:gap-5">
@@ -125,7 +125,7 @@ export default function Services() {
               2. CONTACT US
             </h4>
             <p className="text-sm md:text-base">
-              Fill out our "Hire Us" form to get started. We're passionate
+              Fill out our &quot;Hire Us&quot; form to get started. We&apos;re passionate
               about helping businesses succeed, but we only take on projects
               where we know we can deliver real results. Once you reach out,
               our team will review your inquiry and get back to you within 24
@@ -137,8 +137,8 @@ export default function Services() {
               3. DISCOVERY CALL & CUSTOM STRATEGY
             </h4>
             <p className="text-sm md:text-base">
-              During our Discovery Call, we'll dive into your goals and needs.
-              Afterward, we'll craft a custom proposal with tailored solutions
+              During our Discovery Call, we&apos;ll dive into your goals and needs.
+              Afterward, we&apos;ll craft a custom proposal with tailored solutions
               for your business. Once the contract is signed and the first
               invoice is paid, we kick off your onboarding process—and get to
               work on growing your brand!

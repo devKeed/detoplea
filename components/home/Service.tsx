@@ -86,6 +86,8 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   );
 };
 
+import Image from "next/image";
+
 const LandingPage: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -123,9 +125,11 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <img
+            <Image
               src={image}
               alt="Background"
+              width={500}
+              height={500}
               className="w-full max-w-md md:max-w-none h-auto object-cover"
             />
           </div>
