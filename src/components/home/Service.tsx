@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
@@ -123,10 +124,11 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <img
+            <Image
               src={image}
               alt="Background"
               className="w-full max-w-md md:max-w-none h-auto object-cover"
+              sizes="(min-width: 1024px) 540px, 90vw"
             />
           </div>
         </div>

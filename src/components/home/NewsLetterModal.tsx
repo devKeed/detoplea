@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { NewsLetterForm } from "../reusables/NewsLetterForm";
 
@@ -52,11 +53,14 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
         >
           &times;
         </button>
-        <div className="hidden md:block w-1/2">
-          <img
+        <div className="hidden md:block w-1/2 relative min-h-[320px]">
+          <Image
             src="/images/news.png"
             alt="Newsletter"
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 420px, 50vw"
+            priority
           />
         </div>
 
@@ -69,5 +73,4 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
 };
 
 export default NewsletterModal;
-
 

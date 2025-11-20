@@ -37,10 +37,12 @@ const HighlightCarousel = ({ highlights }: { highlights: HighlightItem[] }) => {
               onClick={() => setSelectedVideo(highlight.videoUrl)}
             >
               <div className="relative w-full h-[500px]">
-                <img
+                <Image
                   src={highlight.image}
                   alt={highlight.title}
-                  className="w-full h-full object-cover object-top-"
+                  fill
+                  className="object-cover object-top"
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-red-900 mix-blend-multiply"></div>
               </div>

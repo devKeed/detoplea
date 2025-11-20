@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { BlogPostCard } from "../components/reusables/BlogPostCard";
-import { blogPosts } from "./blogData";
+import { blogPosts } from "@/data/blogData";
 import SEO from "../components/SEO";
 
 const Readmore = () => {

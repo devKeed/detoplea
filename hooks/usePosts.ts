@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../lib/api/wp";
-import { blogPosts } from "../pages/blogData";
+import { blogPosts } from "@/data/blogData";
 
 interface UsePostsParams {
   per_page?: number;

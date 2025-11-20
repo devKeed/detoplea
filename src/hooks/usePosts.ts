@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../api/wp";
-import { blogPosts } from "../pages/blogData"; // DEPRECATED – using static JSON fallback
+import { blogPosts } from "@/data/blogData"; // DEPRECATED – using static JSON fallback
 
 interface UsePostsParams {
   per_page?: number;

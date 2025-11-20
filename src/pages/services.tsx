@@ -9,7 +9,7 @@ const image4 = "/images/christina.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { MyFillButton } from "../components/reusables/Button";
-import { faqs } from "./data";
+import { faqs } from "@/data/siteData";
 import SEO from "../components/SEO";
 
 export const Services = () => {

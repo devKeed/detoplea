@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useParams, useNavigate } from "react-router-dom";
 import { BlogPostCard } from "../../components/reusables/BlogPostCard";
 import { usePost } from "../../hooks/usePost";
@@ -67,10 +68,14 @@ const BlogPost = () => {
             <p className="text-gray-500">- Admin</p>
           </div>
 
-          <img
+          <Image
             src={post.featured_media || "/images/default-blog.png"}
             alt={postTitle}
+            width={1200}
+            height={675}
             className="w-full h-auto rounded-lg my-4 object-cover"
+            sizes="(min-width: 1024px) 768px, (min-width: 640px) 600px, 100vw"
+            priority
           />
 
           <BlogContent content={post.content.rendered} />

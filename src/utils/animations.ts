@@ -1,16 +1,19 @@
 import { Variants } from "framer-motion";
 
-export const cardAnimations = {
+export const cardAnimations: Record<
+  "arrow" | "image" | "overlay" | "content",
+  Variants
+> = {
   arrow: {
     initial: { rotate: 0 },
-    hover: { 
+    hover: {
       rotate: -45,
       transition: {
         type: "spring",
         stiffness: 200,
-        damping: 10
-      }
-    }
+        damping: 10,
+      },
+    },
   },
   image: {
     initial: { scale: 1 },
@@ -19,9 +22,9 @@ export const cardAnimations = {
       transition: {
         type: "spring",
         stiffness: 300,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   },
   overlay: {
     initial: { opacity: 0 },
@@ -30,9 +33,9 @@ export const cardAnimations = {
       transition: {
         type: "spring",
         stiffness: 300,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   },
   content: {
     initial: { opacity: 0, y: 20 },
@@ -43,10 +46,10 @@ export const cardAnimations = {
         type: "spring",
         stiffness: 300,
         damping: 20,
-        mass: 0.5
-      }
-    }
-  }
+        mass: 0.5,
+      },
+    },
+  },
 };
 
 export const fadeInUpVariants: Variants = {

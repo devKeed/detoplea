@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface SocialsProps {
@@ -17,7 +18,13 @@ const Socials: React.FC<SocialsProps> = ({ direction = "horizontal" }) => {
     <div className={`flex ${direction === "horizontal" ? "flex-row space-x-4" : "flex-col space-y-4"} items-center`}>
       {socials.map((social) => (
         <a key={social.name} href={social.link} target="_blank" rel="noopener noreferrer">
-          <img src={social.src} alt={social.name} className="w-6 h-6 hover:opacity-75 transition-opacity" />
+          <Image
+            src={social.src}
+            alt={social.name}
+            width={24}
+            height={24}
+            className="w-6 h-6 hover:opacity-75 transition-opacity"
+          />
         </a>
       ))}
     </div>

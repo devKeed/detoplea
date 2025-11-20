@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +39,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
       className="relative rounded-xl overflow-hidden cursor-pointer h-[270px] sm:h-[250px] md:h-[420px]"
       onClick={handleClick}
     >
-      <img src={image} alt={title} className="w-full h-full object-cover" />
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover"
+        sizes="(min-width: 1024px) 420px, (min-width: 640px) 320px, 100vw"
+      />
       <div className="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-50 transition-all duration-300"></div>
       <div className="absolute bottom-0 left-0 right-0 p-2 ">
         <p className="text-white p-2 sm:p-4 rounded-md text-left font-semibold text-xs sm:text-sm">

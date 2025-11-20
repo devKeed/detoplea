@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
 import clsx from "clsx";
-import { colorClassMap, reviews } from "../../pages/data";
+import { colorClassMap, reviews } from "@/data/siteData";
 
 const ReviewSlider = () => {
   return (

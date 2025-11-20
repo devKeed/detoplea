@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Transition } from "framer-motion";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 interface FaqItemProps {
@@ -9,10 +9,10 @@ interface FaqItemProps {
 }
 
 export const FaqItem = ({ question, answer, isOpen, onToggle }: FaqItemProps) => {
-  const springConfig = {
+  const springConfig: Transition = {
     type: "spring",
     stiffness: 600,
-    damping: 30
+    damping: 30,
   };
 
   return (

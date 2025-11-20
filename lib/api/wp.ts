@@ -1,4 +1,4 @@
-import { blogPosts } from "../../pages/blogData";
+import { blogPosts } from "@/data/blogData";
 
 export interface WPPost {
   id: number;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "/images/logo2.png";
@@ -10,10 +11,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center h-10 mb-2">
         {/* Logo */}
         <Link to="/" aria-label="Detoplea Marketing - Return to homepage">
-          <img
+          <Image
             src={Logo}
             alt="Detoplea Marketing logo - Digital marketing agency"
-            className="h-6 mt-2"
+            className="h-6 mt-2 w-auto"
+            priority
           />
         </Link>
 

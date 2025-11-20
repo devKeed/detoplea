@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface PortfolioDetailModalProps {
@@ -62,13 +63,18 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
         </div>
 
         <div className="p-6 overflow-y-auto flex-grow">
-          <div className="mb-6">
-            <img
-              src={data.imageMod1}
-              alt={data.company}
-              className="w-full h-auto object-contain mb-2"
-            />
-          </div>
+          {data.imageMod1 && (
+            <div className="mb-6">
+              <Image
+                src={data.imageMod1}
+                alt={data.company}
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain mb-2"
+                sizes="(min-width: 768px) 800px, 100vw"
+              />
+            </div>
+          )}
 
           <div>
             {data.about && (
@@ -102,10 +108,13 @@ const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
 
             {data.imageMod2 && (
               <div className="mb-6 mt-4 sm:mt-10">
-                <img
+                <Image
                   src={data.imageMod2}
                   alt={data.company}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto object-contain mb-2"
+                  sizes="(min-width: 768px) 800px, 100vw"
                 />
               </div>
             )}

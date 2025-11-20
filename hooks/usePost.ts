@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPost } from "../lib/api/wp";
-import { blogPosts } from "../pages/blogData";
+import { blogPosts } from "@/data/blogData";
 
 export const usePost = (slug: string) => {
   return useQuery({

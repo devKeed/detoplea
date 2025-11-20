@@ -5,7 +5,7 @@ import ServicesSection from "@/components/reusables/ServiceSection";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { MyFillButton } from "@/components/reusables/Button";
-import { faqs } from "@/pages/data";
+import { faqs } from "@/data/siteData";
 
 // Use public asset URLs
 const image1 = "/images/unsplash.png";

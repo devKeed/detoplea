@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
 
@@ -105,10 +106,12 @@ export const GalleryCard: React.FC<{ item: IGalleryItem }> = ({ item }) => {
         key={item.id}
         className="relative min-w-[280px] max-w-[90%] md:min-w-[30%] lg:min-w-[25%] rounded-[30px] overflow-hidden shrink-0 h-[300px] md:h-[350px] lg:h-[400px]"
       >
-        <img
+        <Image
           src={item.image}
           alt={item.heading}
-          className="w-full h-full object-cover object-top"
+          fill
+          className="object-cover object-top"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 80vw"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between p-4 md:p-6 lg:p-8 text-white rounded-lg">
           <div className="flex justify-between text-xs mb-2">

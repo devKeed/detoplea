@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BlogPostCard } from "@/components/reusables/BlogPostCard";
-import { blogPosts } from "@/pages/blogData";
+import { blogPosts } from "@/data/blogData";
 import Image from "next/image";
 
 export default function Readmore() {
