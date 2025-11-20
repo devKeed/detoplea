@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../../styles/custom-swiper.css";
+import Image from "next/image";
 import logo from "/images/LOGO2.png";
 import leftArrow from "/images/leftarrow.png";
 import rightArrow from "/images/rightarrow.png";
@@ -45,7 +46,7 @@ const HighlightCarousel = ({ highlights }: { highlights: HighlightItem[] }) => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
-                <img src={logo} alt="Logo" className="w-40 mb-4" />
+                <Image src={logo} alt="Logo" className="w-40 mb-4" />
                 <h3 className="text-3xl font-bold">{highlight.title}</h3>
               </div>
             </div>
@@ -54,10 +55,10 @@ const HighlightCarousel = ({ highlights }: { highlights: HighlightItem[] }) => {
       </Swiper>
 
       <div className="custom-prev absolute top-1/2 left-8 transform -translate-y-1/2 z-10 cursor-pointer">
-        <img src={leftArrow} alt="Previous" className="w-12 h-12 opacity-90" />
+        <Image src={leftArrow} alt="Previous" className="w-12 h-12 opacity-90" />
       </div>
       <div className="custom-next absolute top-1/2 right-8 transform -translate-y-1/2 z-10 cursor-pointer">
-        <img src={rightArrow} alt="Next" className="w-12 h-12 opacity-90" />
+        <Image src={rightArrow} alt="Next" className="w-12 h-12 opacity-90" />
       </div>
 
       <div className="custom-pagination flex justify-center space-x-2 mt-4"></div>

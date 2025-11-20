@@ -13,7 +13,7 @@ export const FaqItem = ({ question, answer, isOpen, onToggle }: FaqItemProps) =>
     type: "spring",
     stiffness: 600,
     damping: 30
-  };
+  } as const;
 
   return (
     <div className="flex flex-col py-5">

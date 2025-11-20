@@ -10,8 +10,8 @@ import Image from "next/image";
 export default function BlogPost() {
   const params = useParams();
   const router = useRouter();
-  const slug = params.slug as string;
-  const { data: post, isLoading, isError } = usePost(slug || "");
+  const slug = (params?.slug as string) || "";
+  const { data: post, isLoading, isError } = usePost(slug);
   const { data: allPosts } = usePosts({ per_page: 50 });
 
   if (isLoading) {
@@ -44,7 +44,7 @@ export default function BlogPost() {
 
   const postTitle =
     typeof post.title === "string" ? post.title : post.title.rendered;
-  const postExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, "");
+
 
   return (
     <div className="mt-20">

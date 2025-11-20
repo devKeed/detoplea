@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion";
 
-export const cardAnimations = {
+export const cardAnimations: Record<string, Variants> = {
   arrow: {
     initial: { rotate: 0 },
     hover: { 
