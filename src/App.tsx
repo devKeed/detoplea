@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Portfolio from "./pages/portfolio/portfolio";
-import NotFound from "./pages/notFound";
-import { Services } from "./pages/services";
-import { Blog } from "./pages/blog";
-import { Contact } from "./pages/contact";
+import Home from "./legacy-pages/home";
+import Portfolio from "./legacy-pages/portfolio/portfolio";
+import NotFound from "./legacy-pages/notFound";
+import { Services } from "./legacy-pages/services";
+import { Blog } from "./legacy-pages/blog";
+import { Contact } from "./legacy-pages/contact";
 import Layout from "./components/Layout";
-import { Starthere } from "./pages/starthere";
-import Readmore from "./pages/readmore";
-import BlogPost from "./pages/blog/[id]";
+import { Starthere } from "./legacy-pages/starthere";
+import Readmore from "./legacy-pages/readmore";
+import BlogPost from "./legacy-pages/blog/[id]";
 
 function App() {
   return (
