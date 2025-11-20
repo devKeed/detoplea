@@ -18,7 +18,7 @@ export const MyFillButton: FC<TButtonProps> = ({
   text,
   link,
   color = "white",
-  bgColor = "red",
+  bgColor = "#F2720D",
   hoverTextColor = "white",
   hoverBgColor = "#f24a0d",
   ariaLabel,
