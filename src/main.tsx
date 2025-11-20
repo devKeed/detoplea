@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -18,13 +18,13 @@ const queryClient = new QueryClient({
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <BrowserRouter>
-      <React.StrictMode>
+  <StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <App />
         </QueryClientProvider>
-      </React.StrictMode>
-    </BrowserRouter>
-  </HelmetProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </StrictMode>
 );

@@ -1,8 +1,9 @@
-import image1 from "../../../public/images/imagefss.png";
-import image2 from "../../../public/images/imageew.png";
-import image3 from "../../../public/images/image 9.png";
-import image4 from "../../../public/images/image 10.png";
-import image6 from "../../../public/images/imaged.png";
+// Use public asset URLs instead of imports
+const image1 = "/images/imagefss.png";
+const image2 = "/images/imageew.png";
+const image3 = "/images/image 9.png";
+const image4 = "/images/image 10.png";
+const image6 = "/images/imaged.png";
 import { ServiceCard } from "../home/ServiceCard";
 
 const services = [

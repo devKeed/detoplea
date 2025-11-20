@@ -1,7 +1,8 @@
-import image1 from "../../public/images/b1.jpeg";
-import image2 from "../../public/images/b2.jpeg";
-import image3 from "../../public/images/b1.jpeg";
-import image4 from "../../public/images/b2.jpeg";
+// Use public asset URLs instead of imports
+const image1 = "/images/b1.jpeg";
+const image2 = "/images/b2.jpeg";
+const image3 = "/images/b1.jpeg";
+const image4 = "/images/b2.jpeg";
 
 export const blogPosts = [
   {

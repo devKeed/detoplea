@@ -1,9 +1,11 @@
 import { useState } from "react";
-import image1 from "../../public/images/unsplash.png";
-import image2 from "../../public/images/solutions.png";
-import image3 from "../../public/images/sales.png";
-import image4 from "../../public/images/christina.png";
 import ServicesSection from "../components/reusables/ServiceSection";
+
+// Use public asset URLs instead of imports
+const image1 = "/images/unsplash.png";
+const image2 = "/images/solutions.png";
+const image3 = "/images/sales.png";
+const image4 = "/images/christina.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { MyFillButton } from "../components/reusables/Button";

@@ -3,6 +3,7 @@ import { BlogPostCard } from "../../components/reusables/BlogPostCard";
 import { usePost } from "../../hooks/usePost";
 import { usePosts } from "../../hooks/usePosts";
 import SEO from "../../components/SEO";
+import BlogContent from "../../components/reusables/BlogContent";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -72,10 +73,7 @@ const BlogPost = () => {
             className="w-full h-auto rounded-lg my-4 object-cover"
           />
 
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-          />
+          <BlogContent content={post.content.rendered} />
 
           <div className="flex justify-between items-center pt-10 border-t border-gray-200 text-sm">
             <div className="flex-1"></div>

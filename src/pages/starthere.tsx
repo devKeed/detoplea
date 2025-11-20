@@ -1,11 +1,13 @@
 import { FiArrowUpRight } from "react-icons/fi";
-import image from "../../public/images/linkedin.png";
-import image2 from "../../public/images/image 4.png";
-import image3 from "../../public/images/image 5.png";
-import image4 from "../../public/images/image 6.png";
-import image5 from "../../public/images/image 7.png";
-import image6 from "../../public/images/image 8.png";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
+
+// Use public asset URLs instead of imports
+const image = "/images/linkedin.png";
+const image2 = "/images/image 4.png";
+const image3 = "/images/image 5.png";
+const image4 = "/images/image 6.png";
+const image5 = "/images/image 7.png";
+const image6 = "/images/image 8.png";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import SEO from "../components/SEO";
