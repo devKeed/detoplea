@@ -1,0 +1,54 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
+interface BlogCardProps {
+  image: string;
+  title: string;
+  id?: number;
+  slug?: string;
+  link?: string;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({
+  image,
+  title,
+  id,
+  slug,
+  link,
+}) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (slug) {
+      router.push(`/blog/${slug}`);
+    } else if (id) {
+      router.push(`/blog/${id}`);
+    } else if (link) {
+      window.location.href = link;
+    } else {
+      router.push("/blog");
+    }
+  };
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "keyframes", stiffness: 300 }}
+      className="relative rounded-xl overflow-hidden cursor-pointer h-[270px] sm:h-[250px] md:h-[420px]"
+      onClick={handleClick}
+    >
+      <img src={image} alt={title} className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-50 transition-all duration-300"></div>
+      <div className="absolute bottom-0 left-0 right-0 p-2 ">
+        <p className="text-white p-2 sm:p-4 rounded-md text-left font-semibold text-xs sm:text-sm">
+          {title}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+export default BlogCard;
