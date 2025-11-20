@@ -1,5 +1,6 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
+import Image from "next/image";
 
 // Use public asset URLs instead of imports
 const image = "/images/linkedin.png";
@@ -35,10 +36,11 @@ const TeamMemberCard = ({ name, image }: { name: string; image: string }) => {
       onTouchStart={() => setIsMobileHovering(true)}
       onTouchEnd={() => setIsMobileHovering(false)}
     >
-      <img
+      <Image
         src={image}
         alt={name}
-        className="w-full h-full object-cover rounded-xl md:rounded-3xl "
+        fill
+        className="object-cover rounded-xl md:rounded-3xl "
       />
       <motion.div
         className="absolute bottom-0 w-full bg-black bg-opacity-50 py-2 text-center"
@@ -88,10 +90,11 @@ export const Starthere = () => {
       <div className="text-center pt-8 md:pt-12 flex flex-col">
         {/* Image */}
         <div className="relative w-full h-[80vh] md:h-[90vh]">
-          <img
+          <Image
             src={image}
             alt="linkedin"
-            className="w-full h-[80vh] md:h-[90vh] object-cover"
+            fill
+            className="object-cover"
           />
           <motion.div
             className="absolute inset-0 flex items-center justify-center"
@@ -133,15 +136,15 @@ export const Starthere = () => {
               What Sets Us Apart?
             </h2>
             <p className=" font-normal">
-              We're a boutique-style agency that treats your business like our
+              We&apos;re a boutique-style agency that treats your business like our
               own. We take the time to truly understand your brand, your goals,
               and your vision, allowing us to build genuine, results-driven
               partnerships.
             </p>
             <p className=" font-normal">
-              At Detoplea Marketing Agency, we're more than just a service
-              provider—we're an extension of your team, fully invested in your
-              success. Your wins are our wins, and together, we don't just meet
+              At Detoplea Marketing Agency, we&apos;re more than just a service
+              provider—we&apos;re an extension of your team, fully invested in your
+              success. Your wins are our wins, and together, we don&apos;t just meet
               goals—we exceed them. This is our promise. This is our passion.
               This is how we do digital marketing differently
             </p>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
+import Image from "next/image";
 import { BlogPostCard } from "../components/reusables/BlogPostCard";
 import { blogPosts } from "./blogData";
 import SEO from "../components/SEO";
 
 const Readmore = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [featuredPost, setFeaturedPost] = useState(blogPosts[0]);
   const [relatedPosts, setRelatedPosts] = useState<typeof blogPosts>([]);
 
@@ -49,11 +50,12 @@ const Readmore = () => {
           {/* Featured Post */}
           <div className="bg-[#F2F2F2] rounded-xl overflow-hidden mb-12">
             <div className="md:flex">
-              <div className="md:w-1/2 p-4">
-                <img
+              <div className="md:w-1/2 p-4 relative h-64 md:h-auto">
+                <Image
                   src={featuredPost.image}
                   alt={featuredPost.title}
-                  className="w-full h-full object-cover rounded-lg"
+                  fill
+                  className="object-cover rounded-lg"
                 />
               </div>
               <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
@@ -82,7 +84,7 @@ const Readmore = () => {
                   </div>
                 </div>
                 <button
-                  onClick={() => navigate(`/blog/${featuredPost.id}`)}
+                  onClick={() => router.push(`/blog/${featuredPost.id}`)}
                   className="bg-white border border-black px-6 py-3 rounded-xl hover:bg-gray-500 hover:text-white transition w-full md:w-auto text-center"
                 >
                   Continue Reading
@@ -111,7 +113,7 @@ const Readmore = () => {
 
             <div className="text-center mt-10">
               <button
-                onClick={() => navigate("/blog")}
+                onClick={() => router.push("/blog")}
                 className="inline-flex items-center bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-black transition"
               >
                 View All Articles
