@@ -8,7 +8,8 @@ import Footer from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
+    default:
+      "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
     template: "%s | Detoplea Marketing",
   },
   description:
@@ -37,9 +38,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://detoplea.com/",
     siteName: "Detoplea Marketing",
-    title: "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
+    title:
+      "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
     description:
-      "Transform your business with Detoplea Marketing's comprehensive digital marketing services. We specialize in SEO, social media marketing, web design, and brand strategy.",
+      "Detoplea Marketing, the leading digital marketing agency for startups, talents and SMEs, helps businesses grow with bold, ROI-driven strategies that turn visibility into revenue.",
     images: [
       {
         url: "https://detoplea.com/images/logo2.png",
@@ -51,7 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
+    title:
+      "Detoplea Marketing - Digital Marketing Solutions for Modern Businesses",
     description:
       "Transform your business with Detoplea Marketing's comprehensive digital marketing services. We specialize in SEO, social media marketing, web design, and brand strategy.",
     images: ["https://detoplea.com/images/logo2.png"],

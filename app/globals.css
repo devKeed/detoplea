@@ -65,6 +65,61 @@ a {
   color: #000;
 }
 
+/* Blog content hyperlink styles - MUST come after the global 'a' rule above */
+.prose a,
+.prose-lg a {
+  color: #2563eb !important; /* Blue color (text-blue-600) */
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.prose a:hover,
+.prose-lg a:hover {
+  color: #1d4ed8 !important; /* Darker blue on hover (text-blue-700) */
+  text-decoration: underline !important;
+}
+
+/* Additional specificity for content rendered via dangerouslySetInnerHTML */
+div[class*="prose"] a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+div[class*="prose"] a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+}
+
+/* Blog content specific class */
+.blog-content a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.blog-content a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+}
+
+/* Most specific selector for blog post content */
+.blog-content div a,
+.blog-content p a,
+.blog-content span a,
+.blog-content li a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+.blog-content div a:hover,
+.blog-content p a:hover,
+.blog-content span a:hover,
+.blog-content li a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+}
+
 .rules-card:hover {
   transition: transform 0.6s;
   font-weight: 900 !important;
@@ -168,61 +223,4 @@ body {
 .shadow-3xl {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
     0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-
-/* Blog content hyperlink styles - Multiple approaches for deployment compatibility */
-
-/* Primary prose-based selectors */
-.prose a,
-.prose-lg a {
-  color: #2563eb !important; /* Blue color (text-blue-600) */
-  text-decoration: underline !important;
-  transition: color 0.2s ease-in-out;
-  font-weight: 500;
-}
-
-.prose a:hover,
-.prose-lg a:hover {
-  color: #1d4ed8 !important; /* Darker blue on hover (text-blue-700) */
-  text-decoration: underline !important;
-}
-
-/* Additional specificity for content rendered via dangerouslySetInnerHTML */
-div[class*="prose"] a {
-  color: #2563eb !important;
-  text-decoration: underline !important;
-}
-
-div[class*="prose"] a:hover {
-  color: #1d4ed8 !important;
-  text-decoration: underline !important;
-}
-
-/* Blog content specific class */
-.blog-content a {
-  color: #2563eb !important;
-  text-decoration: underline !important;
-  transition: color 0.2s ease-in-out;
-}
-
-.blog-content a:hover {
-  color: #1d4ed8 !important;
-  text-decoration: underline !important;
-}
-
-/* Most specific selector for blog post content */
-.blog-content div a,
-.blog-content p a,
-.blog-content span a,
-.blog-content li a {
-  color: #2563eb !important;
-  text-decoration: underline !important;
-}
-
-.blog-content div a:hover,
-.blog-content p a:hover,
-.blog-content span a:hover,
-.blog-content li a:hover {
-  color: #1d4ed8 !important;
-  text-decoration: underline !important;
 }

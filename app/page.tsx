@@ -9,6 +9,11 @@ import NewsletterModal from "@/components/home/NewsLetterModal";
 import Info from "@/components/home/Info";
 import RevealOnScroll from "@/components/animations/Reveal";
 import Blog from "@/components/home/Blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  description: "This is the home page description.",
+};
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -35,6 +40,7 @@ export default function Home() {
       <RevealOnScroll>
         <Blog />
       </RevealOnScroll>
+
 
       <RevealOnScroll>
         <Reviews />
