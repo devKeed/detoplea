@@ -31,3 +31,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./.next/
         server-dir: /public_html/
+        passive: true
