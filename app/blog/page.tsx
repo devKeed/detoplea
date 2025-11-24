@@ -5,6 +5,7 @@ import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { BlogPostCard } from "@/components/reusables/BlogPostCard";
 import { usePosts } from "@/hooks/usePosts";
 
+
 export default function Blog() {
   const postsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);

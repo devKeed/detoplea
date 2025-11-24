@@ -7,6 +7,8 @@ import { usePosts } from "@/hooks/usePosts";
 import BlogContent from "@/components/reusables/BlogContent";
 import Image from "next/image";
 
+
+
 export default function BlogPost() {
   const params = useParams();
   const router = useRouter();
