@@ -31,4 +31,8 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./.next/
         server-dir: /public_html/
-        passive: true
+        passive: true                 # Force passive mode
+        timeout: 60000                # Increase timeout to 60 seconds
+        protocol: ftp                 # Force plain FTP (not FTPS)
+        port: 21                      # Explicit port
+        dangerous-clean-slate: true
