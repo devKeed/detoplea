@@ -204,7 +204,6 @@ function Testimonials({
   reviews,
   ctaLabel,
   ctaHref,
-  imageStrip,
   invert,
 }: {
   headline: string;
