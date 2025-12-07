@@ -46,7 +46,7 @@ function Hero({
           <motion.button
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => router.push(ctaHref)}
+            onClick={() => router.push(ctaHref ?? "/contact")}
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-black text-white px-5 py-3 text-sm md:text-base"
             aria-label={ctaLabel}
           >
@@ -71,8 +71,7 @@ function Hero({
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-emerald-700/70 text-sm">
-              </span>
+              <span className="text-emerald-700/70 text-sm"></span>
             </div>
           )}
         </motion.div>
@@ -152,7 +151,7 @@ function FeatureList({
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => router.push(ctaHref)}
+            onClick={() => router.push(ctaHref ?? "/contact")}
             className={clsx(
               "mt-6 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm md:text-base",
               invert ? "bg-white text-black" : "bg-black text-white"
@@ -252,7 +251,7 @@ function Testimonials({
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => router.push(ctaHref)}
+          onClick={() => router.push(ctaHref ?? "/contact")}
           className="mt-2 inline-flex w-max items-center justify-center rounded-xl bg-black text-white px-5 py-3 text-sm md:text-base"
         >
           {ctaLabel}
@@ -264,7 +263,7 @@ function Testimonials({
 
 function PortfolioGrid({
   headline,
-  copy,
+  copy, 
   items,
   invert = false,
 }: {
