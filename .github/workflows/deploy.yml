@@ -36,5 +36,4 @@ jobs:
           port: 21
           passive: true
           active: true                 
-          timeout: 60000
-          dangerous-clean-slate: true  
+          timeout: 60000 
