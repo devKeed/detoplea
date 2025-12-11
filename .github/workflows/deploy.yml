@@ -30,23 +30,31 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Create .htaccess for Next.js routing
+      - name: Create .htaccess in out directory
         run: |
-          cat > out/.htaccess << 'EOF'
-          RewriteEngine On
-          RewriteBase /
-          
-          DirectoryIndex index.html
-          
-          # Don't rewrite if file exists
-          RewriteCond %{REQUEST_FILENAME} -f [OR]
-          RewriteCond %{REQUEST_FILENAME} -d
-          RewriteRule ^ - [L]
-          
-          # Serve index.html from directories
-          RewriteCond %{REQUEST_FILENAME}/index.html -f
-          RewriteRule ^(.*)$ $1/index.html [L]
-          EOF
+          echo "RewriteEngine On" > out/.htaccess
+          echo "RewriteBase /" >> out/.htaccess
+          echo "" >> out/.htaccess
+          echo "DirectoryIndex index.html" >> out/.htaccess
+          echo "" >> out/.htaccess
+          echo "# Don't rewrite if file exists" >> out/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} -f [OR]" >> out/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} -d" >> out/.htaccess
+          echo "RewriteRule ^ - [L]" >> out/.htaccess
+          echo "" >> out/.htaccess
+          echo "# Serve index.html from directories" >> out/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME}/index.html -f" >> out/.htaccess
+          echo "RewriteRule ^(.*)$ \$1/index.html [L]" >> out/.htaccess
+
+      - name: Verify .htaccess was created
+        run: |
+          if [ -f "out/.htaccess" ]; then
+            echo "✓ .htaccess created successfully"
+            cat out/.htaccess
+          else
+            echo "✗ ERROR: .htaccess was not created!"
+            exit 1
+          fi
 
       - name: Verify build output
         run: |
@@ -55,6 +63,8 @@ jobs:
           if [ -d "out/holiday-pack" ]; then
             echo "✓ holiday-pack folder exists"
             ls -la out/holiday-pack/
+          else
+            echo "✗ WARNING: holiday-pack folder not found!"
           fi
 
       - name: Deploy via FTP
@@ -64,7 +74,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/           
-          server-dir: /public_html/detopleamarketing.com/  # CHANGED THIS LINE
+          server-dir: /public_html/
           protocol: ftp
           port: 21
           passive: true
