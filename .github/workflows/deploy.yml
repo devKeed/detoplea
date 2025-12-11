@@ -20,20 +20,52 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js (normal production build)
-        run: npm run build
-        
+      - name: Clean previous builds
+        run: |
+          rm -rf .next
+          rm -rf out
 
-      - name: Deploy via FTP (works on Enrol Web / Namecheap servers)
+      - name: Build Next.js
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Create .htaccess for Next.js routing
+        run: |
+          cat > out/.htaccess << 'EOF'
+          RewriteEngine On
+          RewriteBase /
+          
+          DirectoryIndex index.html
+          
+          # Don't rewrite if file exists
+          RewriteCond %{REQUEST_FILENAME} -f [OR]
+          RewriteCond %{REQUEST_FILENAME} -d
+          RewriteRule ^ - [L]
+          
+          # Serve index.html from directories
+          RewriteCond %{REQUEST_FILENAME}/index.html -f
+          RewriteRule ^(.*)$ $1/index.html [L]
+          EOF
+
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          ls -la out/
+          if [ -d "out/holiday-pack" ]; then
+            echo "✓ holiday-pack folder exists"
+            ls -la out/holiday-pack/
+          fi
+
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/           
-          server-dir: /public_html/     
+          server-dir: /public_html/detopleamarketing.com/  # CHANGED THIS LINE
           protocol: ftp
           port: 21
           passive: true
-          active: true                 
-          timeout: 60000 
+          timeout: 60000
