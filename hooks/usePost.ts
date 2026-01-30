@@ -5,6 +5,7 @@ import { blogPosts } from "@/data/blogData";
 export const usePost = (slug: string) => {
   return useQuery({
     queryKey: ["post", slug],
+    enabled: !!slug,
     queryFn: async () => {
       try {
         const post = await getPost(slug);
