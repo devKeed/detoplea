@@ -93,6 +93,7 @@ export default async function BlogPost({ params }: PageProps) {
             {relatedPosts.map((related: any) => (
               <BlogPostCard
                 key={related.id}
+                id={related.id}
                 slug={related.slug}
                 image={related.featured_media}
                 date={related.date}

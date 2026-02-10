@@ -20,6 +20,7 @@ export default function BlogClient({ posts }: { posts: any[] }) {
           {currentPosts.map((post) => (
             <BlogPostCard
               key={post.id}
+              id={post.id} 
               slug={post.slug}
               image={post.featured_media || "/images/default-blog.png"}
               date={post.date}
