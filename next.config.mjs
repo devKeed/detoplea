@@ -1,10 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
+  reactStrictMode: true,
   images: {
-    domains: ["detoplea.com", "blog.detopleamarketing.com"],
-    unoptimized: true,
+    domains: ['detoplea.com', 'blog.detopleamarketing.com'],
+  },
+  // Enable experimental features if needed
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'react-icons'],
+  },
+  // Proxy API requests if needed
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:3001/api/:path*',
+      },
+    ];
   },
 };
 
