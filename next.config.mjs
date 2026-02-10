@@ -1,21 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
+  // ✅ Static export for cPanel
+  output: 'export',
+  trailingSlash: true,
+
+  // ✅ Required for static hosting
   images: {
-    domains: ['detoplea.com', 'blog.detopleamarketing.com'],
+    unoptimized: true,
   },
-  // Enable experimental features if needed
+
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
-  },
-  // Proxy API requests if needed
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:3001/api/:path*',
-      },
-    ];
   },
 };
 
