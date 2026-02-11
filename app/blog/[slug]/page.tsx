@@ -8,30 +8,62 @@ interface PageProps {
   };
 }
 
-// ✅ REQUIRED for static export
+// ✅ REQUIRED for static export with error handling
 export async function generateStaticParams() {
-  const res = await fetch("https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50");
-  const posts = await res.json();
-
-  return posts.map((post: any) => ({
-    slug: post.slug,
-  }));
+  try {
+    const res = await fetch("https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50");
+    
+    if (!res.ok) {
+      console.warn('WordPress API returned error:', res.status);
+      return [];
+    }
+    
+    const contentType = res.headers.get('content-type');
+    if (!contentType?.includes('application/json')) {
+      console.warn('WordPress API returned non-JSON response');
+      return [];
+    }
+    
+    const posts = await res.json();
+    return posts.map((post: any) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.warn('Failed to fetch blog posts for static generation:', error);
+    return []; // Return empty array so build doesn't fail
+  }
 }
 
-// ✅ Build-time fetch
+// ✅ Build-time fetch with error handling
 async function getPost(slug: string) {
-  const res = await fetch(
-    `https://blog.detopleamarketing.com/wp-json/wp/v2/posts?slug=${slug}`
-  );
-  const posts = await res.json();
-  return posts[0];
+  try {
+    const res = await fetch(
+      `https://blog.detopleamarketing.com/wp-json/wp/v2/posts?slug=${slug}`
+    );
+    
+    if (!res.ok) return null;
+    
+    const posts = await res.json();
+    return posts[0];
+  } catch (error) {
+    console.error('Failed to fetch post:', error);
+    return null;
+  }
 }
 
 async function getAllPosts() {
-  const res = await fetch(
-    "https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50"
-  );
-  return res.json();
+  try {
+    const res = await fetch(
+      "https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50"
+    );
+    
+    if (!res.ok) return [];
+    
+    return res.json();
+  } catch (error) {
+    console.error('Failed to fetch all posts:', error);
+    return [];
+  }
 }
 
 export default async function BlogPost({ params }: PageProps) {
@@ -39,7 +71,14 @@ export default async function BlogPost({ params }: PageProps) {
   const allPosts = await getAllPosts();
 
   if (!post) {
-    return <div className="mt-20 text-center">Post not found</div>;
+    return (
+      <div className="mt-20 text-center py-20">
+        <h1 className="text-2xl font-bold mb-4">Post not found</h1>
+        <a href="/blog" className="text-blue-600 hover:underline">
+          Back to Blog
+        </a>
+      </div>
+    );
   }
 
   const relatedPosts = allPosts
@@ -83,34 +122,36 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="py-10 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h3 className="text-2xl font-semibold mb-6">
-            Related Articles
-          </h3>
+      {relatedPosts.length > 0 && (
+        <div className="py-10 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h3 className="text-2xl font-semibold mb-6">
+              Related Articles
+            </h3>
 
-          <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {relatedPosts.map((related: any) => (
-              <BlogPostCard
-                key={related.id}
-                id={related.id}
-                slug={related.slug}
-                image={related.featured_media}
-                date={related.date}
-                author="Admin"
-                title={
-                  typeof related.title === "string"
-                    ? related.title
-                    : related.title.rendered
-                }
-                excerpt={related.excerpt.rendered
-                  .replace(/<[^>]+>/g, "")
-                  .slice(0, 100) + "..."}
-              />
-            ))}
+            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedPosts.map((related: any) => (
+                <BlogPostCard
+                  key={related.id}
+                  id={related.id}
+                  slug={related.slug}
+                  image={related.featured_media}
+                  date={related.date}
+                  author="Admin"
+                  title={
+                    typeof related.title === "string"
+                      ? related.title
+                      : related.title.rendered
+                  }
+                  excerpt={related.excerpt.rendered
+                    .replace(/<[^>]+>/g, "")
+                    .slice(0, 100) + "..."}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
