@@ -29,9 +29,20 @@ jobs:
       - name: Create .htaccess
         run: |
           mkdir -p out
-          echo "RewriteEngine On" > out/.htaccess
-          echo "RewriteBase /" >> out/.htaccess
-          echo "RewriteRule ^ index.html [L]" >> out/.htaccess
+          cat > out/.htaccess << 'EOF'
+          RewriteEngine On
+          RewriteBase /
+          
+          # Don't rewrite files or directories
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          
+          # Don't rewrite _next folder (static assets)
+          RewriteCond %{REQUEST_URI} !^/_next/
+          
+          # Rewrite everything else to index.html
+          RewriteRule ^ index.html [L]
+          EOF
 
       - name: Verify output
         run: ls -la out/
