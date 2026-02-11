@@ -32,7 +32,7 @@ export default async function BlogPage() {
     return (
       <div className="mt-20 text-center py-20 px-4">
         <h1 className="text-3xl font-bold mb-4">Blog Coming Soon</h1>
-        <p className="text-gray-600">We're working on bringing you great content!</p>
+        <p className="text-gray-600">We are working on bringing you great content!</p>
       </div>
     );
   }
