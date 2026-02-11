@@ -15,27 +15,38 @@ export async function generateStaticParams() {
     
     if (!res.ok) {
       console.warn('WordPress API returned error:', res.status);
-      return [];
+      // Return a dummy path so Next.js doesn't fail the build
+      return [{ slug: 'coming-soon' }];
     }
     
     const contentType = res.headers.get('content-type');
     if (!contentType?.includes('application/json')) {
       console.warn('WordPress API returned non-JSON response');
-      return [];
+      return [{ slug: 'coming-soon' }];
     }
     
     const posts = await res.json();
+    
+    if (!posts || posts.length === 0) {
+      return [{ slug: 'coming-soon' }];
+    }
+    
     return posts.map((post: any) => ({
       slug: post.slug,
     }));
   } catch (error) {
     console.warn('Failed to fetch blog posts for static generation:', error);
-    return []; // Return empty array so build doesn't fail
+    return [{ slug: 'coming-soon' }];
   }
 }
 
 // ✅ Build-time fetch with error handling
 async function getPost(slug: string) {
+  // Handle the fallback slug
+  if (slug === 'coming-soon') {
+    return null;
+  }
+  
   try {
     const res = await fetch(
       `https://blog.detopleamarketing.com/wp-json/wp/v2/posts?slug=${slug}`
@@ -74,6 +85,11 @@ export default async function BlogPost({ params }: PageProps) {
     return (
       <div className="mt-20 text-center py-20">
         <h1 className="text-2xl font-bold mb-4">Post not found</h1>
+        <p className="text-gray-600 mb-6">
+          {params.slug === 'coming-soon' 
+            ? "Our blog is coming soon! Check back later for great content."
+            : "This blog post could not be found."}
+        </p>
         <a href="/blog" className="text-blue-600 hover:underline">
           Back to Blog
         </a>
