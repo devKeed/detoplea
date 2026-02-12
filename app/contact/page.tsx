@@ -25,7 +25,7 @@ export default function Contact() {
     "Web design and development",
   ];
 
-  const baseBudgets = [1000, 2000, 4000, 6000, 10000, 12000];
+  const baseBudgets = [300, 500, 700, 900, 1100, 1300];
 
   const [currency, setCurrency] = useState<"USD" | "NGN">("USD");
   const [conversion, setConversion] = useState(1);
