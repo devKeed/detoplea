@@ -98,7 +98,7 @@ export default function Contact() {
         const data = await res.json();
         setConversion(data.rates.NGN || 1);
       } catch {
-        setConversion(1500);
+        setConversion(1400);
       }
     } else {
       setConversion(1);
