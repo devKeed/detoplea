@@ -4,7 +4,6 @@ async function getPosts() {
   try {
     const res = await fetch(
       "https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=100",
-      { cache: 'no-store' } // Prevent caching during build
     );
     
     if (!res.ok) {

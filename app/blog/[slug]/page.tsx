@@ -8,14 +8,13 @@ interface PageProps {
   };
 }
 
-// ✅ REQUIRED for static export with error handling
+// ✅ Generate static params at build time
 export async function generateStaticParams() {
   try {
     const res = await fetch("https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50");
     
     if (!res.ok) {
       console.warn('WordPress API returned error:', res.status);
-      // Return a dummy path so Next.js doesn't fail the build
       return [{ slug: 'coming-soon' }];
     }
     
@@ -40,9 +39,8 @@ export async function generateStaticParams() {
   }
 }
 
-// ✅ Build-time fetch with error handling
+// ✅ Fetch post data at build time
 async function getPost(slug: string) {
-  // Handle the fallback slug
   if (slug === 'coming-soon') {
     return null;
   }
@@ -50,6 +48,7 @@ async function getPost(slug: string) {
   try {
     const res = await fetch(
       `https://blog.detopleamarketing.com/wp-json/wp/v2/posts?slug=${slug}`
+      // No cache option needed
     );
     
     if (!res.ok) return null;
