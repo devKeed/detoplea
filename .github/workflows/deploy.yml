@@ -34,9 +34,7 @@ jobs:
 
       - name: Create .htaccess
         run: |
-          mkdir -p out
           cat > out/.htaccess << 'EOF'
-          # Set index.html as the default document
           DirectoryIndex index.html
           
           RewriteEngine On
