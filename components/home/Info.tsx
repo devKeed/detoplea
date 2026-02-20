@@ -8,7 +8,7 @@ const Info = () => {
       <p className="mx-auto text-center text-xl px-3 md:px-0 md:w-1/2">
         {" "}
         <RevealOnScroll>
-          We don’t just 444manage your marketing we strategically align every piece
+          We don’t just manage your marketing we strategically align every piece
           to maximize impact. we cover all the angles to ensure your brand
           stands out and succeeds.{" "}
         </RevealOnScroll>
