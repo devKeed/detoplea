@@ -25,7 +25,7 @@ export default function BlogClient({ posts }: { posts: any[] }) {
               key={post.id}
               id={post.id}
               slug={post.slug}
-              image={post.featured_media || "/images/default-blog.png"}
+              image={post.featured_media || "/images/22.jpg"}
               date={post.date}
               author="Admin"
               title={
