@@ -33,7 +33,7 @@ const Blog: React.FC = () => {
               key={post.id}
               id={post.id}
               slug={post.slug} // Add slug prop
-              image={post.featured_media || "/images/default-blog.png"}
+              image={post.featured_media || "/images/22.jpg"}
               title={
                 typeof post.title === "string"
                   ? post.title
