@@ -3,7 +3,8 @@ import BlogClient from "./BlogClient";
 async function getPosts() {
   try {
     const res = await fetch(
-      "https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=100",
+      "https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=100&_embed"
+      // Added &_embed to get embedded media
     );
     
     if (!res.ok) {
@@ -17,7 +18,14 @@ async function getPosts() {
       return [];
     }
     
-    return res.json();
+    const posts = await res.json();
+    
+    // Map posts to extract actual image URLs
+    return posts.map((post: any) => ({
+      ...post,
+      featured_media: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/images/default-blog.png'
+    }));
+    
   } catch (error) {
     console.error('Failed to fetch blog posts:', error);
     return [];

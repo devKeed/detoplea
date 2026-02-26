@@ -8,10 +8,9 @@ interface PageProps {
   };
 }
 
-// ✅ Generate static params at build time
 export async function generateStaticParams() {
   try {
-    const res = await fetch("https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50");
+    const res = await fetch("https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50&_embed");
     
     if (!res.ok) {
       console.warn('WordPress API returned error:', res.status);
@@ -39,7 +38,6 @@ export async function generateStaticParams() {
   }
 }
 
-// ✅ Fetch post data at build time
 async function getPost(slug: string) {
   if (slug === 'coming-soon') {
     return null;
@@ -47,14 +45,21 @@ async function getPost(slug: string) {
   
   try {
     const res = await fetch(
-      `https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?slug=${slug}`
-      // No cache option needed
+      `https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?slug=${slug}&_embed`
     );
     
     if (!res.ok) return null;
     
     const posts = await res.json();
-    return posts[0];
+    const post = posts[0];
+    
+    if (!post) return null;
+    
+    // Extract the actual image URL from embedded data
+    return {
+      ...post,
+      featured_media: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null
+    };
   } catch (error) {
     console.error('Failed to fetch post:', error);
     return null;
@@ -64,12 +69,18 @@ async function getPost(slug: string) {
 async function getAllPosts() {
   try {
     const res = await fetch(
-      "https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50"
+      "https://detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50&_embed"
     );
     
     if (!res.ok) return [];
     
-    return res.json();
+    const posts = await res.json();
+    
+    // Map to extract image URLs
+    return posts.map((post: any) => ({
+      ...post,
+      featured_media: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null
+    }));
   } catch (error) {
     console.error('Failed to fetch all posts:', error);
     return [];
@@ -100,10 +111,12 @@ export default async function BlogPost({ params }: PageProps) {
     .filter((p: any) => p.id !== post.id)
     .slice(0, 4);
 
-  const postTitle =
+  // Decode HTML entities like &amp;
+  const postTitle = (
     typeof post.title === "string"
       ? post.title
-      : post.title.rendered;
+      : post.title.rendered
+  ).replace(/&amp;/g, '&').replace(/&#039;/g, "'").replace(/&quot;/g, '"');
 
   return (
     <div className="mt-20">
@@ -145,24 +158,31 @@ export default async function BlogPost({ params }: PageProps) {
             </h3>
 
             <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-              {relatedPosts.map((related: any) => (
-                <BlogPostCard
-                  key={related.id}
-                  id={related.id}
-                  slug={related.slug}
-                  image={related.featured_media}
-                  date={related.date}
-                  author="Admin"
-                  title={
-                    typeof related.title === "string"
-                      ? related.title
-                      : related.title.rendered
-                  }
-                  excerpt={related.excerpt.rendered
-                    .replace(/<[^>]+>/g, "")
-                    .slice(0, 100) + "..."}
-                />
-              ))}
+              {relatedPosts.map((related: any) => {
+                const relatedTitle = (
+                  typeof related.title === "string"
+                    ? related.title
+                    : related.title.rendered
+                ).replace(/&amp;/g, '&').replace(/&#039;/g, "'").replace(/&quot;/g, '"');
+                
+                return (
+                  <BlogPostCard
+                    key={related.id}
+                    id={related.id}
+                    slug={related.slug}
+                    image={related.featured_media}
+                    date={related.date}
+                    author="Admin"
+                    title={relatedTitle}
+                    excerpt={related.excerpt.rendered
+                      .replace(/<[^>]+>/g, "")
+                      .replace(/&amp;/g, '&')
+                      .replace(/&#039;/g, "'")
+                      .replace(/&quot;/g, '"')
+                      .slice(0, 100) + "..."}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
