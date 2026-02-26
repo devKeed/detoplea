@@ -5,6 +5,13 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'detopleamarketing.com',
+        pathname: '/wp-blog/wp-content/uploads/**',
+      },
+    ],
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],

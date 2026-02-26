@@ -23,7 +23,7 @@ async function getPosts() {
     // Map posts to extract actual image URLs
     return posts.map((post: any) => ({
       ...post,
-      featured_media: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/images/default-blog.png'
+      featured_media: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/images/22.jpg'
     }));
     
   } catch (error) {
