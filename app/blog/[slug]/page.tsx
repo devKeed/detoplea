@@ -11,7 +11,7 @@ interface PageProps {
 // ✅ Generate static params at build time
 export async function generateStaticParams() {
   try {
-    const res = await fetch("https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50");
+    const res = await fetch("https://blog.detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50");
     
     if (!res.ok) {
       console.warn('WordPress API returned error:', res.status);
@@ -47,7 +47,7 @@ async function getPost(slug: string) {
   
   try {
     const res = await fetch(
-      `https://blog.detopleamarketing.com/wp-json/wp/v2/posts?slug=${slug}`
+      `https://blog.detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?slug=${slug}`
       // No cache option needed
     );
     
@@ -64,7 +64,7 @@ async function getPost(slug: string) {
 async function getAllPosts() {
   try {
     const res = await fetch(
-      "https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=50"
+      "https://blog.detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=50"
     );
     
     if (!res.ok) return [];

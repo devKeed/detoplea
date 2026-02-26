@@ -3,7 +3,7 @@ import BlogClient from "./BlogClient";
 async function getPosts() {
   try {
     const res = await fetch(
-      "https://blog.detopleamarketing.com/wp-json/wp/v2/posts?per_page=100",
+      "https://blog.detopleamarketing.com/wp-blog/wp-json/wp/v2/posts?per_page=100",
     );
     
     if (!res.ok) {
