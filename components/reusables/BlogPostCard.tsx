@@ -35,17 +35,23 @@ export const BlogPostCard: FC<BlogPostCardProps> = ({
     }
   };
 
+  // Use a default placeholder image if image is missing
+  const displayImage = image && image !== '' ? image : '/images/22.jpg';
+
   return (
     <div className="flex flex-col justify-between bg-[#F2F2F2] rounded-3xl items-center h-full">
       <div className="w-full">
-        <Image
-          src={image}
-          alt={`image-${id}`}
-          width={1200}
-          height={800}
-          className="w-full h-auto py-3 px-3 md:py-3 md:px-3 rounded-3xl object-cover"
-          sizes="(min-width: 1024px) 480px, (min-width: 640px) 360px, 100vw"
-        />
+        {displayImage && (
+          <Image
+            src={displayImage}
+            alt={`image-${id}`}
+            width={1200}
+            height={800}
+            className="w-full h-auto py-3 px-3 md:py-3 md:px-3 rounded-3xl object-cover"
+            sizes="(min-width: 1024px) 480px, (min-width: 640px) 360px, 100vw"
+            unoptimized
+          />
+        )}
         <div className="flex justify-between items-center w-full px-4">
           <p className="text-[13px] md:text-[14px] text-gray-500">{date}</p>
           <p className="text-[13px] md:text-[14px] text-gray-500">-{author}</p>
