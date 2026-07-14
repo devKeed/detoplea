@@ -135,14 +135,14 @@ export const portfolioItems = [
     about:
       "WOAW is a vibrant celebration of African weddings, culture, and luxury event planning. The brand needed help scaling its digital presence to attract both audiences and vendors across Africa and beyond.",
     subtitle: "Industry: African Wedding Media & Events",
-    duration: "4 Months (Ongoing)",
+    duration: "12 Months ",
     
     imageMod1: "/images/af2.png",
     imageMod2: "/images/af3.png",
     highlights:
       "We turned the page into a go-to hub for African wedding inspiration, helping them build a strong community while driving viral engagement consistently.",
     results:
-      "Achieved 1 million views twice within the same month, Grew from 0 to 10,000+ followers organically, Boosted engagement and visibility in the wedding event space",
+      "Achieved 1 million views twice within the same month, Grew from 0 to 10000+ followers organically, Boosted engagement and visibility in the wedding event space",
     company: "World of African Weddings .....",
     image: "/images/af3.png",
     height: "600px",

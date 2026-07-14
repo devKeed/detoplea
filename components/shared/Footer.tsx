@@ -10,10 +10,10 @@ import Image from "next/image";
 export default function Footer() {
   // Instagram post links
   const instagramLinks = [
-    "https://www.instagram.com/p/DJWKyyvMF1F/?utm_source=ig_web_copy_link&igsh=MWpnOXJzdDRwcGM4OA==",
-    "https://www.instagram.com/p/DJmLMsBMqf0/?utm_source=ig_web_copy_link&igsh=MWNyMmYybGVwcDkxMQ==",
-    "https://www.instagram.com/p/DJogHD7seom/?utm_source=ig_web_copy_link&igsh=MTJyd3h1MHo5NWtvOA==",
-    "https://www.instagram.com/p/DJglRAhMIqe/?utm_source=ig_web_copy_link&igsh=MXcxbnBjYTU4cGMzeQ==",
+    "https://www.instagram.com/p/DYPonpTCKAQ/?igsh=bml4azczaGN3MjNz",
+    "https://www.instagram.com/p/DaxuucpgqNz/?igsh=MW04d2Ezbjc0Z3RjNg==",
+    "https://www.instagram.com/detopleamedia?igsh=MW1hcWt5Z3VrcGVmNw%3D%3D&utm_source=qr",
+    "https://www.instagram.com/p/DYiBjTNAqor/?igsh=MXVteGh5MWN1YjF4ZA==",
   ];
 
   return (
@@ -108,7 +108,7 @@ export default function Footer() {
             <ul className="space-y-2 flex flex-col justify-center md:justify-start md:items-start">
               {[
                 {
-                  href: "https://www.instagram.com/detopleamarketing?igsh=MTJueDV1NWVtMzQwNA%3D%3D&utm_source=qr",
+                  href: "https://www.instagram.com/detopleamedia?igsh=MW1hcWt5Z3VrcGVmNw%3D%3D&utm_source=qr",
                   label: "Instagram",
                   ariaLabel:
                     "Follow Detoplea Marketing on Instagram for daily marketing tips and updates",
